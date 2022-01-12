@@ -1,4 +1,10 @@
 about-the-course
-reference
+useful-references
 introduction-to-acoustic-phonetics
-about-the-course-1
+before-we-start
+phonetics..
+simple-harmonic-motion
+addition-of-waves
+fourier-transform
+source-filter-model-of-speech-production
+summary

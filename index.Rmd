@@ -13,11 +13,31 @@ biblio-style: apalike
 
 # About the course
 
-
 $$
 \text{Final Grade} = 0.6 \times \text{HW} + 0.4 \times \text{Exam}
 $$
 
-## Reference
+* I expect some theoretical knowledge
+    * read 2. chapter from [@gussenhoven17]
+    * see the [presentation](https://github.com/agricolamz/2021.09.13_HSE_phon_research/raw/master/2021.09.13_HSE_phon_research.pdf) on Phon research from 13.09.2021
+    * be able to use IPA symbols
+* I expect some basic R skills:
+    * import `.csv` files to R
+    * `dplyr`, `ggplot2`
+
+## Useful references: 
 
 * [@ashby05]
+* [@bickford06]
+* [@boersma06]
+* [@fant70]
+* [@fuchs10]
+* [@fulop11]
+* [@gick12]
+* [@gordon01]
+* [@harrington10]
+* [[@hunt09]](https://dspace.mit.edu/bitstream/handle/1721.1/52797/547382338-MIT.pdf;sequence=2)
+* [@johnson04]
+* [@ladefoged12]
+* [@maddieson96]
+* [@rorabaugh10]

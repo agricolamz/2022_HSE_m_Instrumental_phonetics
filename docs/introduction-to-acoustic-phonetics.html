@@ -31,7 +31,7 @@
   
   
 <link rel="prev" href="index.html"/>
-<link rel="next" href="ссылки-на-литературу.html"/>
+<link rel="next" href="references.html"/>
 <script src="libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
@@ -98,13 +98,19 @@ div.csl-indent {
 <li class="divider"></li>
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> About the course</a>
 <ul>
-<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#reference"><i class="fa fa-check"></i><b>1.1</b> Reference</a></li>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#useful-references"><i class="fa fa-check"></i><b>1.1</b> Useful references:</a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="introduction-to-acoustic-phonetics.html"><a href="introduction-to-acoustic-phonetics.html"><i class="fa fa-check"></i><b>2</b> Introduction to Acoustic Phonetics</a>
 <ul>
-<li class="chapter" data-level="2.1" data-path="introduction-to-acoustic-phonetics.html"><a href="introduction-to-acoustic-phonetics.html#about-the-course-1"><i class="fa fa-check"></i><b>2.1</b> About the course</a></li>
+<li class="chapter" data-level="2.1" data-path="introduction-to-acoustic-phonetics.html"><a href="introduction-to-acoustic-phonetics.html#before-we-start"><i class="fa fa-check"></i><b>2.1</b> Before we start</a></li>
+<li class="chapter" data-level="2.2" data-path="introduction-to-acoustic-phonetics.html"><a href="introduction-to-acoustic-phonetics.html#phonetics.."><i class="fa fa-check"></i><b>2.2</b> Phonetics?..</a></li>
+<li class="chapter" data-level="2.3" data-path="introduction-to-acoustic-phonetics.html"><a href="introduction-to-acoustic-phonetics.html#simple-harmonic-motion"><i class="fa fa-check"></i><b>2.3</b> Simple Harmonic Motion</a></li>
+<li class="chapter" data-level="2.4" data-path="introduction-to-acoustic-phonetics.html"><a href="introduction-to-acoustic-phonetics.html#addition-of-waves"><i class="fa fa-check"></i><b>2.4</b> Addition of waves</a></li>
+<li class="chapter" data-level="2.5" data-path="introduction-to-acoustic-phonetics.html"><a href="introduction-to-acoustic-phonetics.html#fourier-transform"><i class="fa fa-check"></i><b>2.5</b> Fourier Transform</a></li>
+<li class="chapter" data-level="2.6" data-path="introduction-to-acoustic-phonetics.html"><a href="introduction-to-acoustic-phonetics.html#source-filter-model-of-speech-production"><i class="fa fa-check"></i><b>2.6</b> Source-Filter Model of Speech Production</a></li>
+<li class="chapter" data-level="2.7" data-path="introduction-to-acoustic-phonetics.html"><a href="introduction-to-acoustic-phonetics.html#summary"><i class="fa fa-check"></i><b>2.7</b> Summary</a></li>
 </ul></li>
-<li class="chapter" data-level="" data-path="ссылки-на-литературу.html"><a href="ссылки-на-литературу.html"><i class="fa fa-check"></i>Ссылки на литературу</a></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 </ul>
 
       </nav>
@@ -124,22 +130,143 @@ div.csl-indent {
             <section class="normal" id="section-">
 <div id="introduction-to-acoustic-phonetics" class="section level1" number="2">
 <h1><span class="header-section-number">2</span> Introduction to Acoustic Phonetics</h1>
-<div id="about-the-course-1" class="section level2" number="2.1">
-<h2><span class="header-section-number">2.1</span> About the course</h2>
+<div id="before-we-start" class="section level2" number="2.1">
+<h2><span class="header-section-number">2.1</span> Before we start</h2>
+<p>If you missed the class, please see <a href="https://youtu.be/AD2KYpXlo4A">the recording</a> from the previous year.</p>
+</div>
+<div id="phonetics.." class="section level2" number="2.2">
+<h2><span class="header-section-number">2.2</span> Phonetics?..</h2>
+<p><img src="images/01.01-Phonetics-vs-Phonology.png" /></p>
+<p>Phonetics is generally assumed to be a subfield that deals with articulatory, acoustic and perceptional aspects of phonological units. Phonology and phonetics together are supposed to describe organization of sounds in languages.</p>
+<p>This course is about acoustic phonetics.</p>
+</div>
+<div id="simple-harmonic-motion" class="section level2" number="2.3">
+<h2><span class="header-section-number">2.3</span> Simple Harmonic Motion</h2>
+<p><strong>Periodic Motion</strong> is any type of motion that repeats itself after successuve equal time intervals.</p>
+<p><strong>Simple Harmonic Motion</strong> is specific type of periodic motion that arises
+from</p>
 <ul>
-<li><a href="https://agricolamz.github.io/2021_HSE_m_Instrumental_phonetics/">Here</a> is a course website.</li>
-<li>I expect some theoretical knowledge
+<li>existence of some equilibrium position for a described object;</li>
+<li>linear restoring force that tending to pull the described object back
+to its equilibrium position.</li>
+</ul>
+<p><img src="2022_instrumental_phonetics_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
+<p>There are several parameters of wave:</p>
 <ul>
-<li>read 2. chapter from <span class="citation">(<a href="#ref-gussenhoven11" role="doc-biblioref"><strong>gussenhoven11?</strong></a>)</span></li>
-<li>be able to use IPA symbols</li>
-</ul></li>
-<li>I expect some basic R skills:
+<li><strong>Amplitude (A)</strong> is the maximum displacement of the equilibrium position.</li>
+<li><strong>Period (T)</strong> is the duration of time of one cycle in a repeating event. Measured in seconds.</li>
+<li><strong>Frequency (f)</strong> is the number of period (cycles) per second. Measured in Hz.</li>
+</ul>
+<p><span class="math display">\[
+f = \frac{1}{T} 
+\]</span>
+<span class="math display">\[
+T = \frac{1}{f}
+\]</span></p>
+<p><img src="2022_instrumental_phonetics_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
+<p>We can correlate the physical properties of sound waves with our perception:</p>
 <ul>
-<li>import <code>.csv</code> files to R</li>
-<li><code>dplyr</code>, <code>ggplot2</code></li>
-</ul></li>
+<li>We perceive changes in frequency as pitch;</li>
+<li>We perceive changes in amplitude as loudness.</li>
+</ul>
+<p>One period of SHM can be devided into 360° of phase φ.</p>
+<p><img src="2022_instrumental_phonetics_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
+<p>So for the case of two SHM they can be out of phase:</p>
+<p><img src="2022_instrumental_phonetics_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<p>… or one way can be 90° ahead:</p>
+<p><img src="2022_instrumental_phonetics_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+<p>So after all we have everything important for the wave definition:</p>
+<p><span class="math display">\[
+s(t) = A \times \cos(2\pi ft + \phi)
+\]</span></p>
+<ul>
+<li>A — amplitude;</li>
+<li>f — is the fundamental frequency;</li>
+<li>φ — phase;</li>
+<li>t — time.</li>
+</ul>
+</div>
+<div id="addition-of-waves" class="section level2" number="2.4">
+<h2><span class="header-section-number">2.4</span> Addition of waves</h2>
+<p>If we add some waves, we will get the new wave:</p>
+<p><img src="2022_instrumental_phonetics_files/figure-html/unnamed-chunk-6-1.png" width="672" /><img src="2022_instrumental_phonetics_files/figure-html/unnamed-chunk-6-2.png" width="672" /><img src="2022_instrumental_phonetics_files/figure-html/unnamed-chunk-6-3.png" width="672" /></p>
+<ul>
+<li>Beats — beats is a phenomenon of the change in amplitude of the sum of two
+waves with slightly different frequencies. <a href="https://upload.wikimedia.org/wikipedia/commons/2/2c/Beat_-_superposition_of_104hz_and_110hz_sine_waves.ogg">Here</a> is an example from Wikipedia.</li>
+</ul>
+<p><img src="2022_instrumental_phonetics_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
+</div>
+<div id="fourier-transform" class="section level2" number="2.5">
+<h2><span class="header-section-number">2.5</span> Fourier Transform</h2>
+<p>Fourier Transform allows to extract components of the complex wave.</p>
+<table>
+<thead>
+<tr class="header">
+<th align="center">smoothie</th>
+<th align="center">complex wave</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">↓</td>
+<td align="center">↓</td>
+</tr>
+<tr class="even">
+<td align="center">1 banana, cut in chunks</td>
+<td align="center">300 Hz</td>
+</tr>
+<tr class="odd">
+<td align="center">1 cup grapes</td>
+<td align="center">1000 Hz</td>
+</tr>
+<tr class="even">
+<td align="center">vanilla yogurt</td>
+<td align="center"></td>
+</tr>
+<tr class="odd">
+<td align="center">1/2 apple, cored and chopped</td>
+<td align="center"></td>
+</tr>
+<tr class="even">
+<td align="center">1.5 cup fresh spinach leaves</td>
+<td align="center"></td>
+</tr>
+</tbody>
+</table>
+<p><img src="images/01.02-fourier-spectrum.png" /></p>
+<p>Spectrograms are differ in window length:</p>
+<p><img src="images/01.03-fourier-spectrum.png" /></p>
+<p>Syllable [ka]</p>
+<p><img src="images/01.04-fourier-spectrum.png" /></p>
+<p>Conventional spectrogram and Zhao-Atlas-Marks distribution of the English word had, computed using a Kaiser tapering function <span class="citation">(<a href="#ref-fulop11" role="doc-biblioref">Fulop 2011</a>: 119)</span>:</p>
+<p><img src="images/01.05-ZAM.png" /></p>
+<p>Conventional and reassigned spectrograms of the English word right <span class="citation">(<a href="#ref-fulop11" role="doc-biblioref">Fulop 2011</a>: 42)</span>:</p>
+<p><img src="images/01.06-reassigned-spectrum.png" /></p>
+</div>
+<div id="source-filter-model-of-speech-production" class="section level2" number="2.6">
+<h2><span class="header-section-number">2.6</span> Source-Filter Model of Speech Production</h2>
+<p>The output energy (at the mouth) for a given frequency is equal to the amplitude the source harmonic, multiplied by the magnitude of the filter function for that the frequency.</p>
+<p><img src="images/01.07-source-filter.png" /></p>
+</div>
+<div id="summary" class="section level2" number="2.7">
+<h2><span class="header-section-number">2.7</span> Summary</h2>
+<ul>
+<li>sounds are waves (with amplitude, frequency and phase)</li>
+<li>simple waves can be combined to the complex one</li>
+<li>Fourier transform allows to extract components of the complex
+wave</li>
+<li>It is not only Fourier transform that allows to extract components of
+the complex wave</li>
+<li>Source-Filter Model: vocal tract is a resonator that filters some
+frequencies of the wave produced by vocal folds vibration.</li>
 </ul>
 
+</div>
+</div>
+<h3>References</h3>
+<div id="refs" class="references csl-bib-body hanging-indent">
+<div id="ref-fulop11" class="csl-entry">
+Fulop, S. A. 2011. <em>Speech Spectrum Analysis</em>. Springer Science &amp; Business Media.
 </div>
 </div>
             </section>
@@ -148,7 +275,7 @@ div.csl-indent {
         </div>
       </div>
 <a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="ссылки-на-литературу.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="references.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -169,7 +296,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/agricolamz/2021_HSE_m_Instrumental_phonetics/edit/master/01-introduction-to-acoustic-phonetics.Rmd",
+"link": "https://github.com/agricolamz/2022_HSE_m_Instrumental_phonetics/edit/master/01-introduction-to-acoustic-phonetics.Rmd",
 "text": "Edit"
 },
 "history": {
