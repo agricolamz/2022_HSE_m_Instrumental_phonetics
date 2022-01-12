@@ -1,0 +1,23 @@
+---
+editor_options: 
+  chunk_output_type: console
+---
+
+# Introduction to Acoustic Phonetics
+
+```{r setup01, include=FALSE}
+knitr::opts_chunk$set(message = FALSE, warning = FALSE, comment = "")
+options(scipen=999)
+library(tidyverse)
+theme_set(theme_bw())
+```
+
+## About the course
+
+* [Here](https://agricolamz.github.io/2021_HSE_m_Instrumental_phonetics/) is a course website.
+* I expect some theoretical knowledge
+    * read 2. chapter from [@gussenhoven11]
+    * be able to use IPA symbols
+* I expect some basic R skills:
+    * import `.csv` files to R
+    * `dplyr`, `ggplot2`

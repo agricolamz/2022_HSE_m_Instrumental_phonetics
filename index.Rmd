@@ -1,0 +1,23 @@
+--- 
+title: "Instrumental Phonetics 2022"
+author: "G. Moroz"
+bibliography:
+- bibliography.bib
+editor_options:
+  chunk_output_type: console
+link-citations: yes
+documentclass: book
+site: bookdown::bookdown_site
+biblio-style: apalike
+---
+
+# About the course
+
+
+$$
+\text{Final Grade} = 0.6 \times \text{HW} + 0.4 \times \text{Exam}
+$$
+
+## Reference
+
+* [@ashby05]
