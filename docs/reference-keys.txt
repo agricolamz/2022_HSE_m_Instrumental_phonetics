@@ -1,4 +1,5 @@
 about-the-course
+recording-in-case-you-missed-the-class
 useful-references
 introduction-to-acoustic-phonetics
 before-we-start
