@@ -29,6 +29,7 @@ $$
 
 * [on acoustics](https://youtu.be/AD2KYpXlo4A)
 * [on Praat and Biocoustics](https://www.youtube.com/watch?v=NoZxQiu1fzs&list=PL_HB2SrKjmML6J40SgCIzPT6f0Mz9ogrW&index=2)
+* [on Vowels and duration extracction](https://www.youtube.com/watch?v=zdTIzDHnwQo&list=PL_HB2SrKjmML6J40SgCIzPT6f0Mz9ogrW&index=3)
 
 ## Useful references: 
 

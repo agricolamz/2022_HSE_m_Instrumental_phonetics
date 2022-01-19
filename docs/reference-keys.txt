@@ -26,3 +26,6 @@ aquatic-animals
 animal-bioacoustics-based-on-fletcher07
 some-facts
 vibrational-communication
+vowels
+recap
+how-shape-of-the-vocal-tract-influences-on-vowels

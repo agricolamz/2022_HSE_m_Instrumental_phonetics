@@ -101,6 +101,8 @@ BBC, Earth's tropical Island -- Borneo (20:47)
 * Song birds have a syrinx consisting of dual inflated-membrane valves. These valves can be operated simultaneously and sometimes at different frequencies (see [overtone singing](https://www.youtube.com/watch?v=UHTF1-IhuC0)), but more usually separately, and produce a pulsating air-flow rich in harmonics.
 * Some birds have developed the ability to mimic others around them
 
+BTW: here is the database of [bird sounds](https://xeno-canto.org/)
+
 ## Bats
 
 * echo-location (cf. blind or visually impaired people)
@@ -113,3 +115,5 @@ BBC, Earth's tropical Island -- Borneo (20:47)
 * crustaceans -- like insects -- produce sound by rubbing a toothed leg-file against one of the plates covering their body
 * fish species with swim-bladder -- like other insects -- membrane over the bladder, that oscilates by muscular effort
 * different system of hearing (hair-cells, otolith)
+
+BTW: check out [a Hydrophone](https://en.wikipedia.org/wiki/Hydrophone)
