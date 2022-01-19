@@ -32,7 +32,7 @@ $$
 
 ![](images/01.07-source-filter.png)
 
-## How shape of the vocal tract influences on vowels?
+## How shape of the vocal tract influences on vowels? Tube model.
 
 Historically, height and backness are impressionistic linguistic terms:
 
@@ -111,3 +111,19 @@ Something like this we can expect from animals:
 <audio controls>
 <source src = "cat.wav">
 </audio>
+
+When there is a constriction, back tube and constriction form [Helmholtz resonator](https://en.wikipedia.org/wiki/Helmholtz_resonance).
+
+$$f = \frac{c}{2\pi} \times \sqrt{\frac{A}{V\times L}}$$
+
+* A --- the area of the neck; 
+* L --- length of the tube; 
+* V --- volume of the air in the body.
+
+![](images/03.11-tubes.png)
+
+## Other models
+
+* Perturbation Theory [Kajiyama 1941, Mrayati et al. 1988]
+* Quantal Theory [@stevens72]
+* Theory of adaptive dispersion [@lindblom88]
