@@ -46,3 +46,5 @@ $$
 * [@ladefoged12]
 * [@maddieson96]
 * [@rorabaugh10]
+* [@grama22]
+* [@fridland22]
