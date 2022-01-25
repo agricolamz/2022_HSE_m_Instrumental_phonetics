@@ -27,3 +27,4 @@ other-models
 theory
 practice
 wavelength
+duration

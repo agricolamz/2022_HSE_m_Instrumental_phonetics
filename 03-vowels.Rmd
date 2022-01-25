@@ -156,15 +156,14 @@ knitr::include_graphics("images/03.11-tubes.png", dpi = 100)
 
 ## Practice
 
-We will work with examples from Abaza (sound, TextGrid):
+We will work with examples from Abaza ([sound](https://github.com/agricolamz/2022_HSE_m_Instrumental_phonetics/blob/master/sounds/abaza_vowels.wav?raw=true), [TextGrid](https://raw.githubusercontent.com/agricolamz/2022_HSE_m_Instrumental_phonetics/master/sounds/abaza_vowels.TextGrid), press `Ctrl+S` in order to save the Text.Grid):
 
-```{r}
+```{r abaza-example, cache=TRUE}
 library(phonfieldwork)
 draw_sound("sounds/abaza_vowels.wav",
            "sounds/abaza_vowels.TextGrid", 
-           zoom = c(1.60, 8.00))
+           zoom = c(0,8.3))
 ```
-
 
 ### Duration
 

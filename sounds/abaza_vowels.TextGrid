@@ -15,7 +15,7 @@ item []:
         intervals [1]:
             xmin = -0 
             xmax = 1.9774071030398659 
-            text = "chain" 
+            text = "" 
         intervals [2]:
             xmin = 1.9774071030398659 
             xmax = 2.150348722210083 
