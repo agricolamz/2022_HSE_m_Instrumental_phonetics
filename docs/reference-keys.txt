@@ -24,3 +24,6 @@ recap
 how-shape-of-the-vocal-tract-influences-on-vowels
 how-shape-of-the-vocal-tract-influences-on-vowels-tube-model.
 other-models
+theory
+practice
+wavelength
