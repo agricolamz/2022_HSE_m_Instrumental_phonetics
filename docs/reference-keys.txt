@@ -38,3 +38,5 @@ merge-all-data-together
 annotate-your-data
 extracting-your-data
 visualizing-your-data
+read-linguistic-files-into-r
+documentation

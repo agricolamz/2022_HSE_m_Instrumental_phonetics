@@ -425,7 +425,7 @@ file.copy("sounds/s1_all.TextGrid",
 draw_sound("sounds/examples/s1_all.wav", "sounds/examples/s1_all.TextGrid")
 ```
 
-## Extracting your data
+### Extracting your data
 
 First, it is important to create a folder where all of the extracted files will be stored:
 ```{r}
@@ -463,7 +463,7 @@ sounds/examples
     └── 08_s1_ə.wav
 ```
 
-## Visualizing your data
+### Visualizing your data
 It is possible to view an oscilogram and spetrogram of any soundfile:
 
 ```{r extractdraw, cache=TRUE}
@@ -497,5 +497,31 @@ draw_sound("sounds/examples/s1_all.wav",
            "sounds/examples/s1_all.TextGrid")
 ```
 
+### Read linguistic files into R
+
+The `phonfieldwork` package provides also several methods for reading different file types into R. This makes it possible to analyze them and convert into `.csv` files (e. g. using the `write.csv()` function). The main advantage of using those functions is that all of them return `data.frame`s with columns (`time_start`, `time_end`, `content` and `source`). This make it easer to use the result in the `draw_sound()` function that make it possible to visualise all kind of sound annotation systems.
+
+* file `.TextGrid` from Praat; see also [`rPraat`](https://fu.ff.cuni.cz/praat/#rpraat-package-for-r) and [`textgRid`](https://github.com/patrickreidy/textgRid) packages
+
+```{r}
+df <- textgrid_to_df("sounds/examples/s1_all.TextGrid")
+df
+library(tidyverse)
+df %>% 
+  filter(tier_name == "vowels" | 
+           tier_name == "uterances", 
+         content != "") %>% 
+  mutate(duration =  time_end - time_start) %>% 
+  select(content, tier_name, duration) %>% 
+  pivot_wider(names_from = tier_name,
+              values_from = content) ->
+  results
+
+results %>% 
+  ggplot(aes(vowels, duration))+
+  geom_point()
+```
+
+### Documentation
 
 You can find the whole documentation for `phonfieldwork` [here](https://ropensci.github.io/phonfieldwork/articles/phonfieldwork.html).

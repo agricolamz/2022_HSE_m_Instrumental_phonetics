@@ -207,9 +207,11 @@ div.csl-indent {
 <li class="chapter" data-level="4.2.5" data-path="vowels.html"><a href="vowels.html#rename-collected-data"><i class="fa fa-check"></i><b>4.2.5</b> Rename collected data</a></li>
 <li class="chapter" data-level="4.2.6" data-path="vowels.html"><a href="vowels.html#merge-all-data-together"><i class="fa fa-check"></i><b>4.2.6</b> Merge all data together</a></li>
 <li class="chapter" data-level="4.2.7" data-path="vowels.html"><a href="vowels.html#annotate-your-data"><i class="fa fa-check"></i><b>4.2.7</b> Annotate your data</a></li>
+<li class="chapter" data-level="4.2.8" data-path="vowels.html"><a href="vowels.html#extracting-your-data"><i class="fa fa-check"></i><b>4.2.8</b> Extracting your data</a></li>
+<li class="chapter" data-level="4.2.9" data-path="vowels.html"><a href="vowels.html#visualizing-your-data"><i class="fa fa-check"></i><b>4.2.9</b> Visualizing your data</a></li>
+<li class="chapter" data-level="4.2.10" data-path="vowels.html"><a href="vowels.html#read-linguistic-files-into-r"><i class="fa fa-check"></i><b>4.2.10</b> Read linguistic files into R</a></li>
+<li class="chapter" data-level="4.2.11" data-path="vowels.html"><a href="vowels.html#documentation"><i class="fa fa-check"></i><b>4.2.11</b> Documentation</a></li>
 </ul></li>
-<li class="chapter" data-level="4.3" data-path="vowels.html"><a href="vowels.html#extracting-your-data"><i class="fa fa-check"></i><b>4.3</b> Extracting your data</a></li>
-<li class="chapter" data-level="4.4" data-path="vowels.html"><a href="vowels.html#visualizing-your-data"><i class="fa fa-check"></i><b>4.4</b> Visualizing your data</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 </ul>
@@ -354,10 +356,8 @@ s(t) = A \times \cos(2\pi ft + \phi)
 <ul>
 <li>download files for todays seminar:
 <ul>
-<li><a href="https://github.com/agricolamz/2022_HSE_m_Instrumental_phonetics/blob/master/sounds/examples%20backup/01.wav?raw=true">first file</a>
-&lt;<a href="https://github.com/agricolamz/2022_HSE_m_Instrumental_phonetics/blob/master/sounds/examples" class="uri">https://github.com/agricolamz/2022_HSE_m_Instrumental_phonetics/blob/master/sounds/examples</a> backup/01.wav?raw=true&gt;</li>
-<li><a href="https://github.com/agricolamz/2022_HSE_m_Instrumental_phonetics/blob/master/sounds/examples%20backup/01.wav?raw=true">second file</a>
-&lt;<a href="https://github.com/agricolamz/2022_HSE_m_Instrumental_phonetics/blob/master/sounds/examples" class="uri">https://github.com/agricolamz/2022_HSE_m_Instrumental_phonetics/blob/master/sounds/examples</a> backup/02.wav?raw=true&gt;</li>
+<li><a href="https://github.com/agricolamz/2022_HSE_m_Instrumental_phonetics/blob/master/sounds/examples_backup/01.wav?raw=true">first file</a></li>
+<li><a href="https://github.com/agricolamz/2022_HSE_m_Instrumental_phonetics/blob/master/sounds/examples_backup/01.wav?raw=true">second file</a></li>
 </ul></li>
 </ul>
 </div>
@@ -494,9 +494,8 @@ s(t) = A \times \cos(2\pi ft + \phi)
 <p>You can see that we created a third tier with annotation. The only thing left is to move annotation boundaries in Praat (this can not be automated):</p>
 <p><img src="2022_instrumental_phonetics_files/figure-html/vowelannotated-1.png" width="672" /></p>
 </div>
-</div>
-<div id="extracting-your-data" class="section level2" number="4.3">
-<h2><span class="header-section-number">4.3</span> Extracting your data</h2>
+<div id="extracting-your-data" class="section level3" number="4.2.8">
+<h3><span class="header-section-number">4.2.8</span> Extracting your data</h3>
 <p>First, it is important to create a folder where all of the extracted files will be stored:</p>
 <div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="vowels.html#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dir.create</span>(<span class="st">&quot;sounds/examples/s1_sounds&quot;</span>)</span></code></pre></div>
 <p>It is possible to extract all annotated files based on an annotation tier:</p>
@@ -524,8 +523,8 @@ s(t) = A \times \cos(2\pi ft + \phi)
     ├── 07_s1_ə.wav
     └── 08_s1_ə.wav</code></pre>
 </div>
-<div id="visualizing-your-data" class="section level2" number="4.4">
-<h2><span class="header-section-number">4.4</span> Visualizing your data</h2>
+<div id="visualizing-your-data" class="section level3" number="4.2.9">
+<h3><span class="header-section-number">4.2.9</span> Visualizing your data</h3>
 <p>It is possible to view an oscilogram and spetrogram of any soundfile:</p>
 <div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="vowels.html#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">draw_sound</span>(<span class="at">file_name =</span> <span class="st">&quot;sounds/examples/s1_sounds/01_s1_a.wav&quot;</span>)</span></code></pre></div>
 <p><img src="2022_instrumental_phonetics_files/figure-html/extractdraw-1.png" width="672" /></p>
@@ -553,8 +552,41 @@ s(t) = A \times \cos(2\pi ft + \phi)
 <div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="vowels.html#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">draw_sound</span>(<span class="st">&quot;sounds/examples/s1_all.wav&quot;</span>,</span>
 <span id="cb25-2"><a href="vowels.html#cb25-2" aria-hidden="true" tabindex="-1"></a>           <span class="st">&quot;sounds/examples/s1_all.TextGrid&quot;</span>)</span></code></pre></div>
 <p><img src="2022_instrumental_phonetics_files/figure-html/mergedplot-1.png" width="672" /></p>
+</div>
+<div id="read-linguistic-files-into-r" class="section level3" number="4.2.10">
+<h3><span class="header-section-number">4.2.10</span> Read linguistic files into R</h3>
+<p>The <code>phonfieldwork</code> package provides also several methods for reading different file types into R. This makes it possible to analyze them and convert into <code>.csv</code> files (e. g. using the <code>write.csv()</code> function). The main advantage of using those functions is that all of them return <code>data.frame</code>s with columns (<code>time_start</code>, <code>time_end</code>, <code>content</code> and <code>source</code>). This make it easer to use the result in the <code>draw_sound()</code> function that make it possible to visualise all kind of sound annotation systems.</p>
+<ul>
+<li>file <code>.TextGrid</code> from Praat; see also <a href="https://fu.ff.cuni.cz/praat/#rpraat-package-for-r"><code>rPraat</code></a> and <a href="https://github.com/patrickreidy/textgRid"><code>textgRid</code></a> packages</li>
+</ul>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="vowels.html#cb26-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">textgrid_to_df</span>(<span class="st">&quot;sounds/examples/s1_all.TextGrid&quot;</span>)</span>
+<span id="cb26-2"><a href="vowels.html#cb26-2" aria-hidden="true" tabindex="-1"></a>df</span></code></pre></div>
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["id"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["time_start"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["time_end"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["content"],"name":[4],"type":["chr"],"align":["left"]},{"label":["tier"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["tier_name"],"name":[6],"type":["chr"],"align":["left"]},{"label":["source"],"name":[7],"type":["chr"],"align":["left"]}],"data":[{"1":"1","2":"0.00","3":"8.37","4":"ba","5":"1","6":"labels","7":"s1_all.TextGrid","_rn_":"1"},{"1":"1","2":"0.00","3":"8.37","4":"you.sg.f","5":"2","6":"trans","7":"s1_all.TextGrid","_rn_":"3"},{"1":"1","2":"0.00","3":"2.61","4":"","5":"3","6":"vowels","7":"s1_all.TextGrid","_rn_":"5"},{"1":"1","2":"0.00","3":"2.61","4":"","5":"4","6":"uterances","7":"s1_all.TextGrid","_rn_":"23"},{"1":"2","2":"2.61","3":"2.80","4":"a","5":"3","6":"vowels","7":"s1_all.TextGrid","_rn_":"6"},{"1":"2","2":"2.61","3":"2.80","4":"u_1","5":"4","6":"uterances","7":"s1_all.TextGrid","_rn_":"24"},{"1":"3","2":"2.80","3":"3.92","4":"","5":"3","6":"vowels","7":"s1_all.TextGrid","_rn_":"7"},{"1":"3","2":"2.80","3":"3.92","4":"","5":"4","6":"uterances","7":"s1_all.TextGrid","_rn_":"25"},{"1":"4","2":"3.92","3":"4.16","4":"a","5":"3","6":"vowels","7":"s1_all.TextGrid","_rn_":"8"},{"1":"4","2":"3.92","3":"4.16","4":"u_2","5":"4","6":"uterances","7":"s1_all.TextGrid","_rn_":"26"},{"1":"5","2":"4.16","3":"5.13","4":"","5":"3","6":"vowels","7":"s1_all.TextGrid","_rn_":"9"},{"1":"5","2":"4.16","3":"5.13","4":"","5":"4","6":"uterances","7":"s1_all.TextGrid","_rn_":"27"},{"1":"6","2":"5.13","3":"5.37","4":"a","5":"3","6":"vowels","7":"s1_all.TextGrid","_rn_":"10"},{"1":"6","2":"5.13","3":"5.37","4":"u_3","5":"4","6":"uterances","7":"s1_all.TextGrid","_rn_":"28"},{"1":"7","2":"5.37","3":"6.47","4":"","5":"3","6":"vowels","7":"s1_all.TextGrid","_rn_":"11"},{"1":"7","2":"5.37","3":"6.47","4":"","5":"4","6":"uterances","7":"s1_all.TextGrid","_rn_":"29"},{"1":"8","2":"6.47","3":"6.70","4":"a","5":"3","6":"vowels","7":"s1_all.TextGrid","_rn_":"12"},{"1":"8","2":"6.47","3":"6.70","4":"cf","5":"4","6":"uterances","7":"s1_all.TextGrid","_rn_":"30"},{"1":"9","2":"6.70","3":"8.37","4":"","5":"3","6":"vowels","7":"s1_all.TextGrid","_rn_":"13"},{"1":"9","2":"6.70","3":"8.37","4":"","5":"4","6":"uterances","7":"s1_all.TextGrid","_rn_":"31"},{"1":"2","2":"8.37","3":"15.98","4":"bzə","5":"1","6":"labels","7":"s1_all.TextGrid","_rn_":"2"},{"1":"2","2":"8.37","3":"15.98","4":"tongue","5":"2","6":"trans","7":"s1_all.TextGrid","_rn_":"4"},{"1":"10","2":"8.37","3":"10.45","4":"","5":"3","6":"vowels","7":"s1_all.TextGrid","_rn_":"14"},{"1":"10","2":"8.37","3":"10.45","4":"","5":"4","6":"uterances","7":"s1_all.TextGrid","_rn_":"32"},{"1":"11","2":"10.45","3":"10.59","4":"ə","5":"3","6":"vowels","7":"s1_all.TextGrid","_rn_":"15"},{"1":"11","2":"10.45","3":"10.59","4":"u_1","5":"4","6":"uterances","7":"s1_all.TextGrid","_rn_":"33"},{"1":"12","2":"10.59","3":"11.55","4":"","5":"3","6":"vowels","7":"s1_all.TextGrid","_rn_":"16"},{"1":"12","2":"10.59","3":"11.55","4":"","5":"4","6":"uterances","7":"s1_all.TextGrid","_rn_":"34"},{"1":"13","2":"11.55","3":"11.71","4":"ə","5":"3","6":"vowels","7":"s1_all.TextGrid","_rn_":"17"},{"1":"13","2":"11.55","3":"11.71","4":"u_2","5":"4","6":"uterances","7":"s1_all.TextGrid","_rn_":"35"},{"1":"14","2":"11.71","3":"12.58","4":"","5":"3","6":"vowels","7":"s1_all.TextGrid","_rn_":"18"},{"1":"14","2":"11.71","3":"12.58","4":"","5":"4","6":"uterances","7":"s1_all.TextGrid","_rn_":"36"},{"1":"15","2":"12.58","3":"12.72","4":"ə","5":"3","6":"vowels","7":"s1_all.TextGrid","_rn_":"19"},{"1":"15","2":"12.58","3":"12.72","4":"u_3","5":"4","6":"uterances","7":"s1_all.TextGrid","_rn_":"37"},{"1":"16","2":"12.72","3":"13.82","4":"","5":"3","6":"vowels","7":"s1_all.TextGrid","_rn_":"20"},{"1":"16","2":"12.72","3":"13.82","4":"","5":"4","6":"uterances","7":"s1_all.TextGrid","_rn_":"38"},{"1":"17","2":"13.82","3":"13.96","4":"ə","5":"3","6":"vowels","7":"s1_all.TextGrid","_rn_":"21"},{"1":"17","2":"13.82","3":"13.96","4":"cf","5":"4","6":"uterances","7":"s1_all.TextGrid","_rn_":"39"},{"1":"18","2":"13.96","3":"15.98","4":"","5":"3","6":"vowels","7":"s1_all.TextGrid","_rn_":"22"},{"1":"18","2":"13.96","3":"15.98","4":"","5":"4","6":"uterances","7":"s1_all.TextGrid","_rn_":"40"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="vowels.html#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb27-2"><a href="vowels.html#cb27-2" aria-hidden="true" tabindex="-1"></a>df <span class="sc">%&gt;%</span> </span>
+<span id="cb27-3"><a href="vowels.html#cb27-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(tier_name <span class="sc">==</span> <span class="st">&quot;vowels&quot;</span> <span class="sc">|</span> </span>
+<span id="cb27-4"><a href="vowels.html#cb27-4" aria-hidden="true" tabindex="-1"></a>           tier_name <span class="sc">==</span> <span class="st">&quot;uterances&quot;</span>, </span>
+<span id="cb27-5"><a href="vowels.html#cb27-5" aria-hidden="true" tabindex="-1"></a>         content <span class="sc">!=</span> <span class="st">&quot;&quot;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb27-6"><a href="vowels.html#cb27-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">duration =</span>  time_end <span class="sc">-</span> time_start) <span class="sc">%&gt;%</span> </span>
+<span id="cb27-7"><a href="vowels.html#cb27-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(content, tier_name, duration) <span class="sc">%&gt;%</span> </span>
+<span id="cb27-8"><a href="vowels.html#cb27-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> tier_name,</span>
+<span id="cb27-9"><a href="vowels.html#cb27-9" aria-hidden="true" tabindex="-1"></a>              <span class="at">values_from =</span> content) <span class="ot">-&gt;</span></span>
+<span id="cb27-10"><a href="vowels.html#cb27-10" aria-hidden="true" tabindex="-1"></a>  results</span>
+<span id="cb27-11"><a href="vowels.html#cb27-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-12"><a href="vowels.html#cb27-12" aria-hidden="true" tabindex="-1"></a>results <span class="sc">%&gt;%</span> </span>
+<span id="cb27-13"><a href="vowels.html#cb27-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(vowels, duration))<span class="sc">+</span></span>
+<span id="cb27-14"><a href="vowels.html#cb27-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code></pre></div>
+<p><img src="2022_instrumental_phonetics_files/figure-html/unnamed-chunk-32-1.png" width="672" /></p>
+</div>
+<div id="documentation" class="section level3" number="4.2.11">
+<h3><span class="header-section-number">4.2.11</span> Documentation</h3>
 <p>You can find the whole documentation for <code>phonfieldwork</code> <a href="https://ropensci.github.io/phonfieldwork/articles/phonfieldwork.html">here</a>.</p>
 
+</div>
 </div>
 </div>
 <h3>References</h3>
