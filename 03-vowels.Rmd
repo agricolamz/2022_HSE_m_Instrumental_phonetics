@@ -154,9 +154,9 @@ knitr::include_graphics("images/03.11-tubes.png", dpi = 100)
 * Quantal Theory [@stevens72]
 * Theory of adaptive dispersion [@lindblom88]
 
-## Practice
+## Practice of the phonetic fieldwork with `phonfieldwork`
 
-We will work with examples from Abaza ([sound](https://github.com/agricolamz/2022_HSE_m_Instrumental_phonetics/blob/master/sounds/abaza_vowels.wav?raw=true), [TextGrid](https://raw.githubusercontent.com/agricolamz/2022_HSE_m_Instrumental_phonetics/master/sounds/abaza_vowels.TextGrid), press `Ctrl+S` in order to save the Text.Grid):
+We will work with examples from Abaza and will try to end up with something like this:
 
 ```{r abaza-example, cache=TRUE}
 library(phonfieldwork)
@@ -165,5 +165,27 @@ draw_sound("sounds/abaza_vowels.wav",
            zoom = c(0,8.3))
 ```
 
-### Duration
+### Befor we start
+
+I expect you 
+
+* to install `tidyverse` and `phonfieldwork`:
+
+```{r, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, warning = TRUE, message = TRUE)
+```
+
+```{r, eval=FALSE}
+install.packages(c("tidyverse", "phonfieldwork"))
+```
+
+I will use the following version of the package:
+
+```{r}
+packageVersion("phonfieldwork")
+```
+
+* download files for todays seminar:
+    * [first file](https://github.com/agricolamz/2022_HSE_m_Instrumental_phonetics/blob/master/sounds/examples/01.wav?raw=true)
+    * [second file](https://github.com/agricolamz/2022_HSE_m_Instrumental_phonetics/blob/master/sounds/examples/01.wav?raw=true)
 

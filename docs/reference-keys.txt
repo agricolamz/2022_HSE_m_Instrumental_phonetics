@@ -28,3 +28,5 @@ theory
 practice
 wavelength
 duration
+practice-of-the-phonetic-fieldwork-with-phonfieldwork
+befor-we-start
