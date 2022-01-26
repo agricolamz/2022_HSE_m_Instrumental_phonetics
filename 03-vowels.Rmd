@@ -209,8 +209,8 @@ packageVersion("phonfieldwork")
 ```
 
 * download files for todays seminar:
-    * [first file](https://github.com/agricolamz/2022_HSE_m_Instrumental_phonetics/blob/master/sounds/examples backup/01.wav?raw=true)
-    * [second file](https://github.com/agricolamz/2022_HSE_m_Instrumental_phonetics/blob/master/sounds/examples backup/01.wav?raw=true)
+    * [first file](https://github.com/agricolamz/2022_HSE_m_Instrumental_phonetics/blob/master/sounds/examples_backup/01.wav?raw=true)
+    * [second file](https://github.com/agricolamz/2022_HSE_m_Instrumental_phonetics/blob/master/sounds/examples_backup/01.wav?raw=true)
 
 ### Philosophy of the `phonfieldwork` package
 
