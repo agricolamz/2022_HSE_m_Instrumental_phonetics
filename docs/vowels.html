@@ -201,6 +201,9 @@ div.csl-indent {
 <li class="chapter" data-level="4.2" data-path="vowels.html"><a href="vowels.html#practice-of-the-phonetic-fieldwork-with-phonfieldwork"><i class="fa fa-check"></i><b>4.2</b> Practice of the phonetic fieldwork with <code>phonfieldwork</code></a>
 <ul>
 <li class="chapter" data-level="4.2.1" data-path="vowels.html"><a href="vowels.html#befor-we-start"><i class="fa fa-check"></i><b>4.2.1</b> Befor we start</a></li>
+<li class="chapter" data-level="4.2.2" data-path="vowels.html"><a href="vowels.html#philosophy-of-the-phonfieldwork-package"><i class="fa fa-check"></i><b>4.2.2</b> Philosophy of the <code>phonfieldwork</code> package</a></li>
+<li class="chapter" data-level="4.2.3" data-path="vowels.html"><a href="vowels.html#make-a-list-of-your-stimuli"><i class="fa fa-check"></i><b>4.2.3</b> Make a list of your stimuli</a></li>
+<li class="chapter" data-level="4.2.4" data-path="vowels.html"><a href="vowels.html#create-a-presentation-based-on-a-list-of-stimuli"><i class="fa fa-check"></i><b>4.2.4</b> Create a presentation based on a list of stimuli</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
@@ -335,7 +338,14 @@ s(t) = A \times \cos(2\pi ft + \phi)
 <ul>
 <li>to install <code>tidyverse</code> and <code>phonfieldwork</code>:</li>
 </ul>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="vowels.html#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="fu">c</span>(<span class="st">&quot;tidyverse&quot;</span>, <span class="st">&quot;phonfieldwork&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="vowels.html#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="fu">c</span>(<span class="st">&quot;tidyverse&quot;</span>, <span class="st">&quot;rmarkdown&quot;</span>, <span class="st">&quot;phonfieldwork&quot;</span>))</span></code></pre></div>
+<ul>
+<li>load the library:</li>
+</ul>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="vowels.html#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(phonfieldwork)</span></code></pre></div>
+<p>I will use the following version of the package:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="vowels.html#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">packageVersion</span>(<span class="st">&quot;phonfieldwork&quot;</span>)</span></code></pre></div>
+<pre><code>## [1] &#39;0.0.12&#39;</code></pre>
 <ul>
 <li>download files for todays seminar:
 <ul>
@@ -343,6 +353,62 @@ s(t) = A \times \cos(2\pi ft + \phi)
 <li><a href="https://github.com/agricolamz/2022_HSE_m_Instrumental_phonetics/blob/master/sounds/examples/01.wav?raw=true">second file</a></li>
 </ul></li>
 </ul>
+</div>
+<div id="philosophy-of-the-phonfieldwork-package" class="section level3" number="4.2.2">
+<h3><span class="header-section-number">4.2.2</span> Philosophy of the <code>phonfieldwork</code> package</h3>
+<p>Most phonetic research consists of the following steps:</p>
+<ol style="list-style-type: decimal">
+<li>Formulate a research question. Think of what kind of data is necessary to answer this question, what is the appropriate amount of data, what kind of annotation you will do, what kind of statistical models and visualizations you will use, etc.</li>
+<li>Create a list of stimuli.</li>
+<li>Elicite list of stimuli from speakers who signed an <em>Informed Consent</em> statement, agreeing to participate in the experiment to be recorded on audio and/or video. Keep an eye on recording settings: sampling rate, resolution (bit), and number of channels should be the same across all recordings.</li>
+<li>Annotate the collected data.</li>
+<li>Extract the collected data.</li>
+<li>Create visualizations and evaluate your statistical models.</li>
+<li>Report your results.</li>
+<li>Publish your data.</li>
+</ol>
+<p>The <code>phonfieldwork</code> package is created for helping with items 3, partially with 4, and 5 and 8.</p>
+<p>To make the automatic annotation of data easier, I usually record each stimulus as a separate file. While recording, I carefully listen to my consultants to make sure that they are producing the kind of speech I want: three isolated pronunciations of the same stimulus, separated by a pause and contained in a carrier phrase. In case a speaker does not produce three clear repetitions, I ask them to repeat the task, so that as a result of my fieldwork session I will have:</p>
+<ul>
+<li>a collection of small soundfiles (video) with the same sampling rate, resolution (bit), and number of channels</li>
+<li>a list of succesful and unsuccesful attempts to produce a stimulus according to my requirements (usually I keep this list in a regular notebook)</li>
+</ul>
+</div>
+<div id="make-a-list-of-your-stimuli" class="section level3" number="4.2.3">
+<h3><span class="header-section-number">4.2.3</span> Make a list of your stimuli</h3>
+<p>First we need to create a list of stimuli. We want to record two Abaza words from speakers (in real life word lists are much longer).</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="vowels.html#cb5-1" aria-hidden="true" tabindex="-1"></a>my_stimuli_df <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;https://raw.githubusercontent.com/agricolamz/2022_HSE_m_Instrumental_phonetics/master/data/my_stimuli_df.csv&quot;</span>)</span>
+<span id="cb5-2"><a href="vowels.html#cb5-2" aria-hidden="true" tabindex="-1"></a>my_stimuli_df</span></code></pre></div>
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["stimuli"],"name":[1],"type":["chr"],"align":["left"]},{"label":["translation"],"name":[2],"type":["chr"],"align":["left"]},{"label":["vowel"],"name":[3],"type":["chr"],"align":["left"]}],"data":[{"1":"ba","2":"you.sg.f","3":"a"},{"1":"bzə","2":"tongue","3":"ə"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+<p>It is also possible to store your list as a column in an <code>.xls</code> or <code>xlsx</code> file and read it into R using the <code>read_xls</code> or <code>read_xlsx</code> functions from the <code>readxl</code> package. If the package <code>readxl</code> is not installed on your computer, you can install it using <code>install.packages("readxl")</code>.</p>
+</div>
+<div id="create-a-presentation-based-on-a-list-of-stimuli" class="section level3" number="4.2.4">
+<h3><span class="header-section-number">4.2.4</span> Create a presentation based on a list of stimuli</h3>
+<p>You can show a native speaker your stimuli one by one or not show them the stimuli but ask them to pronounce a certain stimulus or its translation. I use presentations to collect all stimuli in a particular order without the risk of omissions.</p>
+<p>When the list of stimuli is loaded into R, you can create a presentation for elicitation. It is important to define an output directory, so in the following example I use the <code>getwd()</code> function, which returns the path to the current working directory. You can set any directory as your current one using the <code>setwd()</code> function. It is also possible to provide a path to your intended output directory with <code>output_dir</code> (e. g. “/home/user_name/…”). This command (unlike <code>setwd()</code>) does not change your working directory.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="vowels.html#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">create_presentation</span>(<span class="at">stimuli =</span> my_stimuli_df<span class="sc">$</span>stimuli,</span>
+<span id="cb6-2"><a href="vowels.html#cb6-2" aria-hidden="true" tabindex="-1"></a>                    <span class="at">output_file =</span> <span class="st">&quot;first_example&quot;</span>,</span>
+<span id="cb6-3"><a href="vowels.html#cb6-3" aria-hidden="true" tabindex="-1"></a>                    <span class="at">output_dir =</span> <span class="st">&quot;sounds/&quot;</span>)</span></code></pre></div>
+<p>As a result, a file “first_example.html” was created in the output folder. You can change the name of this file by changing the <code>output_file</code> argument. The <code>.html</code> file now looks as follows:</p>
+<iframe src="https://agricolamz.github.io/2022_HSE_m_Instrumental_phonetics/sounds/first_example.html" width="700" height="600">
+<p>
+Your browser does not support iframes :(
+</p>
+</iframe>
+<p>It is also possible to change the output format, using the <code>output_format</code> argument. By dafault it is “html,” but you can also use “pptx.” There is also an additional argument <code>translations</code>, where you can provide translations for stimuli in order that they appeared near the stimuli on the slide.</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="vowels.html#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">create_presentation</span>(<span class="at">stimuli =</span> my_stimuli_df<span class="sc">$</span>stimuli, </span>
+<span id="cb7-2"><a href="vowels.html#cb7-2" aria-hidden="true" tabindex="-1"></a>                    <span class="at">translations =</span> my_stimuli_df<span class="sc">$</span>translation,</span>
+<span id="cb7-3"><a href="vowels.html#cb7-3" aria-hidden="true" tabindex="-1"></a>                    <span class="at">output_file =</span> <span class="st">&quot;second_example&quot;</span>,</span>
+<span id="cb7-4"><a href="vowels.html#cb7-4" aria-hidden="true" tabindex="-1"></a>                    <span class="at">output_dir =</span> <span class="st">&quot;sounds/&quot;</span>)</span></code></pre></div>
+<iframe src="https://agricolamz.github.io/2022_HSE_m_Instrumental_phonetics/sounds/second_example.html" width="700" height="600">
+<p>
+Your browser does not support iframes :(
+</p>
+</iframe>
 
 </div>
 </div>

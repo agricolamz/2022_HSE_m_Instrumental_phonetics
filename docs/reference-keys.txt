@@ -30,3 +30,6 @@ wavelength
 duration
 practice-of-the-phonetic-fieldwork-with-phonfieldwork
 befor-we-start
+philosophy-of-the-phonfieldwork-package
+make-a-list-of-your-stimuli
+create-a-presentation-based-on-a-list-of-stimuli

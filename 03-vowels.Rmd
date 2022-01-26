@@ -176,8 +176,15 @@ knitr::opts_chunk$set(echo = TRUE, warning = TRUE, message = TRUE)
 ```
 
 ```{r, eval=FALSE}
-install.packages(c("tidyverse", "phonfieldwork"))
+install.packages(c("tidyverse", "rmarkdown", "phonfieldwork"))
 ```
+
+* load the library:
+
+```{r}
+library(phonfieldwork)
+```
+
 
 I will use the following version of the package:
 
@@ -189,3 +196,64 @@ packageVersion("phonfieldwork")
     * [first file](https://github.com/agricolamz/2022_HSE_m_Instrumental_phonetics/blob/master/sounds/examples/01.wav?raw=true)
     * [second file](https://github.com/agricolamz/2022_HSE_m_Instrumental_phonetics/blob/master/sounds/examples/01.wav?raw=true)
 
+### Philosophy of the `phonfieldwork` package
+
+Most phonetic research consists of the following steps:
+
+1. Formulate a research question. Think of what kind of data is necessary to answer this question, what is the appropriate amount of data, what kind of annotation you will do, what kind of statistical models and visualizations you will use, etc.
+2. Create a list of stimuli.
+3. Elicite list of stimuli from speakers who signed an *Informed Consent* statement, agreeing to participate in the experiment to be recorded on audio and/or video. Keep an eye on recording settings: sampling rate, resolution (bit), and number of channels should be the same across all recordings.
+4. Annotate the collected data.
+5. Extract the collected data.
+6. Create visualizations and evaluate your statistical models.
+7. Report your results.
+8. Publish your data.
+
+The `phonfieldwork` package is created for helping with items 3, partially with 4, and 5 and 8.
+
+To make the automatic annotation of data easier, I usually record each stimulus as a separate file.  While recording, I carefully listen to my consultants to make sure that they are producing the kind of speech I want: three isolated pronunciations of the same stimulus, separated by a pause and contained in a carrier phrase. In case a speaker does not produce three clear repetitions, I ask them to repeat the task, so that as a result of my fieldwork session I will have:
+
+* a collection of small soundfiles (video) with the same sampling rate, resolution (bit), and number of channels
+* a list of succesful and unsuccesful attempts to produce a stimulus according to my requirements (usually I keep this list in a regular notebook)
+
+### Make a list of your stimuli
+
+First we need to create a list of stimuli. We want to record two Abaza words from speakers (in real life word lists are much longer).
+
+```{r}
+my_stimuli_df <- read.csv("https://raw.githubusercontent.com/agricolamz/2022_HSE_m_Instrumental_phonetics/master/data/my_stimuli_df.csv")
+my_stimuli_df
+```
+
+It is also possible to store your list as a column in an `.xls` or `xlsx` file and read it into R using the `read_xls` or `read_xlsx` functions from the `readxl` package. If the package `readxl` is not installed on your computer, you can install it using `install.packages("readxl")`.
+
+### Create a presentation based on a list of stimuli
+
+You can show a native speaker your stimuli one by one or not show them the stimuli but ask them to pronounce a certain stimulus or its translation. I use presentations to collect all stimuli in a particular order without the risk of omissions.
+
+When the list of stimuli is loaded into R, you can create a presentation for elicitation. It is important to define an output directory, so in the following example I use the `getwd()` function, which returns the path to the current working directory. You can set any directory as your current one using the `setwd()` function. It is also possible to provide a path to your intended output directory with `output_dir` (e. g. "/home/user_name/..."). This command (unlike `setwd()`) does not change your working directory.
+
+```{r}
+create_presentation(stimuli = my_stimuli_df$stimuli,
+                    output_file = "first_example",
+                    output_dir = "sounds/")
+```
+
+As a result, a file "first_example.html" was created in the output folder. You can change the name of this file by changing  the `output_file` argument. The `.html` file now looks as follows:
+
+<iframe src="https://agricolamz.github.io/2022_HSE_m_Instrumental_phonetics/sounds/first_example.html" width = 700 height = 600>
+  <p>Your browser does not support iframes :(</p>
+</iframe>
+
+It is also possible to change the output format, using the `output_format` argument. By dafault it is "html", but you can also use "pptx". There is also an additional argument `translations`, where you can provide translations for stimuli in order that they appeared near the stimuli on the slide.
+
+```{r}
+create_presentation(stimuli = my_stimuli_df$stimuli, 
+                    translations = my_stimuli_df$translation,
+                    output_file = "second_example",
+                    output_dir = "sounds/")
+```
+
+<iframe src="https://agricolamz.github.io/2022_HSE_m_Instrumental_phonetics/sounds/second_example.html" width = 700 height = 600>
+  <p>Your browser does not support iframes :(</p>
+</iframe>
