@@ -241,7 +241,7 @@ create_presentation(stimuli = my_stimuli_df$stimuli,
 
 As a result, a file "first_example.html" was created in the output folder. You can change the name of this file by changing  the `output_file` argument. The `.html` file now looks as follows:
 
-<iframe src="https://agricolamz.github.io/2022_HSE_m_Instrumental_phonetics/sounds/first_example.html" width = 700 height = 600>
+<iframe src="https://agricolamz.github.io/2022_HSE_m_Instrumental_phonetics/additional/first_example.html" width = 700 height = 600>
   <p>Your browser does not support iframes :(</p>
 </iframe>
 
@@ -254,6 +254,6 @@ create_presentation(stimuli = my_stimuli_df$stimuli,
                     output_dir = "sounds/")
 ```
 
-<iframe src="https://agricolamz.github.io/2022_HSE_m_Instrumental_phonetics/sounds/second_example.html" width = 700 height = 600>
+<iframe src="https://agricolamz.github.io/2022_HSE_m_Instrumental_phonetics/additional/second_example.html" width = 700 height = 600>
   <p>Your browser does not support iframes :(</p>
 </iframe>
