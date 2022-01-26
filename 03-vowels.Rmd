@@ -425,6 +425,8 @@ file.copy("sounds/s1_all.TextGrid",
 draw_sound("sounds/examples/s1_all.wav", "sounds/examples/s1_all.TextGrid")
 ```
 
+[Here](https://raw.githubusercontent.com/agricolamz/2022_HSE_m_Instrumental_phonetics/master/sounds/s1_all.TextGrid) you can download the result `.TextGrid` (you can press `Ctrl+S`, when you open it).
+
 ### Extracting your data
 
 First, it is important to create a folder where all of the extracted files will be stored:
