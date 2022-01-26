@@ -156,13 +156,29 @@ knitr::include_graphics("images/03.11-tubes.png", dpi = 100)
 
 ## Practice of the phonetic fieldwork with `phonfieldwork`
 
+```{r, include=FALSE}
+library(phonfieldwork)
+# return file structure to the previous one
+file.remove(c(list.files("sounds/examples/backup", full.names = TRUE),
+              "sounds/examples/backup/",
+              "sounds/examples/s1_all.wav",
+              "sounds/examples/s1_all.TextGrid",
+              list.files("sounds/examples/s1_sounds", full.names = TRUE),
+              "sounds/examples/s1_sounds"))
+rename_soundfiles(stimuli = c("01", "02"),
+                  path = "sounds/examples",
+                  backup = FALSE,
+                  logging = FALSE,
+                  autonumber = FALSE)
+```
+
+
 We will work with examples from Abaza and will try to end up with something like this:
 
 ```{r abaza-example, cache=TRUE}
 library(phonfieldwork)
-draw_sound("sounds/abaza_vowels.wav",
-           "sounds/abaza_vowels.TextGrid", 
-           zoom = c(0,8.3))
+draw_sound("sounds/s1_all.wav",
+           "sounds/s1_all.TextGrid")
 ```
 
 ### Befor we start
@@ -241,9 +257,7 @@ create_presentation(stimuli = my_stimuli_df$stimuli,
 
 As a result, a file "first_example.html" was created in the output folder. You can change the name of this file by changing  the `output_file` argument. The `.html` file now looks as follows:
 
-<iframe src="https://agricolamz.github.io/2022_HSE_m_Instrumental_phonetics/additional/first_example.html" width = 700 height = 600>
-  <p>Your browser does not support iframes :(</p>
-</iframe>
+<https://agricolamz.github.io/2022_HSE_m_Instrumental_phonetics/additional/first_example.html>
 
 It is also possible to change the output format, using the `output_format` argument. By dafault it is "html", but you can also use "pptx". There is also an additional argument `translations`, where you can provide translations for stimuli in order that they appeared near the stimuli on the slide.
 
@@ -254,6 +268,234 @@ create_presentation(stimuli = my_stimuli_df$stimuli,
                     output_dir = "sounds/")
 ```
 
-<iframe src="https://agricolamz.github.io/2022_HSE_m_Instrumental_phonetics/additional/second_example.html" width = 700 height = 600>
-  <p>Your browser does not support iframes :(</p>
-</iframe>
+<https://agricolamz.github.io/2022_HSE_m_Instrumental_phonetics/additional/second_example.html>
+
+### Rename collected data
+
+After collecting data and removing soundfiles with unsuccesful elicitations, one could end up with the following structure:
+
+```
+sounds
+├── 01.wav
+└── 02.wav
+```
+
+```{r}
+rename_soundfiles(stimuli = my_stimuli_df$stimuli,
+                  prefix = "s1_",
+                  path = "sounds/examples/")
+```
+
+As a result, you obtain the following structure:
+
+```
+sounds
+├── 1_s1_ba.wav
+├── 2_s1_bzə.wav
+└── backup
+    ├── 01.wav
+    ├── 02.wav
+    └── logging.csv
+```
+
+The `rename_soundfiles()` function created a backup folder with all of the unrenamed files, and renamed all files using the prefix provided in the prefix argument. There is an additional argument backup that can be set to FALSE (it is TRUE by default), in case you are sure that the renaming function will work properly with your files and stimuli, and you do not need a backup of the unrenamed files. There is also an additional argument logging (`TRUE` by default) that creates a `logging.csv` file in the backup folder (or in the original folder if the backup argument has value `FALSE`) with the correspondences between old and new names of the files. Here is the contence of the `logging.csv`:
+
+```{r, echo=FALSE}
+read.csv("sounds/examples/backup/logging.csv")
+```
+
+### Merge all data together
+
+After all the files are renamed, you can merge them into one. Remmber that sampling rate, resolution (bit), and number of channels should be the same across all recordings. It is possible to resample files with the `resample()` function from the package `biacoustics`.
+
+```{r}
+concatenate_soundfiles(path = "sounds/examples/",
+                       result_file_name = "s1_all")
+```
+
+This comand creates a new soundfile s1_all.wav and an asociated Praat TextGrid s1_all.TextGrid:
+
+```
+├── 1_s1_ba.wav
+├── 2_s1_bzə.wav
+├── s1_all.TextGrid
+├── s1_all.wav
+└── backup
+    ├── 01.wav
+    ├── 02.wav
+    └── logging.csv
+```
+
+The resulting file can be parsed with Praat:
+
+```{r firstpicture, echo=FALSE, cache=TRUE}
+draw_sound("sounds/examples/s1_all.wav", "sounds/examples/s1_all.TextGrid")
+```
+
+Sometimes recorded sounds do not have any silence at the beginning or the end, so after the merging the result utterances will too close to each other. It is possible to fix using the argument separate_duration of the `concatenate_soundfiles()` function: just put the desired duration of the separator in seconds.
+
+It is not kind of task that could occur within phonfieldwork philosophy, but it also possible to merge multiple .TextGrids with the same tier structure using `concatente_textgrids()` function.
+
+### Annotate your data
+
+It is possible to annotate words using an existing annotation:
+
+```{r}
+my_stimuli_df$stimuli
+```
+
+
+```{r}
+annotate_textgrid(annotation = my_stimuli_df$stimuli,
+                  textgrid = "sounds/examples/s1_all.TextGrid")
+```
+
+```{r firstannotate, echo=FALSE, cache=TRUE}
+draw_sound("sounds/examples/s1_all.wav", "sounds/examples/s1_all.TextGrid")
+```
+
+As you can see in the example, the `annotate_textgrid()` function creates a backup of the tier and adds a new tier on top of the previous one. It is possible to prevent the function from doing so by setting the `backup` argument to `FALSE`.
+
+```{r}
+annotate_textgrid(annotation = my_stimuli_df$translation,
+                  textgrid = "sounds/examples/s1_all.TextGrid",
+                  tier = 2, 
+                  backup = FALSE)
+```
+
+```{r secondannotate, echo=FALSE, cache=TRUE}
+draw_sound("sounds/examples/s1_all.wav", "sounds/examples/s1_all.TextGrid")
+```
+
+
+Imagine that we are interested in annotation of vowels. The most common solution will be open Praat and create new annotations. But it is also possible to create them in advance using subannotations. The idea that you choose some baseline tier that later will be automatically cutted into smaller pieces on the other tier.
+
+```{r}
+create_subannotation(textgrid = "sounds/examples/s1_all.TextGrid",
+                     tier = 1, # this is a baseline tier
+                     n_of_annotations = 9) # how many empty annotations per unit?
+```
+
+```{r vowelannotate, echo=FALSE, cache=TRUE}
+draw_sound("sounds/examples/s1_all.wav", "sounds/examples/s1_all.TextGrid")
+```
+
+It is worth mentioning that if you want to have different number of subannotation per unit, you can pass a vector of required numbers to `n_of_annotations` argument.
+
+After the creation of subannotations, we can annotate created tier:
+
+```{r}
+annotate_textgrid(annotation = c("", "a", "", "a", "", "a", "", "a", "",
+                                 "", "ə", "", "ə", "", "ə", "", "ə", ""),
+                  textgrid = "sounds/examples/s1_all.TextGrid",
+                  tier = 3,
+                  backup = FALSE)
+```
+
+```{r vowelannotate2, echo=FALSE, cache=TRUE}
+draw_sound("sounds/examples/s1_all.wav", "sounds/examples/s1_all.TextGrid")
+```
+
+We can also add some tier for uterance annotation:
+
+```{r}
+create_subannotation(textgrid = "sounds/examples/s1_all.TextGrid",
+                     tier = 1,
+                     n_of_annotations = 9)
+annotate_textgrid(annotation = c("", "u_1", "", "u_2", "", "u_3", "", "cf", "",
+                                 "", "u_1", "", "u_2", "", "u_3", "", "cf", ""),
+                  textgrid = "sounds/examples/s1_all.TextGrid",
+                  tier = 4,
+                  backup = FALSE)
+```
+
+```{r vowelannotate3, echo=FALSE, cache=TRUE}
+draw_sound("sounds/examples/s1_all.wav", "sounds/examples/s1_all.TextGrid")
+```
+
+You can see that we created a third tier with annotation. The only thing left is to move annotation boundaries in Praat (this can not be automated):
+
+```{r, include=FALSE}
+file.copy("sounds/s1_all.TextGrid", 
+          "sounds/examples/s1_all.TextGrid", 
+          overwrite = TRUE)
+```
+
+```{r vowelannotated, echo=FALSE, cache=TRUE}
+draw_sound("sounds/examples/s1_all.wav", "sounds/examples/s1_all.TextGrid")
+```
+
+## Extracting your data
+
+First, it is important to create a folder where all of the extracted files will be stored:
+```{r}
+dir.create("sounds/examples/s1_sounds")
+```
+
+It is possible to extract all annotated files based on an annotation tier:
+
+```{r}
+extract_intervals(file_name = "sounds/examples/s1_all.wav",
+                  textgrid = "sounds/examples/s1_all.TextGrid",
+                  tier = 3,
+                  path = "sounds/examples/s1_sounds/",
+                  prefix = "s1_")
+```
+
+```
+sounds/examples
+├── 1_s1_ba.wav
+├── 2_s1_bzə.wav
+├── s1_all.TextGrid
+├── s1_all.wav
+├── backup
+│   ├── 01.wav
+│   ├── 02.wav
+│   └── logging.csv
+└── s1_sounds
+    ├── 01_s1_a.wav
+    ├── 02_s1_a.wav
+    ├── 03_s1_a.wav
+    ├── 04_s1_a.wav
+    ├── 05_s1_ə.wav
+    ├── 06_s1_ə.wav
+    ├── 07_s1_ə.wav
+    └── 08_s1_ə.wav
+```
+
+## Visualizing your data
+It is possible to view an oscilogram and spetrogram of any soundfile:
+
+```{r extractdraw, cache=TRUE}
+draw_sound(file_name = "sounds/examples/s1_sounds/01_s1_a.wav")
+```
+
+There are additional parameters:
+
+* `title` -- the title for the plot
+* `from` -- time in seconds at which to start extraction
+* `to` -- time in seconds at which to stop extraction
+* `zoom` -- time in seconds for zooming spectrogram
+* `text_size` -- size of the text on the plot
+* `annotation` -- the optional file with the TextGrid's file path or dataframe with annotations (see the section 5.)
+* `freq_scale` -- the measure of the frequency: can be "Hz" or "kHz".
+* `frequency_range` -- the frequency range to be displayed for the spectrogram
+* `dynamic_range` -- values greater than this many dB below the maximum will be displayed in the same color
+* `window_length` -- the desired length in milliseconds for the analysis window
+* `window` -- window type (can be "rectangular", "hann", "hamming", "cosine", "bartlett", "gaussian", and "kaiser")
+* `preemphasisf` -- Preemphasis of 6 dB per octave is added to frequencies above the specified frequency. For no preemphasis (important for bioacoustics), set to a 0.
+* `spectrum_info` -- logical value, if `FALSE` won't print information about spectorgram on the right side of the plot.
+* `output_file` -- the name of the output file
+* `output_width` -- the width of the device
+* `output_height` -- the height of the device
+* `output_units` -- the units in which height and width are given. This can be "px" (pixels, which is the default value), "in" (inches), "cm" or "mm".
+
+It is really important in case you have a long file not to draw the whole file, since it won't fit into the RAM of your computer. So you can use `from` and `to` arguments in order to plot the fragment of the sound and annotation:
+
+```{r mergedplot, cache=TRUE}
+draw_sound("sounds/examples/s1_all.wav",
+           "sounds/examples/s1_all.TextGrid")
+```
+
+
+You can find the whole documentation for `phonfieldwork` [here](https://ropensci.github.io/phonfieldwork/articles/phonfieldwork.html).

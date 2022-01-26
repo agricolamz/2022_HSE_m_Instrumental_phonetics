@@ -204,7 +204,12 @@ div.csl-indent {
 <li class="chapter" data-level="4.2.2" data-path="vowels.html"><a href="vowels.html#philosophy-of-the-phonfieldwork-package"><i class="fa fa-check"></i><b>4.2.2</b> Philosophy of the <code>phonfieldwork</code> package</a></li>
 <li class="chapter" data-level="4.2.3" data-path="vowels.html"><a href="vowels.html#make-a-list-of-your-stimuli"><i class="fa fa-check"></i><b>4.2.3</b> Make a list of your stimuli</a></li>
 <li class="chapter" data-level="4.2.4" data-path="vowels.html"><a href="vowels.html#create-a-presentation-based-on-a-list-of-stimuli"><i class="fa fa-check"></i><b>4.2.4</b> Create a presentation based on a list of stimuli</a></li>
+<li class="chapter" data-level="4.2.5" data-path="vowels.html"><a href="vowels.html#rename-collected-data"><i class="fa fa-check"></i><b>4.2.5</b> Rename collected data</a></li>
+<li class="chapter" data-level="4.2.6" data-path="vowels.html"><a href="vowels.html#merge-all-data-together"><i class="fa fa-check"></i><b>4.2.6</b> Merge all data together</a></li>
+<li class="chapter" data-level="4.2.7" data-path="vowels.html"><a href="vowels.html#annotate-your-data"><i class="fa fa-check"></i><b>4.2.7</b> Annotate your data</a></li>
 </ul></li>
+<li class="chapter" data-level="4.3" data-path="vowels.html"><a href="vowels.html#extracting-your-data"><i class="fa fa-check"></i><b>4.3</b> Extracting your data</a></li>
+<li class="chapter" data-level="4.4" data-path="vowels.html"><a href="vowels.html#visualizing-your-data"><i class="fa fa-check"></i><b>4.4</b> Visualizing your data</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 </ul>
@@ -394,23 +399,160 @@ s(t) = A \times \cos(2\pi ft + \phi)
 <span id="cb6-2"><a href="vowels.html#cb6-2" aria-hidden="true" tabindex="-1"></a>                    <span class="at">output_file =</span> <span class="st">&quot;first_example&quot;</span>,</span>
 <span id="cb6-3"><a href="vowels.html#cb6-3" aria-hidden="true" tabindex="-1"></a>                    <span class="at">output_dir =</span> <span class="st">&quot;sounds/&quot;</span>)</span></code></pre></div>
 <p>As a result, a file “first_example.html” was created in the output folder. You can change the name of this file by changing the <code>output_file</code> argument. The <code>.html</code> file now looks as follows:</p>
-<iframe src="https://agricolamz.github.io/2022_HSE_m_Instrumental_phonetics/additional/first_example.html" width="700" height="600">
-<p>
-Your browser does not support iframes :(
-</p>
-</iframe>
+<p><a href="https://agricolamz.github.io/2022_HSE_m_Instrumental_phonetics/additional/first_example.html" class="uri">https://agricolamz.github.io/2022_HSE_m_Instrumental_phonetics/additional/first_example.html</a></p>
 <p>It is also possible to change the output format, using the <code>output_format</code> argument. By dafault it is “html,” but you can also use “pptx.” There is also an additional argument <code>translations</code>, where you can provide translations for stimuli in order that they appeared near the stimuli on the slide.</p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="vowels.html#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">create_presentation</span>(<span class="at">stimuli =</span> my_stimuli_df<span class="sc">$</span>stimuli, </span>
 <span id="cb7-2"><a href="vowels.html#cb7-2" aria-hidden="true" tabindex="-1"></a>                    <span class="at">translations =</span> my_stimuli_df<span class="sc">$</span>translation,</span>
 <span id="cb7-3"><a href="vowels.html#cb7-3" aria-hidden="true" tabindex="-1"></a>                    <span class="at">output_file =</span> <span class="st">&quot;second_example&quot;</span>,</span>
 <span id="cb7-4"><a href="vowels.html#cb7-4" aria-hidden="true" tabindex="-1"></a>                    <span class="at">output_dir =</span> <span class="st">&quot;sounds/&quot;</span>)</span></code></pre></div>
-<iframe src="https://agricolamz.github.io/2022_HSE_m_Instrumental_phonetics/additional/second_example.html" width="700" height="600">
-<p>
-Your browser does not support iframes :(
-</p>
-</iframe>
-
+<p><a href="https://agricolamz.github.io/2022_HSE_m_Instrumental_phonetics/additional/second_example.html" class="uri">https://agricolamz.github.io/2022_HSE_m_Instrumental_phonetics/additional/second_example.html</a></p>
 </div>
+<div id="rename-collected-data" class="section level3" number="4.2.5">
+<h3><span class="header-section-number">4.2.5</span> Rename collected data</h3>
+<p>After collecting data and removing soundfiles with unsuccesful elicitations, one could end up with the following structure:</p>
+<pre><code>sounds
+├── 01.wav
+└── 02.wav</code></pre>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="vowels.html#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rename_soundfiles</span>(<span class="at">stimuli =</span> my_stimuli_df<span class="sc">$</span>stimuli,</span>
+<span id="cb9-2"><a href="vowels.html#cb9-2" aria-hidden="true" tabindex="-1"></a>                  <span class="at">prefix =</span> <span class="st">&quot;s1_&quot;</span>,</span>
+<span id="cb9-3"><a href="vowels.html#cb9-3" aria-hidden="true" tabindex="-1"></a>                  <span class="at">path =</span> <span class="st">&quot;sounds/examples/&quot;</span>)</span></code></pre></div>
+<pre><code>## You can find change correspondences in the following file:
+## /home/agricolamz/work/materials/2022_HSE_m_instrumental_phonetics/materials/sounds/examples/backup/logging.csv</code></pre>
+<p>As a result, you obtain the following structure:</p>
+<pre><code>sounds
+├── 1_s1_ba.wav
+├── 2_s1_bzə.wav
+└── backup
+    ├── 01.wav
+    ├── 02.wav
+    └── logging.csv</code></pre>
+<p>The <code>rename_soundfiles()</code> function created a backup folder with all of the unrenamed files, and renamed all files using the prefix provided in the prefix argument. There is an additional argument backup that can be set to FALSE (it is TRUE by default), in case you are sure that the renaming function will work properly with your files and stimuli, and you do not need a backup of the unrenamed files. There is also an additional argument logging (<code>TRUE</code> by default) that creates a <code>logging.csv</code> file in the backup folder (or in the original folder if the backup argument has value <code>FALSE</code>) with the correspondences between old and new names of the files. Here is the contence of the <code>logging.csv</code>:</p>
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["from"],"name":[1],"type":["chr"],"align":["left"]},{"label":["to"],"name":[2],"type":["chr"],"align":["left"]}],"data":[{"1":"01.wav","2":"1_s1_ba.wav"},{"1":"02.wav","2":"2_s1_bzə.wav"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+<div id="merge-all-data-together" class="section level3" number="4.2.6">
+<h3><span class="header-section-number">4.2.6</span> Merge all data together</h3>
+<p>After all the files are renamed, you can merge them into one. Remmber that sampling rate, resolution (bit), and number of channels should be the same across all recordings. It is possible to resample files with the <code>resample()</code> function from the package <code>biacoustics</code>.</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="vowels.html#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">concatenate_soundfiles</span>(<span class="at">path =</span> <span class="st">&quot;sounds/examples/&quot;</span>,</span>
+<span id="cb12-2"><a href="vowels.html#cb12-2" aria-hidden="true" tabindex="-1"></a>                       <span class="at">result_file_name =</span> <span class="st">&quot;s1_all&quot;</span>)</span></code></pre></div>
+<p>This comand creates a new soundfile s1_all.wav and an asociated Praat TextGrid s1_all.TextGrid:</p>
+<pre><code>├── 1_s1_ba.wav
+├── 2_s1_bzə.wav
+├── s1_all.TextGrid
+├── s1_all.wav
+└── backup
+    ├── 01.wav
+    ├── 02.wav
+    └── logging.csv</code></pre>
+<p>The resulting file can be parsed with Praat:</p>
+<p><img src="2022_instrumental_phonetics_files/figure-html/firstpicture-1.png" width="672" /></p>
+<p>Sometimes recorded sounds do not have any silence at the beginning or the end, so after the merging the result utterances will too close to each other. It is possible to fix using the argument separate_duration of the <code>concatenate_soundfiles()</code> function: just put the desired duration of the separator in seconds.</p>
+<p>It is not kind of task that could occur within phonfieldwork philosophy, but it also possible to merge multiple .TextGrids with the same tier structure using <code>concatente_textgrids()</code> function.</p>
+</div>
+<div id="annotate-your-data" class="section level3" number="4.2.7">
+<h3><span class="header-section-number">4.2.7</span> Annotate your data</h3>
+<p>It is possible to annotate words using an existing annotation:</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="vowels.html#cb14-1" aria-hidden="true" tabindex="-1"></a>my_stimuli_df<span class="sc">$</span>stimuli</span></code></pre></div>
+<pre><code>## [1] &quot;ba&quot;  &quot;bzə&quot;</code></pre>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="vowels.html#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">annotate_textgrid</span>(<span class="at">annotation =</span> my_stimuli_df<span class="sc">$</span>stimuli,</span>
+<span id="cb16-2"><a href="vowels.html#cb16-2" aria-hidden="true" tabindex="-1"></a>                  <span class="at">textgrid =</span> <span class="st">&quot;sounds/examples/s1_all.TextGrid&quot;</span>)</span></code></pre></div>
+<p><img src="2022_instrumental_phonetics_files/figure-html/firstannotate-1.png" width="672" /></p>
+<p>As you can see in the example, the <code>annotate_textgrid()</code> function creates a backup of the tier and adds a new tier on top of the previous one. It is possible to prevent the function from doing so by setting the <code>backup</code> argument to <code>FALSE</code>.</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="vowels.html#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">annotate_textgrid</span>(<span class="at">annotation =</span> my_stimuli_df<span class="sc">$</span>translation,</span>
+<span id="cb17-2"><a href="vowels.html#cb17-2" aria-hidden="true" tabindex="-1"></a>                  <span class="at">textgrid =</span> <span class="st">&quot;sounds/examples/s1_all.TextGrid&quot;</span>,</span>
+<span id="cb17-3"><a href="vowels.html#cb17-3" aria-hidden="true" tabindex="-1"></a>                  <span class="at">tier =</span> <span class="dv">2</span>, </span>
+<span id="cb17-4"><a href="vowels.html#cb17-4" aria-hidden="true" tabindex="-1"></a>                  <span class="at">backup =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
+<p><img src="2022_instrumental_phonetics_files/figure-html/secondannotate-1.png" width="672" /></p>
+<p>Imagine that we are interested in annotation of vowels. The most common solution will be open Praat and create new annotations. But it is also possible to create them in advance using subannotations. The idea that you choose some baseline tier that later will be automatically cutted into smaller pieces on the other tier.</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="vowels.html#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">create_subannotation</span>(<span class="at">textgrid =</span> <span class="st">&quot;sounds/examples/s1_all.TextGrid&quot;</span>,</span>
+<span id="cb18-2"><a href="vowels.html#cb18-2" aria-hidden="true" tabindex="-1"></a>                     <span class="at">tier =</span> <span class="dv">1</span>, <span class="co"># this is a baseline tier</span></span>
+<span id="cb18-3"><a href="vowels.html#cb18-3" aria-hidden="true" tabindex="-1"></a>                     <span class="at">n_of_annotations =</span> <span class="dv">9</span>) <span class="co"># how many empty annotations per unit?</span></span></code></pre></div>
+<p><img src="2022_instrumental_phonetics_files/figure-html/vowelannotate-1.png" width="672" /></p>
+<p>It is worth mentioning that if you want to have different number of subannotation per unit, you can pass a vector of required numbers to <code>n_of_annotations</code> argument.</p>
+<p>After the creation of subannotations, we can annotate created tier:</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="vowels.html#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">annotate_textgrid</span>(<span class="at">annotation =</span> <span class="fu">c</span>(<span class="st">&quot;&quot;</span>, <span class="st">&quot;a&quot;</span>, <span class="st">&quot;&quot;</span>, <span class="st">&quot;a&quot;</span>, <span class="st">&quot;&quot;</span>, <span class="st">&quot;a&quot;</span>, <span class="st">&quot;&quot;</span>, <span class="st">&quot;a&quot;</span>, <span class="st">&quot;&quot;</span>,</span>
+<span id="cb19-2"><a href="vowels.html#cb19-2" aria-hidden="true" tabindex="-1"></a>                                 <span class="st">&quot;&quot;</span>, <span class="st">&quot;ə&quot;</span>, <span class="st">&quot;&quot;</span>, <span class="st">&quot;ə&quot;</span>, <span class="st">&quot;&quot;</span>, <span class="st">&quot;ə&quot;</span>, <span class="st">&quot;&quot;</span>, <span class="st">&quot;ə&quot;</span>, <span class="st">&quot;&quot;</span>),</span>
+<span id="cb19-3"><a href="vowels.html#cb19-3" aria-hidden="true" tabindex="-1"></a>                  <span class="at">textgrid =</span> <span class="st">&quot;sounds/examples/s1_all.TextGrid&quot;</span>,</span>
+<span id="cb19-4"><a href="vowels.html#cb19-4" aria-hidden="true" tabindex="-1"></a>                  <span class="at">tier =</span> <span class="dv">3</span>,</span>
+<span id="cb19-5"><a href="vowels.html#cb19-5" aria-hidden="true" tabindex="-1"></a>                  <span class="at">backup =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
+<p><img src="2022_instrumental_phonetics_files/figure-html/vowelannotate2-1.png" width="672" /></p>
+<p>We can also add some tier for uterance annotation:</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="vowels.html#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">create_subannotation</span>(<span class="at">textgrid =</span> <span class="st">&quot;sounds/examples/s1_all.TextGrid&quot;</span>,</span>
+<span id="cb20-2"><a href="vowels.html#cb20-2" aria-hidden="true" tabindex="-1"></a>                     <span class="at">tier =</span> <span class="dv">1</span>,</span>
+<span id="cb20-3"><a href="vowels.html#cb20-3" aria-hidden="true" tabindex="-1"></a>                     <span class="at">n_of_annotations =</span> <span class="dv">9</span>)</span>
+<span id="cb20-4"><a href="vowels.html#cb20-4" aria-hidden="true" tabindex="-1"></a><span class="fu">annotate_textgrid</span>(<span class="at">annotation =</span> <span class="fu">c</span>(<span class="st">&quot;&quot;</span>, <span class="st">&quot;u_1&quot;</span>, <span class="st">&quot;&quot;</span>, <span class="st">&quot;u_2&quot;</span>, <span class="st">&quot;&quot;</span>, <span class="st">&quot;u_3&quot;</span>, <span class="st">&quot;&quot;</span>, <span class="st">&quot;cf&quot;</span>, <span class="st">&quot;&quot;</span>,</span>
+<span id="cb20-5"><a href="vowels.html#cb20-5" aria-hidden="true" tabindex="-1"></a>                                 <span class="st">&quot;&quot;</span>, <span class="st">&quot;u_1&quot;</span>, <span class="st">&quot;&quot;</span>, <span class="st">&quot;u_2&quot;</span>, <span class="st">&quot;&quot;</span>, <span class="st">&quot;u_3&quot;</span>, <span class="st">&quot;&quot;</span>, <span class="st">&quot;cf&quot;</span>, <span class="st">&quot;&quot;</span>),</span>
+<span id="cb20-6"><a href="vowels.html#cb20-6" aria-hidden="true" tabindex="-1"></a>                  <span class="at">textgrid =</span> <span class="st">&quot;sounds/examples/s1_all.TextGrid&quot;</span>,</span>
+<span id="cb20-7"><a href="vowels.html#cb20-7" aria-hidden="true" tabindex="-1"></a>                  <span class="at">tier =</span> <span class="dv">4</span>,</span>
+<span id="cb20-8"><a href="vowels.html#cb20-8" aria-hidden="true" tabindex="-1"></a>                  <span class="at">backup =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
+<p><img src="2022_instrumental_phonetics_files/figure-html/vowelannotate3-1.png" width="672" /></p>
+<p>You can see that we created a third tier with annotation. The only thing left is to move annotation boundaries in Praat (this can not be automated):</p>
+<p><img src="2022_instrumental_phonetics_files/figure-html/vowelannotated-1.png" width="672" /></p>
+</div>
+</div>
+<div id="extracting-your-data" class="section level2" number="4.3">
+<h2><span class="header-section-number">4.3</span> Extracting your data</h2>
+<p>First, it is important to create a folder where all of the extracted files will be stored:</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="vowels.html#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dir.create</span>(<span class="st">&quot;sounds/examples/s1_sounds&quot;</span>)</span></code></pre></div>
+<p>It is possible to extract all annotated files based on an annotation tier:</p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="vowels.html#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">extract_intervals</span>(<span class="at">file_name =</span> <span class="st">&quot;sounds/examples/s1_all.wav&quot;</span>,</span>
+<span id="cb22-2"><a href="vowels.html#cb22-2" aria-hidden="true" tabindex="-1"></a>                  <span class="at">textgrid =</span> <span class="st">&quot;sounds/examples/s1_all.TextGrid&quot;</span>,</span>
+<span id="cb22-3"><a href="vowels.html#cb22-3" aria-hidden="true" tabindex="-1"></a>                  <span class="at">tier =</span> <span class="dv">3</span>,</span>
+<span id="cb22-4"><a href="vowels.html#cb22-4" aria-hidden="true" tabindex="-1"></a>                  <span class="at">path =</span> <span class="st">&quot;sounds/examples/s1_sounds/&quot;</span>,</span>
+<span id="cb22-5"><a href="vowels.html#cb22-5" aria-hidden="true" tabindex="-1"></a>                  <span class="at">prefix =</span> <span class="st">&quot;s1_&quot;</span>)</span></code></pre></div>
+<pre><code>sounds/examples
+├── 1_s1_ba.wav
+├── 2_s1_bzə.wav
+├── s1_all.TextGrid
+├── s1_all.wav
+├── backup
+│   ├── 01.wav
+│   ├── 02.wav
+│   └── logging.csv
+└── s1_sounds
+    ├── 01_s1_a.wav
+    ├── 02_s1_a.wav
+    ├── 03_s1_a.wav
+    ├── 04_s1_a.wav
+    ├── 05_s1_ə.wav
+    ├── 06_s1_ə.wav
+    ├── 07_s1_ə.wav
+    └── 08_s1_ə.wav</code></pre>
+</div>
+<div id="visualizing-your-data" class="section level2" number="4.4">
+<h2><span class="header-section-number">4.4</span> Visualizing your data</h2>
+<p>It is possible to view an oscilogram and spetrogram of any soundfile:</p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="vowels.html#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">draw_sound</span>(<span class="at">file_name =</span> <span class="st">&quot;sounds/examples/s1_sounds/01_s1_a.wav&quot;</span>)</span></code></pre></div>
+<p><img src="2022_instrumental_phonetics_files/figure-html/extractdraw-1.png" width="672" /></p>
+<p>There are additional parameters:</p>
+<ul>
+<li><code>title</code> – the title for the plot</li>
+<li><code>from</code> – time in seconds at which to start extraction</li>
+<li><code>to</code> – time in seconds at which to stop extraction</li>
+<li><code>zoom</code> – time in seconds for zooming spectrogram</li>
+<li><code>text_size</code> – size of the text on the plot</li>
+<li><code>annotation</code> – the optional file with the TextGrid’s file path or dataframe with annotations (see the section 5.)</li>
+<li><code>freq_scale</code> – the measure of the frequency: can be “Hz” or “kHz.”</li>
+<li><code>frequency_range</code> – the frequency range to be displayed for the spectrogram</li>
+<li><code>dynamic_range</code> – values greater than this many dB below the maximum will be displayed in the same color</li>
+<li><code>window_length</code> – the desired length in milliseconds for the analysis window</li>
+<li><code>window</code> – window type (can be “rectangular,” “hann,” “hamming,” “cosine,” “bartlett,” “gaussian,” and “kaiser”)</li>
+<li><code>preemphasisf</code> – Preemphasis of 6 dB per octave is added to frequencies above the specified frequency. For no preemphasis (important for bioacoustics), set to a 0.</li>
+<li><code>spectrum_info</code> – logical value, if <code>FALSE</code> won’t print information about spectorgram on the right side of the plot.</li>
+<li><code>output_file</code> – the name of the output file</li>
+<li><code>output_width</code> – the width of the device</li>
+<li><code>output_height</code> – the height of the device</li>
+<li><code>output_units</code> – the units in which height and width are given. This can be “px” (pixels, which is the default value), “in” (inches), “cm” or “mm.”</li>
+</ul>
+<p>It is really important in case you have a long file not to draw the whole file, since it won’t fit into the RAM of your computer. So you can use <code>from</code> and <code>to</code> arguments in order to plot the fragment of the sound and annotation:</p>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="vowels.html#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">draw_sound</span>(<span class="st">&quot;sounds/examples/s1_all.wav&quot;</span>,</span>
+<span id="cb25-2"><a href="vowels.html#cb25-2" aria-hidden="true" tabindex="-1"></a>           <span class="st">&quot;sounds/examples/s1_all.TextGrid&quot;</span>)</span></code></pre></div>
+<p><img src="2022_instrumental_phonetics_files/figure-html/mergedplot-1.png" width="672" /></p>
+<p>You can find the whole documentation for <code>phonfieldwork</code> <a href="https://ropensci.github.io/phonfieldwork/articles/phonfieldwork.html">here</a>.</p>
+
 </div>
 </div>
 <h3>References</h3>

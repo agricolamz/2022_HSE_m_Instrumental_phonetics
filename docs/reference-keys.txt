@@ -33,3 +33,8 @@ befor-we-start
 philosophy-of-the-phonfieldwork-package
 make-a-list-of-your-stimuli
 create-a-presentation-based-on-a-list-of-stimuli
+rename-collected-data
+merge-all-data-together
+annotate-your-data
+extracting-your-data
+visualizing-your-data
