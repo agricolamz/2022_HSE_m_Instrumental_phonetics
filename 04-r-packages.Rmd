@@ -466,7 +466,6 @@ h95 %>%
   geom_text()+
   scale_x_reverse()+
   scale_y_reverse()+
-  coord_fixed()+
   facet_wrap(~type)+
   labs(title = "Normalized vowels")
 ```
