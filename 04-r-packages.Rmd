@@ -426,7 +426,7 @@ h95 %>%
                            vowel == "E" ~ "ɛ",
                            vowel == "e" ~ "e",
                            vowel == "u" ~ "u",
-                           vowel == "U" ~ "ʊ",                           
+                           vowel == "U" ~ "ʊ",                  
                            vowel == "{" ~ "æ",
                            vowel == "V" ~ "ʌ",
                            vowel == "A" ~ "ɑ",
@@ -440,6 +440,35 @@ h95 %>%
   scale_y_reverse()+
   coord_fixed()+
   facet_wrap(~type)
+```
+
+It also make sense to use normalisation for vowels:
+
+```{r}
+h95 %>% 
+  mutate(vowel = case_when(vowel == "I" ~ "ɪ",
+                           vowel == "i" ~ "i",
+                           vowel == "E" ~ "ɛ",
+                           vowel == "e" ~ "e",
+                           vowel == "u" ~ "u",
+                           vowel == "U" ~ "ʊ",                  
+                           vowel == "{" ~ "æ",
+                           vowel == "V" ~ "ʌ",
+                           vowel == "A" ~ "ɑ",
+                           vowel == "O" ~ "ɔ",
+                           vowel == "o" ~ "o",
+                           vowel == "3'" ~ "ɝ")) %>% 
+  group_by(speaker) %>% 
+  mutate(f1 = scale(f1),
+         f2 = scale(f2)) %>% 
+  ggplot(aes(f2, f1, label = vowel, color = vowel))+
+  stat_ellipse()+
+  geom_text()+
+  scale_x_reverse()+
+  scale_y_reverse()+
+  coord_fixed()+
+  facet_wrap(~type)+
+  labs(title = "Normalized vowels")
 ```
 
 If you will use the package it make sense to cite it:

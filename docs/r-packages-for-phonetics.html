@@ -163,7 +163,8 @@ div.csl-indent {
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> About the course</a>
 <ul>
 <li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#recording-in-case-you-missed-the-class"><i class="fa fa-check"></i><b>1.1</b> Recording in case you missed the class</a></li>
-<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#useful-references"><i class="fa fa-check"></i><b>1.2</b> Useful references:</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#homeworks"><i class="fa fa-check"></i><b>1.2</b> Homeworks</a></li>
+<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#useful-references"><i class="fa fa-check"></i><b>1.3</b> Useful references:</a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="introduction-to-acoustic-phonetics.html"><a href="introduction-to-acoustic-phonetics.html"><i class="fa fa-check"></i><b>2</b> Introduction to Acoustic Phonetics</a>
 <ul>
@@ -545,7 +546,7 @@ div.csl-indent {
 <span id="cb34-5"><a href="r-packages-for-phonetics.html#cb34-5" aria-hidden="true" tabindex="-1"></a>                           vowel <span class="sc">==</span> <span class="st">&quot;E&quot;</span> <span class="sc">~</span> <span class="st">&quot;ɛ&quot;</span>,</span>
 <span id="cb34-6"><a href="r-packages-for-phonetics.html#cb34-6" aria-hidden="true" tabindex="-1"></a>                           vowel <span class="sc">==</span> <span class="st">&quot;e&quot;</span> <span class="sc">~</span> <span class="st">&quot;e&quot;</span>,</span>
 <span id="cb34-7"><a href="r-packages-for-phonetics.html#cb34-7" aria-hidden="true" tabindex="-1"></a>                           vowel <span class="sc">==</span> <span class="st">&quot;u&quot;</span> <span class="sc">~</span> <span class="st">&quot;u&quot;</span>,</span>
-<span id="cb34-8"><a href="r-packages-for-phonetics.html#cb34-8" aria-hidden="true" tabindex="-1"></a>                           vowel <span class="sc">==</span> <span class="st">&quot;U&quot;</span> <span class="sc">~</span> <span class="st">&quot;ʊ&quot;</span>,                           </span>
+<span id="cb34-8"><a href="r-packages-for-phonetics.html#cb34-8" aria-hidden="true" tabindex="-1"></a>                           vowel <span class="sc">==</span> <span class="st">&quot;U&quot;</span> <span class="sc">~</span> <span class="st">&quot;ʊ&quot;</span>,                  </span>
 <span id="cb34-9"><a href="r-packages-for-phonetics.html#cb34-9" aria-hidden="true" tabindex="-1"></a>                           vowel <span class="sc">==</span> <span class="st">&quot;{&quot;</span> <span class="sc">~</span> <span class="st">&quot;æ&quot;</span>,</span>
 <span id="cb34-10"><a href="r-packages-for-phonetics.html#cb34-10" aria-hidden="true" tabindex="-1"></a>                           vowel <span class="sc">==</span> <span class="st">&quot;V&quot;</span> <span class="sc">~</span> <span class="st">&quot;ʌ&quot;</span>,</span>
 <span id="cb34-11"><a href="r-packages-for-phonetics.html#cb34-11" aria-hidden="true" tabindex="-1"></a>                           vowel <span class="sc">==</span> <span class="st">&quot;A&quot;</span> <span class="sc">~</span> <span class="st">&quot;ɑ&quot;</span>,</span>
@@ -560,8 +561,34 @@ div.csl-indent {
 <span id="cb34-20"><a href="r-packages-for-phonetics.html#cb34-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_fixed</span>()<span class="sc">+</span></span>
 <span id="cb34-21"><a href="r-packages-for-phonetics.html#cb34-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>type)</span></code></pre></div>
 <p><img src="2022_instrumental_phonetics_files/figure-html/unnamed-chunk-24-1.png" width="1152" /></p>
+<p>It also make sense to use normalisation for vowels:</p>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="r-packages-for-phonetics.html#cb35-1" aria-hidden="true" tabindex="-1"></a>h95 <span class="sc">%&gt;%</span> </span>
+<span id="cb35-2"><a href="r-packages-for-phonetics.html#cb35-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">vowel =</span> <span class="fu">case_when</span>(vowel <span class="sc">==</span> <span class="st">&quot;I&quot;</span> <span class="sc">~</span> <span class="st">&quot;ɪ&quot;</span>,</span>
+<span id="cb35-3"><a href="r-packages-for-phonetics.html#cb35-3" aria-hidden="true" tabindex="-1"></a>                           vowel <span class="sc">==</span> <span class="st">&quot;i&quot;</span> <span class="sc">~</span> <span class="st">&quot;i&quot;</span>,</span>
+<span id="cb35-4"><a href="r-packages-for-phonetics.html#cb35-4" aria-hidden="true" tabindex="-1"></a>                           vowel <span class="sc">==</span> <span class="st">&quot;E&quot;</span> <span class="sc">~</span> <span class="st">&quot;ɛ&quot;</span>,</span>
+<span id="cb35-5"><a href="r-packages-for-phonetics.html#cb35-5" aria-hidden="true" tabindex="-1"></a>                           vowel <span class="sc">==</span> <span class="st">&quot;e&quot;</span> <span class="sc">~</span> <span class="st">&quot;e&quot;</span>,</span>
+<span id="cb35-6"><a href="r-packages-for-phonetics.html#cb35-6" aria-hidden="true" tabindex="-1"></a>                           vowel <span class="sc">==</span> <span class="st">&quot;u&quot;</span> <span class="sc">~</span> <span class="st">&quot;u&quot;</span>,</span>
+<span id="cb35-7"><a href="r-packages-for-phonetics.html#cb35-7" aria-hidden="true" tabindex="-1"></a>                           vowel <span class="sc">==</span> <span class="st">&quot;U&quot;</span> <span class="sc">~</span> <span class="st">&quot;ʊ&quot;</span>,                  </span>
+<span id="cb35-8"><a href="r-packages-for-phonetics.html#cb35-8" aria-hidden="true" tabindex="-1"></a>                           vowel <span class="sc">==</span> <span class="st">&quot;{&quot;</span> <span class="sc">~</span> <span class="st">&quot;æ&quot;</span>,</span>
+<span id="cb35-9"><a href="r-packages-for-phonetics.html#cb35-9" aria-hidden="true" tabindex="-1"></a>                           vowel <span class="sc">==</span> <span class="st">&quot;V&quot;</span> <span class="sc">~</span> <span class="st">&quot;ʌ&quot;</span>,</span>
+<span id="cb35-10"><a href="r-packages-for-phonetics.html#cb35-10" aria-hidden="true" tabindex="-1"></a>                           vowel <span class="sc">==</span> <span class="st">&quot;A&quot;</span> <span class="sc">~</span> <span class="st">&quot;ɑ&quot;</span>,</span>
+<span id="cb35-11"><a href="r-packages-for-phonetics.html#cb35-11" aria-hidden="true" tabindex="-1"></a>                           vowel <span class="sc">==</span> <span class="st">&quot;O&quot;</span> <span class="sc">~</span> <span class="st">&quot;ɔ&quot;</span>,</span>
+<span id="cb35-12"><a href="r-packages-for-phonetics.html#cb35-12" aria-hidden="true" tabindex="-1"></a>                           vowel <span class="sc">==</span> <span class="st">&quot;o&quot;</span> <span class="sc">~</span> <span class="st">&quot;o&quot;</span>,</span>
+<span id="cb35-13"><a href="r-packages-for-phonetics.html#cb35-13" aria-hidden="true" tabindex="-1"></a>                           vowel <span class="sc">==</span> <span class="st">&quot;3&#39;&quot;</span> <span class="sc">~</span> <span class="st">&quot;ɝ&quot;</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb35-14"><a href="r-packages-for-phonetics.html#cb35-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(speaker) <span class="sc">%&gt;%</span> </span>
+<span id="cb35-15"><a href="r-packages-for-phonetics.html#cb35-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">f1 =</span> <span class="fu">scale</span>(f1),</span>
+<span id="cb35-16"><a href="r-packages-for-phonetics.html#cb35-16" aria-hidden="true" tabindex="-1"></a>         <span class="at">f2 =</span> <span class="fu">scale</span>(f2)) <span class="sc">%&gt;%</span> </span>
+<span id="cb35-17"><a href="r-packages-for-phonetics.html#cb35-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(f2, f1, <span class="at">label =</span> vowel, <span class="at">color =</span> vowel))<span class="sc">+</span></span>
+<span id="cb35-18"><a href="r-packages-for-phonetics.html#cb35-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_ellipse</span>()<span class="sc">+</span></span>
+<span id="cb35-19"><a href="r-packages-for-phonetics.html#cb35-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>()<span class="sc">+</span></span>
+<span id="cb35-20"><a href="r-packages-for-phonetics.html#cb35-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_reverse</span>()<span class="sc">+</span></span>
+<span id="cb35-21"><a href="r-packages-for-phonetics.html#cb35-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_reverse</span>()<span class="sc">+</span></span>
+<span id="cb35-22"><a href="r-packages-for-phonetics.html#cb35-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_fixed</span>()<span class="sc">+</span></span>
+<span id="cb35-23"><a href="r-packages-for-phonetics.html#cb35-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>type)<span class="sc">+</span></span>
+<span id="cb35-24"><a href="r-packages-for-phonetics.html#cb35-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Normalized vowels&quot;</span>)</span></code></pre></div>
+<p><img src="2022_instrumental_phonetics_files/figure-html/unnamed-chunk-25-1.png" width="672" /></p>
 <p>If you will use the package it make sense to cite it:</p>
-<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="r-packages-for-phonetics.html#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="fu">citation</span>(<span class="st">&quot;phonTools&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="r-packages-for-phonetics.html#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="fu">citation</span>(<span class="st">&quot;phonTools&quot;</span>)</span></code></pre></div>
 <pre><code>## 
 ## To cite package &#39;phonTools&#39; in publications use:
 ## 
@@ -581,7 +608,7 @@ div.csl-indent {
 <h2><span class="header-section-number">5.3</span> <code>vowels</code></h2>
 <p>Procedures for the manipulation, normalization, and plotting of phonetic and sociophonetic vowel formant data. <code>vowels</code> is the backend for the <a href="http://lingtools.uoregon.edu/norm/about_norm1.php">NORM website</a>.</p>
 <p>If you will use the package it make sense to cite it:</p>
-<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="r-packages-for-phonetics.html#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="fu">citation</span>(<span class="st">&quot;vowels&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="r-packages-for-phonetics.html#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="fu">citation</span>(<span class="st">&quot;vowels&quot;</span>)</span></code></pre></div>
 <pre><code>## 
 ## To cite package &#39;vowels&#39; in publications use:
 ## 
@@ -607,7 +634,7 @@ div.csl-indent {
 <h2><span class="header-section-number">5.4</span> <code>rPraat</code></h2>
 <p>This is a package for reading, writing and manipulating Praat objects like TextGrid, PitchTier, Pitch, IntensityTier, Formant, Sound, and Collection files. You can find the demo for <code>rPraat</code> <a href="https://fu.ff.cuni.cz/praat/rDemo.html">here</a>.</p>
 <p>If you will use the package it make sense to cite it:</p>
-<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="r-packages-for-phonetics.html#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="fu">citation</span>(<span class="st">&quot;rPraat&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="r-packages-for-phonetics.html#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="fu">citation</span>(<span class="st">&quot;rPraat&quot;</span>)</span></code></pre></div>
 <pre><code>## 
 ## To cite rPraat in publications use:
 ## 
@@ -635,7 +662,7 @@ div.csl-indent {
 <h2><span class="header-section-number">5.5</span> <code>ipa</code></h2>
 <p>Converts character vectors between phonetic representations. Supports IPA (International Phonetic Alphabet), X-SAMPA (Extended Speech Assessment Methods Phonetic Alphabet), and ARPABET (used by the CMU Pronouncing Dictionary).</p>
 <p>If you will use the package it make sense to cite it:</p>
-<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="r-packages-for-phonetics.html#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="fu">citation</span>(<span class="st">&quot;ipa&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="r-packages-for-phonetics.html#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="fu">citation</span>(<span class="st">&quot;ipa&quot;</span>)</span></code></pre></div>
 <pre><code>## 
 ## To cite ipa in publications use:
 ## 
@@ -707,17 +734,17 @@ for interval to intervals - 1
     endif
 endfor</code></pre>
 <p>In order to use it you need to provide path to the script:</p>
-<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="r-packages-for-phonetics.html#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(speakr)</span></code></pre></div>
+<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="r-packages-for-phonetics.html#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(speakr)</span></code></pre></div>
 <pre><code>## Praat found at /usr/bin/praat</code></pre>
-<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="r-packages-for-phonetics.html#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="fu">praat_run</span>(<span class="st">&quot;sounds/speakr/get-formants-args.praat&quot;</span>, </span>
-<span id="cb48-2"><a href="r-packages-for-phonetics.html#cb48-2" aria-hidden="true" tabindex="-1"></a>          <span class="st">&quot;Hertz&quot;</span>, <span class="fl">0.03</span>, <span class="at">capture =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="r-packages-for-phonetics.html#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="fu">praat_run</span>(<span class="st">&quot;sounds/speakr/get-formants-args.praat&quot;</span>, </span>
+<span id="cb49-2"><a href="r-packages-for-phonetics.html#cb49-2" aria-hidden="true" tabindex="-1"></a>          <span class="st">&quot;Hertz&quot;</span>, <span class="fl">0.03</span>, <span class="at">capture =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <pre><code>## [1] &quot;vowel,F1,F2,F3\na,832.4811857289797,1530.407389678815,2174.814335788099\na,775.505720968018,1368.2558211702246,2509.084391503502\na,833.9754988486553,1430.9906341641104,2375.2400400500196\na,863.5056920837876,1546.8857016095715,2890.4894773135247\nə,723.6246579247697,1689.4016617222446,2873.1991954244213\nə,717.2753390554032,1675.2062036645505,2745.5586414564323\nə,758.8975215666187,1679.0831544665587,2698.956344303706\nə,711.4372573263009,1685.1137747815465,3031.5963943557826&quot;</code></pre>
 <p>As you see the result is file in a <code>.csv</code> format. We can use the following code in order to visualise it:</p>
-<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="r-packages-for-phonetics.html#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb50-2"><a href="r-packages-for-phonetics.html#cb50-2" aria-hidden="true" tabindex="-1"></a><span class="fu">praat_run</span>(<span class="st">&quot;sounds/speakr/get-formants-args.praat&quot;</span>, </span>
-<span id="cb50-3"><a href="r-packages-for-phonetics.html#cb50-3" aria-hidden="true" tabindex="-1"></a>          <span class="st">&quot;Hertz&quot;</span>, <span class="fl">0.03</span>, <span class="at">capture =</span> <span class="cn">TRUE</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb50-4"><a href="r-packages-for-phonetics.html#cb50-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">read_csv</span>() <span class="ot">-&gt;</span></span>
-<span id="cb50-5"><a href="r-packages-for-phonetics.html#cb50-5" aria-hidden="true" tabindex="-1"></a>  abaza_formants</span></code></pre></div>
+<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="r-packages-for-phonetics.html#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb51-2"><a href="r-packages-for-phonetics.html#cb51-2" aria-hidden="true" tabindex="-1"></a><span class="fu">praat_run</span>(<span class="st">&quot;sounds/speakr/get-formants-args.praat&quot;</span>, </span>
+<span id="cb51-3"><a href="r-packages-for-phonetics.html#cb51-3" aria-hidden="true" tabindex="-1"></a>          <span class="st">&quot;Hertz&quot;</span>, <span class="fl">0.03</span>, <span class="at">capture =</span> <span class="cn">TRUE</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb51-4"><a href="r-packages-for-phonetics.html#cb51-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">read_csv</span>() <span class="ot">-&gt;</span></span>
+<span id="cb51-5"><a href="r-packages-for-phonetics.html#cb51-5" aria-hidden="true" tabindex="-1"></a>  abaza_formants</span></code></pre></div>
 <pre><code>## Rows: 8 Columns: 4</code></pre>
 <pre><code>## ── Column specification ────────────────────────────────────────────────────────
 ## Delimiter: &quot;,&quot;
@@ -726,42 +753,42 @@ endfor</code></pre>
 <pre><code>## 
 ## ℹ Use `spec()` to retrieve the full column specification for this data.
 ## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
-<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="r-packages-for-phonetics.html#cb54-1" aria-hidden="true" tabindex="-1"></a>abaza_formants <span class="sc">%&gt;%</span> </span>
-<span id="cb54-2"><a href="r-packages-for-phonetics.html#cb54-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(F2, F1, <span class="at">label =</span> vowel, <span class="at">color =</span> vowel))<span class="sc">+</span></span>
-<span id="cb54-3"><a href="r-packages-for-phonetics.html#cb54-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>()<span class="sc">+</span></span>
-<span id="cb54-4"><a href="r-packages-for-phonetics.html#cb54-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_reverse</span>()<span class="sc">+</span></span>
-<span id="cb54-5"><a href="r-packages-for-phonetics.html#cb54-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_reverse</span>()<span class="sc">+</span></span>
-<span id="cb54-6"><a href="r-packages-for-phonetics.html#cb54-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_fixed</span>()<span class="sc">+</span></span>
-<span id="cb54-7"><a href="r-packages-for-phonetics.html#cb54-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Example of Abaza vowels&quot;</span>)</span></code></pre></div>
-<p><img src="2022_instrumental_phonetics_files/figure-html/unnamed-chunk-30-1.png" width="672" /></p>
+<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb55-1"><a href="r-packages-for-phonetics.html#cb55-1" aria-hidden="true" tabindex="-1"></a>abaza_formants <span class="sc">%&gt;%</span> </span>
+<span id="cb55-2"><a href="r-packages-for-phonetics.html#cb55-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(F2, F1, <span class="at">label =</span> vowel, <span class="at">color =</span> vowel))<span class="sc">+</span></span>
+<span id="cb55-3"><a href="r-packages-for-phonetics.html#cb55-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>()<span class="sc">+</span></span>
+<span id="cb55-4"><a href="r-packages-for-phonetics.html#cb55-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_reverse</span>()<span class="sc">+</span></span>
+<span id="cb55-5"><a href="r-packages-for-phonetics.html#cb55-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_reverse</span>()<span class="sc">+</span></span>
+<span id="cb55-6"><a href="r-packages-for-phonetics.html#cb55-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_fixed</span>()<span class="sc">+</span></span>
+<span id="cb55-7"><a href="r-packages-for-phonetics.html#cb55-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Example of Abaza vowels&quot;</span>)</span></code></pre></div>
+<p><img src="2022_instrumental_phonetics_files/figure-html/unnamed-chunk-31-1.png" width="672" /></p>
 <p>Actually we can merge data on formants and data on duration together:</p>
-<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb55-1"><a href="r-packages-for-phonetics.html#cb55-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(phonfieldwork)</span>
-<span id="cb55-2"><a href="r-packages-for-phonetics.html#cb55-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb55-3"><a href="r-packages-for-phonetics.html#cb55-3" aria-hidden="true" tabindex="-1"></a>abaza_duration <span class="ot">&lt;-</span> <span class="fu">textgrid_to_df</span>(<span class="st">&quot;sounds/speakr/s1_all.TextGrid&quot;</span>)</span>
-<span id="cb55-4"><a href="r-packages-for-phonetics.html#cb55-4" aria-hidden="true" tabindex="-1"></a>abaza_duration <span class="sc">%&gt;%</span> </span>
-<span id="cb55-5"><a href="r-packages-for-phonetics.html#cb55-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(tier <span class="sc">==</span> <span class="dv">3</span>,</span>
-<span id="cb55-6"><a href="r-packages-for-phonetics.html#cb55-6" aria-hidden="true" tabindex="-1"></a>         content <span class="sc">!=</span> <span class="st">&quot;&quot;</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb55-7"><a href="r-packages-for-phonetics.html#cb55-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">duration =</span> time_end <span class="sc">-</span> time_start) <span class="sc">%&gt;%</span> </span>
-<span id="cb55-8"><a href="r-packages-for-phonetics.html#cb55-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(content, duration) <span class="ot">-&gt;</span></span>
-<span id="cb55-9"><a href="r-packages-for-phonetics.html#cb55-9" aria-hidden="true" tabindex="-1"></a>  abaza_duration</span>
-<span id="cb55-10"><a href="r-packages-for-phonetics.html#cb55-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb55-11"><a href="r-packages-for-phonetics.html#cb55-11" aria-hidden="true" tabindex="-1"></a>abaza_duration</span></code></pre></div>
+<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="r-packages-for-phonetics.html#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(phonfieldwork)</span>
+<span id="cb56-2"><a href="r-packages-for-phonetics.html#cb56-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb56-3"><a href="r-packages-for-phonetics.html#cb56-3" aria-hidden="true" tabindex="-1"></a>abaza_duration <span class="ot">&lt;-</span> <span class="fu">textgrid_to_df</span>(<span class="st">&quot;sounds/speakr/s1_all.TextGrid&quot;</span>)</span>
+<span id="cb56-4"><a href="r-packages-for-phonetics.html#cb56-4" aria-hidden="true" tabindex="-1"></a>abaza_duration <span class="sc">%&gt;%</span> </span>
+<span id="cb56-5"><a href="r-packages-for-phonetics.html#cb56-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(tier <span class="sc">==</span> <span class="dv">3</span>,</span>
+<span id="cb56-6"><a href="r-packages-for-phonetics.html#cb56-6" aria-hidden="true" tabindex="-1"></a>         content <span class="sc">!=</span> <span class="st">&quot;&quot;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb56-7"><a href="r-packages-for-phonetics.html#cb56-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">duration =</span> time_end <span class="sc">-</span> time_start) <span class="sc">%&gt;%</span> </span>
+<span id="cb56-8"><a href="r-packages-for-phonetics.html#cb56-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(content, duration) <span class="ot">-&gt;</span></span>
+<span id="cb56-9"><a href="r-packages-for-phonetics.html#cb56-9" aria-hidden="true" tabindex="-1"></a>  abaza_duration</span>
+<span id="cb56-10"><a href="r-packages-for-phonetics.html#cb56-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb56-11"><a href="r-packages-for-phonetics.html#cb56-11" aria-hidden="true" tabindex="-1"></a>abaza_duration</span></code></pre></div>
 <div data-pagedtable="false">
 <script data-pagedtable-source type="application/json">
 {"columns":[{"label":["content"],"name":[1],"type":["chr"],"align":["left"]},{"label":["duration"],"name":[2],"type":["dbl"],"align":["right"]}],"data":[{"1":"a","2":"0.184"},{"1":"a","2":"0.241"},{"1":"a","2":"0.233"},{"1":"a","2":"0.226"},{"1":"ə","2":"0.139"},{"1":"ə","2":"0.166"},{"1":"ə","2":"0.148"},{"1":"ə","2":"0.148"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
-<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="r-packages-for-phonetics.html#cb56-1" aria-hidden="true" tabindex="-1"></a>abaza_formants <span class="sc">%&gt;%</span> </span>
-<span id="cb56-2"><a href="r-packages-for-phonetics.html#cb56-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">bind_cols</span>(abaza_duration) <span class="sc">%&gt;%</span> </span>
-<span id="cb56-3"><a href="r-packages-for-phonetics.html#cb56-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(F2, F1, <span class="at">label =</span> vowel, <span class="at">color =</span> vowel, <span class="at">size =</span> duration))<span class="sc">+</span></span>
-<span id="cb56-4"><a href="r-packages-for-phonetics.html#cb56-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>()<span class="sc">+</span></span>
-<span id="cb56-5"><a href="r-packages-for-phonetics.html#cb56-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_reverse</span>()<span class="sc">+</span></span>
-<span id="cb56-6"><a href="r-packages-for-phonetics.html#cb56-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_reverse</span>()<span class="sc">+</span></span>
-<span id="cb56-7"><a href="r-packages-for-phonetics.html#cb56-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_fixed</span>()<span class="sc">+</span></span>
-<span id="cb56-8"><a href="r-packages-for-phonetics.html#cb56-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Example of Abaza vowels&quot;</span>)</span></code></pre></div>
-<p><img src="2022_instrumental_phonetics_files/figure-html/unnamed-chunk-31-1.png" width="672" /></p>
+<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb57-1"><a href="r-packages-for-phonetics.html#cb57-1" aria-hidden="true" tabindex="-1"></a>abaza_formants <span class="sc">%&gt;%</span> </span>
+<span id="cb57-2"><a href="r-packages-for-phonetics.html#cb57-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">bind_cols</span>(abaza_duration) <span class="sc">%&gt;%</span> </span>
+<span id="cb57-3"><a href="r-packages-for-phonetics.html#cb57-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(F2, F1, <span class="at">label =</span> vowel, <span class="at">color =</span> vowel, <span class="at">size =</span> duration))<span class="sc">+</span></span>
+<span id="cb57-4"><a href="r-packages-for-phonetics.html#cb57-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>()<span class="sc">+</span></span>
+<span id="cb57-5"><a href="r-packages-for-phonetics.html#cb57-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_reverse</span>()<span class="sc">+</span></span>
+<span id="cb57-6"><a href="r-packages-for-phonetics.html#cb57-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_reverse</span>()<span class="sc">+</span></span>
+<span id="cb57-7"><a href="r-packages-for-phonetics.html#cb57-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_fixed</span>()<span class="sc">+</span></span>
+<span id="cb57-8"><a href="r-packages-for-phonetics.html#cb57-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Example of Abaza vowels&quot;</span>)</span></code></pre></div>
+<p><img src="2022_instrumental_phonetics_files/figure-html/unnamed-chunk-32-1.png" width="672" /></p>
 <p>If you will use the package it make sense to cite it:</p>
-<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb57-1"><a href="r-packages-for-phonetics.html#cb57-1" aria-hidden="true" tabindex="-1"></a><span class="fu">citation</span>(<span class="st">&quot;speakr&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="r-packages-for-phonetics.html#cb58-1" aria-hidden="true" tabindex="-1"></a><span class="fu">citation</span>(<span class="st">&quot;speakr&quot;</span>)</span></code></pre></div>
 <pre><code>## 
 ## To cite package &#39;speakr&#39; in publications use:
 ## 
