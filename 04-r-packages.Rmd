@@ -444,7 +444,7 @@ h95 %>%
 
 It also make sense to use normalisation for vowels:
 
-```{r}
+```{r, fig.width=12}
 h95 %>% 
   mutate(vowel = case_when(vowel == "I" ~ "ɪ",
                            vowel == "i" ~ "i",
