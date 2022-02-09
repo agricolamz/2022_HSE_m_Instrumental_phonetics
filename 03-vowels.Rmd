@@ -88,7 +88,7 @@ pb52 %>%
   scale_y_reverse()
 ```
 
-Tube model, after [@fant70]: vocal tract is a tube or a set of tubes:
+Tube model, after [@fant60]: vocal tract is a tube or a set of tubes:
 
 ```{r}
 knitr::include_graphics("images/03.07_tubes.png", dpi = 300)

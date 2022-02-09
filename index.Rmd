@@ -29,15 +29,14 @@ $$
 
 * [on acoustics](https://youtu.be/AD2KYpXlo4A)
 * [on Praat and Biocoustics](https://www.youtube.com/watch?v=NoZxQiu1fzs&list=PL_HB2SrKjmML6J40SgCIzPT6f0Mz9ogrW&index=2)
-* [on Vowels and duration extracction](https://www.youtube.com/watch?v=zdTIzDHnwQo&list=PL_HB2SrKjmML6J40SgCIzPT6f0Mz9ogrW&index=3)
+* [on Vowels and duration extraction](https://www.youtube.com/watch?v=zdTIzDHnwQo&list=PL_HB2SrKjmML6J40SgCIzPT6f0Mz9ogrW&index=3)
 * [on sonorants](https://www.youtube.com/watch?v=Ff7c8SUOxws&list=PL_HB2SrKjmML6J40SgCIzPT6f0Mz9ogrW&index=4)
-
 
 ## Homeworks
 
 ### HW 1 (due to 23.02.2022): 
 
-* Create an annotation for those sound file containing words mza 'lamp', mzə 'moon', mtsa 'fire', mtsə 'lie'. Here is an example:
+* Create an annotation for those sound file containing words [mza 'lamp'](https://github.com/agricolamz/2022_HSE_m_Instrumental_phonetics/blob/master/hw/hw1/01.wav?raw=true), [mzə 'moon'](https://github.com/agricolamz/2022_HSE_m_Instrumental_phonetics/blob/master/hw/hw1/02.wav?raw=true), [mtsa 'fire'](https://github.com/agricolamz/2022_HSE_m_Instrumental_phonetics/blob/master/hw/hw1/03.wav?raw=true), [mtsə 'lie'](https://github.com/agricolamz/2022_HSE_m_Instrumental_phonetics/blob/master/hw/hw1/04.wav?raw=true). Here is an example:
 
 ![](https://github.com/agricolamz/2022_HSE_m_Instrumental_phonetics/raw/master/hw/hw1/hw1_1.png)
 
@@ -45,7 +44,7 @@ $$
 
 ![](https://github.com/agricolamz/2022_HSE_m_Instrumental_phonetics/raw/master/hw/hw1/hw1_2.png)
 
-* Send the `.TextGrid` and your `.R` code files to the course assistant [Anya Tsyzova](mailto:anatsyzova@gmail.com) with the topic `Instrumental Phonetics: HW 1`.
+* Send the result `.TextGrid` and your `.R` code files to the course assistant [Anya Tsyzova](mailto:anatsyzova@gmail.com) with the topic `Instrumental Phonetics: HW 1`.
 
 ## Useful references: 
 
