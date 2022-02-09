@@ -392,6 +392,21 @@ If you will use the package it make sense to cite it:
 citation("phonfieldwork")
 ```
 
+## `ipa`
+
+Converts character vectors between phonetic representations. Supports IPA (International Phonetic Alphabet), X-SAMPA (Extended Speech Assessment Methods Phonetic Alphabet), and ARPABET (used by the CMU Pronouncing Dictionary).
+
+```{r}
+library(ipa)
+convert_phonetics('%hE"loU', from = "xsampa", to = "ipa")
+```
+
+If you will use the package it make sense to cite it:
+
+```{r}
+citation("ipa")
+```
+
 ## `phonTools`
 
 This package contains tools for the organization, display, and analysis of the sorts of data frequently encountered in phonetics research and experimentation, including the easy creation of IPA vowel plots, and the creation and manipulation of WAVE audio files.
@@ -421,18 +436,7 @@ As you see `vowel` column is in [X-SAMPA](https://en.wikipedia.org/wiki/X-SAMPA)
 ```{r, fig.width=12}
 library(tidyverse)
 h95 %>% 
-  mutate(vowel = case_when(vowel == "I" ~ "ɪ",
-                           vowel == "i" ~ "i",
-                           vowel == "E" ~ "ɛ",
-                           vowel == "e" ~ "e",
-                           vowel == "u" ~ "u",
-                           vowel == "U" ~ "ʊ",                  
-                           vowel == "{" ~ "æ",
-                           vowel == "V" ~ "ʌ",
-                           vowel == "A" ~ "ɑ",
-                           vowel == "O" ~ "ɔ",
-                           vowel == "o" ~ "o",
-                           vowel == "3'" ~ "ɝ")) %>% 
+  mutate(vowel = convert_phonetics(vowel, from = "xsampa", to = "ipa")) %>%
   ggplot(aes(f2, f1, label = vowel, color = vowel))+
   stat_ellipse()+
   geom_text()+
@@ -442,22 +446,11 @@ h95 %>%
   facet_wrap(~type)
 ```
 
-It also make sense to use normalisation for vowels:
+It also make sense to use normalization for vowels:
 
 ```{r, fig.width=12}
 h95 %>% 
-  mutate(vowel = case_when(vowel == "I" ~ "ɪ",
-                           vowel == "i" ~ "i",
-                           vowel == "E" ~ "ɛ",
-                           vowel == "e" ~ "e",
-                           vowel == "u" ~ "u",
-                           vowel == "U" ~ "ʊ",                  
-                           vowel == "{" ~ "æ",
-                           vowel == "V" ~ "ʌ",
-                           vowel == "A" ~ "ɑ",
-                           vowel == "O" ~ "ɔ",
-                           vowel == "o" ~ "o",
-                           vowel == "3'" ~ "ɝ")) %>% 
+  mutate(vowel = convert_phonetics(vowel, from = "xsampa", to = "ipa")) %>%
   group_by(speaker) %>% 
   mutate(f1 = scale(f1),
          f2 = scale(f2)) %>% 
@@ -496,30 +489,32 @@ If you will use the package it make sense to cite it:
 citation("rPraat")
 ```
 
-## `ipa`
-
-Converts character vectors between phonetic representations. Supports IPA (International Phonetic Alphabet), X-SAMPA (Extended Speech Assessment Methods Phonetic Alphabet), and ARPABET (used by the CMU Pronouncing Dictionary).
-
-If you will use the package it make sense to cite it:
-
-```{r}
-citation("ipa")
-```
-
 
 ## `speakr`
 
 This package allows running `Praat` scripts from R and it provides some wrappers for basic plotting. 
 
-On macOS, Linux and Windows, the path to `Praat` is set automatically to the default installation path. If you have installed Praat in a different location, or if your operating system is not supported, you can set the path to `Praat` with `option(speakr.praat.path)`.
+On macOS, Linux and Windows, the path to `Praat` is set automatically to the default installation path. If you have installed Praat in a different location, or if your operating system is not supported, you can set the path to `Praat` with `options(speakr.praat.path)`.
 
 For example:
 
 ```
-option(speakr.praat.path = "./custom/praat.exe")
+options(speakr.praat.path = "./custom/praat.exe")
+```
+
+If you use rstudio.cloud you need to upload the unziped file of Linux version of Praat and provide path to it within the `options()`:
+
+```
+options(speakr.praat.path = "/cloud/projects/praat")
 ```
 
 You can either run this command every time you start a new R session, or you can add the command to your `.Rprofile`.
+
+If you run into the problem with permisions run the following command:
+
+```{r, eval=FALSE}
+system("chmod 700 /cloud/projects/praat")
+```
 
 As an example I will use the following data:
 
