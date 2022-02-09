@@ -137,8 +137,9 @@ For **nasalised/prenasalised vowels** closed mouth produced antiformants (680 Hz
 * Amplitude lower then in vowels
 * Formants
 * First Formant target is lower than vowels’ First Formant target
-* Open quotient (= First Harmonic - Second Harmonic) is lower for
-glides
+* Open quotient[^quotient] (= First Harmonic - Second Harmonic) is lower for glides
+
+[^quotient]: > During phonation, the vocal folds open and close as a result of several laryngeal and extralaryngeal activities. The phases of closure and opening of the vocal folds follow one another at a rate defined by the fundamental frequency (F0). The glottal closed quotient (GCQ) is the fraction of time the glottis is considered closed and has been thought to be a good indicator of voice quality. [@kania04: 349] This also applicable to the open quotient.
 
 ### Liquids
 
