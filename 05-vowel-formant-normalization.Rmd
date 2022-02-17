@@ -71,7 +71,7 @@ In [@adank03] author compared 11 methods of vowel normalization:
 
 The idea behind the Lobanov's method is simple z-normalization. Imagine some random distribution:
 
-```{r, echo=FALSE}
+```{r}
 set.seed(42)
 fake_data <- tibble(x = rnorm(151, mean = 57, sd = 2))
 fake_data %>% 
@@ -84,14 +84,14 @@ If we apply the folowing normalization, the distribution form will be the same, 
 $$x_{normalized} = \frac{x-\mu}{\sigma}$$
 
 
-```{r, echo = FALSE}
+```{r}
 fake_data %>% 
   mutate(x = scale(x)) %>% 
   ggplot(aes(x))+
   geom_histogram(bins = 15)
 ```
 
-```{r}
+```{r, echo=TRUE}
 library(phonTools)
 data(pb52)
 pb52 %>% 
