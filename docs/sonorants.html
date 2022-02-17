@@ -225,7 +225,11 @@ div.csl-indent {
 <li class="chapter" data-level="5.5" data-path="r-packages-for-phonetics.html"><a href="r-packages-for-phonetics.html#rpraat"><i class="fa fa-check"></i><b>5.5</b> <code>rPraat</code></a></li>
 <li class="chapter" data-level="5.6" data-path="r-packages-for-phonetics.html"><a href="r-packages-for-phonetics.html#speakr"><i class="fa fa-check"></i><b>5.6</b> <code>speakr</code></a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="vowel-formants-normalization.html"><a href="vowel-formants-normalization.html"><i class="fa fa-check"></i><b>6</b> Vowel formants’ normalization</a></li>
+<li class="chapter" data-level="6" data-path="vowel-formants-normalization.html"><a href="vowel-formants-normalization.html"><i class="fa fa-check"></i><b>6</b> Vowel formants’ normalization</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="vowel-formants-normalization.html"><a href="vowel-formants-normalization.html#acoustic-vowel-normalization-procedures"><i class="fa fa-check"></i><b>6.1</b> Acoustic vowel normalization procedures</a></li>
+<li class="chapter" data-level="6.2" data-path="vowel-formants-normalization.html"><a href="vowel-formants-normalization.html#lobanov71-z-score-transformation"><i class="fa fa-check"></i><b>6.2</b> <span class="citation">(<span>Lobanov 1971</span>)</span> z-score transformation</a></li>
+</ul></li>
 <li class="chapter" data-level="7" data-path="sonorants.html"><a href="sonorants.html"><i class="fa fa-check"></i><b>7</b> Sonorants</a>
 <ul>
 <li class="chapter" data-level="7.1" data-path="sonorants.html"><a href="sonorants.html#earlier"><i class="fa fa-check"></i><b>7.1</b> Earlier:</a></li>
@@ -437,6 +441,18 @@ at once:</p>
 </ul>
 <p><img src="images/06-12-params.png" /></p>
 <p>We can use the following <a href="https://goo.gl/5D9DNR">file with Andic nasals</a> and the following R code for visualisation:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="sonorants.html#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">&quot;...&quot;</span>) <span class="co"># put your path here</span></span>
+<span id="cb1-2"><a href="sonorants.html#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-3"><a href="sonorants.html#cb1-3" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;n.csv&quot;</span>)</span>
+<span id="cb1-4"><a href="sonorants.html#cb1-4" aria-hidden="true" tabindex="-1"></a>n<span class="sc">$</span>sound_type <span class="ot">&lt;-</span> <span class="st">&quot;n&quot;</span></span>
+<span id="cb1-5"><a href="sonorants.html#cb1-5" aria-hidden="true" tabindex="-1"></a>m <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;m.csv&quot;</span>)</span>
+<span id="cb1-6"><a href="sonorants.html#cb1-6" aria-hidden="true" tabindex="-1"></a>m<span class="sc">$</span>sound_type <span class="ot">&lt;-</span> <span class="st">&quot;m&quot;</span></span>
+<span id="cb1-7"><a href="sonorants.html#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-8"><a href="sonorants.html#cb1-8" aria-hidden="true" tabindex="-1"></a>n <span class="sc">%&gt;%</span> </span>
+<span id="cb1-9"><a href="sonorants.html#cb1-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">bind_rows</span>(m) <span class="sc">%&gt;%</span> </span>
+<span id="cb1-10"><a href="sonorants.html#cb1-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="st">`</span><span class="at">freq(Hz)</span><span class="st">`</span> <span class="sc">&lt;</span> <span class="dv">5000</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb1-11"><a href="sonorants.html#cb1-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="st">`</span><span class="at">freq(Hz)</span><span class="st">`</span>, <span class="st">`</span><span class="at">pow(dB/Hz)</span><span class="st">`</span>, <span class="at">color =</span> sound_type))<span class="sc">+</span></span>
+<span id="cb1-12"><a href="sonorants.html#cb1-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>()</span></code></pre></div>
 
 </div>
 </div>
@@ -498,20 +514,6 @@ gitbook.start({
 });
 </script>
 
-<!-- dynamically load mathjax for compatibility with self-contained -->
-<script>
-  (function () {
-    var script = document.createElement("script");
-    script.type = "text/javascript";
-    var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:")
-      if (/^https?:/.test(src))
-        src = src.replace(/^https?:/, '');
-    script.src = src;
-    document.getElementsByTagName("head")[0].appendChild(script);
-  })();
-</script>
 </body>
 
 </html>

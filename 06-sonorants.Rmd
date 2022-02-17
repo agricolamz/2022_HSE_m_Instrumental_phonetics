@@ -174,7 +174,7 @@ For **nasalised/prenasalised vowels** closed mouth produced antiformants (680 Hz
 
 We can use the following [file with Andic nasals](https://goo.gl/5D9DNR) and the following R code for visualisation:
 
-```{r, eval = FALSE}
+```{r, eval = FALSE, echo=TRUE}
 setwd("...") # put your path here
 library(tidyverse)
 n <- read_csv("n.csv")
