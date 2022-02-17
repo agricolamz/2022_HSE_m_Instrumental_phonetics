@@ -71,16 +71,7 @@ However, if we analyze real sounds it could be messy:
 library(phonTools)
 data(pb52)
 pb52 %>% 
-  mutate(vowel = case_when(vowel == "I" ~ "ɪ",
-                           vowel == "E" ~ "ɛ",
-                           vowel == "i" ~ "i",
-                           vowel == "u" ~ "u",
-                           vowel == "{" ~ "æ",
-                           vowel == "V" ~ "ʌ",
-                           vowel == "A" ~ "ɑ",
-                           vowel == "O" ~ "ɔ",
-                           vowel == "U" ~ "ʊ",
-                           vowel == "3'" ~ "ɝ")) %>% 
+  mutate(vowel = ipa::convert_phonetics(vowel, from = "xsampa", to = "ipa")) %>%
   ggplot(aes(f2, f1, label = vowel, color = vowel))+
   stat_ellipse()+
   geom_text()+

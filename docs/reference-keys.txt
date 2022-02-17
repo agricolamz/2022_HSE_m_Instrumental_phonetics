@@ -68,3 +68,5 @@ obstruents
 spectrum-analysis
 suprasegmentals
 perception
+acoustic-vowel-normalization-procedures
+lobanov71-z-score-transformation

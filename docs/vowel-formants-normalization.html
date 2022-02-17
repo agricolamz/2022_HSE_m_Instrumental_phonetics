@@ -161,7 +161,11 @@ div.csl-indent {
 <li class="chapter" data-level="5.5" data-path="r-packages-for-phonetics.html"><a href="r-packages-for-phonetics.html#rpraat"><i class="fa fa-check"></i><b>5.5</b> <code>rPraat</code></a></li>
 <li class="chapter" data-level="5.6" data-path="r-packages-for-phonetics.html"><a href="r-packages-for-phonetics.html#speakr"><i class="fa fa-check"></i><b>5.6</b> <code>speakr</code></a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="vowel-formants-normalization.html"><a href="vowel-formants-normalization.html"><i class="fa fa-check"></i><b>6</b> Vowel formants’ normalization</a></li>
+<li class="chapter" data-level="6" data-path="vowel-formants-normalization.html"><a href="vowel-formants-normalization.html"><i class="fa fa-check"></i><b>6</b> Vowel formants’ normalization</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="vowel-formants-normalization.html"><a href="vowel-formants-normalization.html#acoustic-vowel-normalization-procedures"><i class="fa fa-check"></i><b>6.1</b> Acoustic vowel normalization procedures</a></li>
+<li class="chapter" data-level="6.2" data-path="vowel-formants-normalization.html"><a href="vowel-formants-normalization.html#lobanov71-z-score-transformation"><i class="fa fa-check"></i><b>6.2</b> <span class="citation">(<span>Lobanov 1971</span>)</span> z-score transformation</a></li>
+</ul></li>
 <li class="chapter" data-level="7" data-path="sonorants.html"><a href="sonorants.html"><i class="fa fa-check"></i><b>7</b> Sonorants</a>
 <ul>
 <li class="chapter" data-level="7.1" data-path="sonorants.html"><a href="sonorants.html#earlier"><i class="fa fa-check"></i><b>7.1</b> Earlier:</a></li>
@@ -212,7 +216,7 @@ div.csl-indent {
             <section class="normal" id="section-">
 <div id="vowel-formants-normalization" class="section level1" number="6">
 <h1><span class="header-section-number">6</span> Vowel formants’ normalization</h1>
-<p>This section is partially based on <span class="citation">(<a href="#ref-adank03" role="doc-biblioref">Adank 2003</a>)</span>.</p>
+<p>This section is based on <span class="citation">(<a href="#ref-adank03" role="doc-biblioref">Adank 2003</a>)</span>.</p>
 <p>There are three possible sources of variation in vowel formants measurements <span class="citation">(<a href="#ref-ladefoged57" role="doc-biblioref">Ladefoged and Broadbent 1957</a>; <a href="#ref-pols73" role="doc-biblioref">Pols, Tromp, and Plomp 1973</a>: 1095; <a href="#ref-adank03" role="doc-biblioref">Adank 2003</a>)</span>:</p>
 <ul>
 <li>acoustic variation;</li>
@@ -224,27 +228,143 @@ div.csl-indent {
 <li>and measurement error (“residual variance” in <span class="citation">(<a href="#ref-pols73" role="doc-biblioref">Pols, Tromp, and Plomp 1973</a>)</span>).</li>
 </ul>
 <p>There are a lot of researchers aimed to reduce speaker-related variation using <strong>acoustic vowel normalization</strong> (e. g. <span class="citation">(<a href="#ref-gerstman68" role="doc-biblioref">Gerstman 1968</a>; <a href="#ref-lobanov71" role="doc-biblioref">Lobanov 1971</a>; <a href="#ref-syrdal86" role="doc-biblioref">Syrdal and Gopal 1986</a>)</span>). However there are some researches that afraid that normalization procedures can reduce interesting for the linguistics information like sociolinguistic/dialectal signal in data <span class="citation">(<a href="#ref-hindle78" role="doc-biblioref">Hindle 1978</a>; <a href="#ref-disner80" role="doc-biblioref">Disner 1980</a>; <a href="#ref-thomas02" role="doc-biblioref">Thomas 2002, 174–75</a>)</span>.</p>
+<p>Human listeners deal seemingly effortlessly with all three possible sources of variation, but the dataset from <span class="citation">(<a href="#ref-peterson52" role="doc-biblioref">Peterson and Barney 1952</a>)</span> shows extrordinary variation:</p>
+<p><img src="2022_instrumental_phonetics_files/figure-html/unnamed-chunk-1-1.png" width="1152" /></p>
+<div id="acoustic-vowel-normalization-procedures" class="section level2" number="6.1">
+<h2><span class="header-section-number">6.1</span> Acoustic vowel normalization procedures</h2>
+<p>There are several classes of vowel normalization procedures:</p>
+<ul>
+<li>formant-based procedures <span class="citation">(<a href="#ref-gerstman68" role="doc-biblioref">Gerstman 1968</a>; <a href="#ref-lobanov71" role="doc-biblioref">Lobanov 1971</a>; <a href="#ref-fant75" role="doc-biblioref">Fant 1975</a>; <a href="#ref-syrdal86" role="doc-biblioref">Syrdal and Gopal 1986</a>; <a href="#ref-miller89" role="doc-biblioref">Miller 1989</a>)</span>;</li>
+<li>whole-spectrum procedures <span class="citation">(<a href="#ref-klein70" role="doc-biblioref">Klein, Plomp, and Pols 1970</a>; <a href="#ref-pols73" role="doc-biblioref">Pols, Tromp, and Plomp 1973</a>; <a href="#ref-bladon81" role="doc-biblioref">Bladon and Lindblom 1981</a>; <a href="#ref-bladon82" role="doc-biblioref">Bladon 1982</a>; <a href="#ref-klatt82" role="doc-biblioref">Klatt 1982</a>)</span>;</li>
+<li>Neural networks <span class="citation">(<a href="#ref-weenink93" role="doc-biblioref">D. J. M. Weenink 1993</a>; <a href="#ref-weenink97" role="doc-biblioref">D. Weenink 1997</a>)</span>.</li>
+</ul>
+<p>Formant-based procedures are the most compact (just 2- or 3-dimensional represetations) and comparable crosslinguisticaly.</p>
+<p>In <span class="citation">(<a href="#ref-adank03" role="doc-biblioref">Adank 2003</a>)</span> author compared 11 methods of vowel normalization:</p>
+<table>
+<thead>
+<tr class="header">
+<th></th>
+<th>abb</th>
+<th>method</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>HZ</td>
+<td>the baseline condition, formants in Hz</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>LOG</td>
+<td>a log-transformation of the frequency scale</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>BARK</td>
+<td>a bark-transformation of the frequency scale</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>MEL</td>
+<td>a mel-transformation of the frequency scale</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td>ERB</td>
+<td>an ERB-transformation of the frequency scale</td>
+</tr>
+<tr class="even">
+<td>6</td>
+<td>GERSTMAN</td>
+<td>Gerstman’s (1968) range normalization</td>
+</tr>
+<tr class="odd">
+<td>7</td>
+<td>LOBANOV</td>
+<td>Lobanov’s (1971) z-score transformation</td>
+</tr>
+<tr class="even">
+<td>8</td>
+<td>NORDSTRÖM &amp; LINDBLOM</td>
+<td>Nordström &amp; Lindblom’s (1975) vocal-tract scaling</td>
+</tr>
+<tr class="odd">
+<td>9</td>
+<td>CLIH i4</td>
+<td>Nearey’s (1978) individual log-mean procedure</td>
+</tr>
+<tr class="even">
+<td>10</td>
+<td>CLIH s4</td>
+<td>Nearey’s (1978) shared log-mean procedure</td>
+</tr>
+<tr class="odd">
+<td>11</td>
+<td>SYRDAL &amp; GOPAL</td>
+<td>Syrdal &amp; Gopal’s (1986) bark-distance model</td>
+</tr>
+<tr class="even">
+<td>12</td>
+<td>MILLER</td>
+<td>Miller’s (1989) formant-ratio model</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="lobanov71-z-score-transformation" class="section level2" number="6.2">
+<h2><span class="header-section-number">6.2</span> <span class="citation">(<a href="#ref-lobanov71" role="doc-biblioref">Lobanov 1971</a>)</span> z-score transformation</h2>
+<p>The idea behind the Lobanov’s method is simple z-normalization. Imagine some random distribution:</p>
+<p><img src="2022_instrumental_phonetics_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
+<p>If we apply the folowing normalization, the distribution form will be the same, however the scale will be unified with mean = 0 and standard deviation = 1:</p>
+<p><span class="math display">\[x_{normalized} = \frac{x-\mu}{\sigma}\]</span></p>
+<p><img src="2022_instrumental_phonetics_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
+<p><img src="2022_instrumental_phonetics_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<p>You can find implementation of other methods in R package <code>vowels</code>.</p>
+<p>Try to normalize and visualize data from the dataset Hillenbrand et al. (1995), stored in <code>h95</code> variable in the package <code>phonTools</code>.</p>
 
+</div>
 </div>
 <h3>References</h3>
 <div id="refs" class="references csl-bib-body hanging-indent">
 <div id="ref-adank03" class="csl-entry">
 Adank, P. M. 2003. <span>“Vowel Normalization. A Perceptual Acoustic Study of Dutch Vowels.”</span> PhD thesis, Ponsen &amp; Looijen bv, Wageningen.
 </div>
+<div id="ref-bladon82" class="csl-entry">
+Bladon, RAW. 1982. <span>“Arguments Against Formants in the Auditory Representation of Speech.”</span> <em>The Representation of Speech in the Peripheral Auditory System</em>.
+</div>
+<div id="ref-bladon81" class="csl-entry">
+Bladon, RAW, and Björn Lindblom. 1981. <span>“Modeling the Judgment of Vowel Quality Differences.”</span> <em>The Journal of the Acoustical Society of America</em> 69 (5): 1414–22.
+</div>
 <div id="ref-disner80" class="csl-entry">
 Disner, S. F. 1980. <span>“Evaluation of Vowel Normalization Procedures.”</span> <em>The Journal of the Acoustical Society of America</em> 67 (1): 253–61.
 </div>
+<div id="ref-fant75" class="csl-entry">
+Fant, G. 1975. <span>“Non-Uniform Vowel Normalization.”</span> <em>STL-QPSR</em> 16 (2-3): 1–19.
+</div>
 <div id="ref-gerstman68" class="csl-entry">
-Gerstman, L. 1968. <span>“Classification of Self-Normalized Vowels.”</span> <em>IEEE Transactions on Audio and Electroacoustics</em> 16 (1): 78–80.
+Gerstman, Louis. 1968. <span>“Classification of Self-Normalized Vowels.”</span> <em>IEEE Transactions on Audio and Electroacoustics</em> 16 (1): 78–80.
 </div>
 <div id="ref-hindle78" class="csl-entry">
 Hindle, D. 1978. <span>“Approaches to Vowel Normalization in the Study of Natural Speech.”</span> <em>Linguistic Variation: Models and Methods</em>, 161–71.
+</div>
+<div id="ref-klatt82" class="csl-entry">
+Klatt, D. 1982. <span>“Prediction of Perceived Phonetic Distance from Critical-Band Spectra: <span>A</span> First Step.”</span> In <em>ICASSP’82. IEEE International Conference on Acoustics, Speech, and Signal Processing</em>, 7:1278–81. IEEE.
+</div>
+<div id="ref-klein70" class="csl-entry">
+Klein, W., R. Plomp, and L. C. W. Pols. 1970. <span>“Vowel Spectra, Vowel Spaces, and Vowel Identification.”</span> <em>The Journal of the Acoustical Society of America</em> 48 (4B): 999–1009.
 </div>
 <div id="ref-ladefoged57" class="csl-entry">
 Ladefoged, P., and D. E. Broadbent. 1957. <span>“Information Conveyed by Vowels.”</span> <em>The Journal of the Acoustical Society of America</em> 29 (1): 98–104.
 </div>
 <div id="ref-lobanov71" class="csl-entry">
 Lobanov, B. M. 1971. <span>“Classification of Russian Vowels Spoken by Different Speakers.”</span> <em>The Journal of the Acoustical Society of America</em> 49 (2B): 606–8.
+</div>
+<div id="ref-miller89" class="csl-entry">
+Miller, J. D. 1989. <span>“Auditory-Perceptual Interpretation of the Vowel.”</span> <em>The Journal of the Acoustical Society of America</em> 85 (5): 2114–34.
+</div>
+<div id="ref-peterson52" class="csl-entry">
+Peterson, G. E., and H. L. Barney. 1952. <span>“Control Methods Used in a Study of the Vowels.”</span> <em>The Journal of the Acoustical Society of America</em> 24 (2): 175–84.
 </div>
 <div id="ref-pols73" class="csl-entry">
 Pols, L. C. W., H. R. C. Tromp, and R. Plomp. 1973. <span>“Frequency Analysis of Dutch Vowels from 50 Male Speakers.”</span> <em>The Journal of the Acoustical Society of America</em> 53 (4): 1093–1101.
@@ -254,6 +374,12 @@ Syrdal, A. K., and H. S. Gopal. 1986. <span>“A Perceptual Model of Vowel Recog
 </div>
 <div id="ref-thomas02" class="csl-entry">
 Thomas, E. R. 2002. <span>“Instrumental Phonetics.”</span> In <em>The Handbook of Language Variation and Change</em>, edited by J. K. Chambers, P. Trudgill, and N. Schilling-Estes, 168–200. Oxford: Blackwell.
+</div>
+<div id="ref-weenink93" class="csl-entry">
+Weenink, D. J. M. 1993. <span>“Modelling Speaker Normalization by Adapting the Bias in a Neural Net.”</span> In <em>Proceedings Eurospeech93</em>, 2259–62. Berlin.
+</div>
+<div id="ref-weenink97" class="csl-entry">
+Weenink, David. 1997. <span>“Category <span>ART</span>: <span>A</span> Variation on Adaptive Resonance Theory Neural Networks.”</span> In <em>Proc. Institute of Phonetic Sciences University of Amsterdam</em>, 21:117–29. Citeseer.
 </div>
 </div>
             </section>
@@ -307,6 +433,20 @@ gitbook.start({
 });
 </script>
 
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
 </body>
 
 </html>
