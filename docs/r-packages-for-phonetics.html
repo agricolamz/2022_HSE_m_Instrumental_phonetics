@@ -31,7 +31,7 @@
   
   
 <link rel="prev" href="vowels.html"/>
-<link rel="next" href="vowel-formant-normalization.html"/>
+<link rel="next" href="vowel-formants-normalization.html"/>
 <script src="libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
@@ -225,7 +225,7 @@ div.csl-indent {
 <li class="chapter" data-level="5.5" data-path="r-packages-for-phonetics.html"><a href="r-packages-for-phonetics.html#rpraat"><i class="fa fa-check"></i><b>5.5</b> <code>rPraat</code></a></li>
 <li class="chapter" data-level="5.6" data-path="r-packages-for-phonetics.html"><a href="r-packages-for-phonetics.html#speakr"><i class="fa fa-check"></i><b>5.6</b> <code>speakr</code></a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="vowel-formant-normalization.html"><a href="vowel-formant-normalization.html"><i class="fa fa-check"></i><b>6</b> Vowel formant normalization</a></li>
+<li class="chapter" data-level="6" data-path="vowel-formants-normalization.html"><a href="vowel-formants-normalization.html"><i class="fa fa-check"></i><b>6</b> Vowel formants’ normalization</a></li>
 <li class="chapter" data-level="7" data-path="sonorants.html"><a href="sonorants.html"><i class="fa fa-check"></i><b>7</b> Sonorants</a>
 <ul>
 <li class="chapter" data-level="7.1" data-path="sonorants.html"><a href="sonorants.html#earlier"><i class="fa fa-check"></i><b>7.1</b> Earlier:</a></li>
@@ -252,6 +252,10 @@ div.csl-indent {
 <li class="chapter" data-level="7.6.4" data-path="sonorants.html"><a href="sonorants.html#spectral-slices"><i class="fa fa-check"></i><b>7.6.4</b> Spectral Slices</a></li>
 </ul></li>
 </ul></li>
+<li class="chapter" data-level="8" data-path="obstruents.html"><a href="obstruents.html"><i class="fa fa-check"></i><b>8</b> Obstruents</a></li>
+<li class="chapter" data-level="9" data-path="spectrum-analysis.html"><a href="spectrum-analysis.html"><i class="fa fa-check"></i><b>9</b> Spectrum analysis</a></li>
+<li class="chapter" data-level="10" data-path="suprasegmentals.html"><a href="suprasegmentals.html"><i class="fa fa-check"></i><b>10</b> Suprasegmentals</a></li>
+<li class="chapter" data-level="11" data-path="perception.html"><a href="perception.html"><i class="fa fa-check"></i><b>11</b> Perception</a></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 </ul>
 
@@ -289,7 +293,7 @@ div.csl-indent {
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="r-packages-for-phonetics.html#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(phonfieldwork)</span></code></pre></div>
 <p>I will use the following version of the package:</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="r-packages-for-phonetics.html#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">packageVersion</span>(<span class="st">&quot;phonfieldwork&quot;</span>)</span></code></pre></div>
-<pre><code>## [1] &#39;0.0.12&#39;</code></pre>
+<pre><code>[1] &#39;0.0.12&#39;</code></pre>
 <ul>
 <li>download files for todays seminar:
 <ul>
@@ -355,8 +359,8 @@ div.csl-indent {
 <div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="r-packages-for-phonetics.html#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rename_soundfiles</span>(<span class="at">stimuli =</span> my_stimuli_df<span class="sc">$</span>stimuli,</span>
 <span id="cb9-2"><a href="r-packages-for-phonetics.html#cb9-2" aria-hidden="true" tabindex="-1"></a>                  <span class="at">prefix =</span> <span class="st">&quot;s1_&quot;</span>,</span>
 <span id="cb9-3"><a href="r-packages-for-phonetics.html#cb9-3" aria-hidden="true" tabindex="-1"></a>                  <span class="at">path =</span> <span class="st">&quot;sounds/examples/&quot;</span>)</span></code></pre></div>
-<pre><code>## You can find change correspondences in the following file:
-## /home/agricolamz/work/materials/2022_HSE_m_instrumental_phonetics/materials/sounds/examples/backup/logging.csv</code></pre>
+<pre><code>You can find change correspondences in the following file:
+/home/agricolamz/work/materials/2022_HSE_m_instrumental_phonetics/materials/sounds/examples/backup/logging.csv</code></pre>
 <p>As a result, you obtain the following structure:</p>
 <pre><code>sounds
 ├── 1_s1_ba.wav
@@ -395,7 +399,7 @@ div.csl-indent {
 <h3><span class="header-section-number">5.1.7</span> Annotate your data</h3>
 <p>It is possible to annotate words using an existing annotation:</p>
 <div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="r-packages-for-phonetics.html#cb14-1" aria-hidden="true" tabindex="-1"></a>my_stimuli_df<span class="sc">$</span>stimuli</span></code></pre></div>
-<pre><code>## [1] &quot;ba&quot;  &quot;bzə&quot;</code></pre>
+<pre><code>[1] &quot;ba&quot;  &quot;bzə&quot;</code></pre>
 <div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="r-packages-for-phonetics.html#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">annotate_textgrid</span>(<span class="at">annotation =</span> my_stimuli_df<span class="sc">$</span>stimuli,</span>
 <span id="cb16-2"><a href="r-packages-for-phonetics.html#cb16-2" aria-hidden="true" tabindex="-1"></a>                  <span class="at">textgrid =</span> <span class="st">&quot;sounds/examples/s1_all.TextGrid&quot;</span>)</span></code></pre></div>
 <p><img src="2022_instrumental_phonetics_files/figure-html/firstannotate-1.png" width="672" /></p>
@@ -518,25 +522,25 @@ div.csl-indent {
 <span id="cb27-12"><a href="r-packages-for-phonetics.html#cb27-12" aria-hidden="true" tabindex="-1"></a>results <span class="sc">%&gt;%</span> </span>
 <span id="cb27-13"><a href="r-packages-for-phonetics.html#cb27-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(vowels, duration))<span class="sc">+</span></span>
 <span id="cb27-14"><a href="r-packages-for-phonetics.html#cb27-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code></pre></div>
-<p><img src="2022_instrumental_phonetics_files/figure-html/unnamed-chunk-21-1.png" width="672" /></p>
+<p><img src="2022_instrumental_phonetics_files/figure-html/unnamed-chunk-43-1.png" width="672" /></p>
 </div>
 <div id="documentation" class="section level3" number="5.1.11">
 <h3><span class="header-section-number">5.1.11</span> Documentation</h3>
 <p>You can find the whole documentation for <code>phonfieldwork</code> <a href="https://ropensci.github.io/phonfieldwork/articles/phonfieldwork.html">here</a>.</p>
 <p>If you will use the package it make sense to cite it:</p>
 <div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="r-packages-for-phonetics.html#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">citation</span>(<span class="st">&quot;phonfieldwork&quot;</span>)</span></code></pre></div>
-<pre><code>## 
-## Moroz G (2020). _Phonetic fieldwork and experiments with phonfieldwork
-## package_. &lt;URL: https://CRAN.R-project.org/package=phonfieldwork&gt;.
-## 
-## A BibTeX entry for LaTeX users is
-## 
-##   @Manual{,
-##     title = {Phonetic fieldwork and experiments with phonfieldwork package},
-##     author = {George Moroz},
-##     year = {2020},
-##     url = {https://CRAN.R-project.org/package=phonfieldwork},
-##   }</code></pre>
+<pre><code>
+Moroz G (2020). _Phonetic fieldwork and experiments with phonfieldwork
+package_. &lt;URL: https://CRAN.R-project.org/package=phonfieldwork&gt;.
+
+A BibTeX entry for LaTeX users is
+
+  @Manual{,
+    title = {Phonetic fieldwork and experiments with phonfieldwork package},
+    author = {George Moroz},
+    year = {2020},
+    url = {https://CRAN.R-project.org/package=phonfieldwork},
+  }</code></pre>
 </div>
 </div>
 <div id="ipa" class="section level2" number="5.2">
@@ -544,25 +548,25 @@ div.csl-indent {
 <p>Converts character vectors between phonetic representations. Supports IPA (International Phonetic Alphabet), X-SAMPA (Extended Speech Assessment Methods Phonetic Alphabet), and ARPABET (used by the CMU Pronouncing Dictionary).</p>
 <div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="r-packages-for-phonetics.html#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ipa)</span>
 <span id="cb30-2"><a href="r-packages-for-phonetics.html#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="fu">convert_phonetics</span>(<span class="st">&#39;%hE&quot;loU&#39;</span>, <span class="at">from =</span> <span class="st">&quot;xsampa&quot;</span>, <span class="at">to =</span> <span class="st">&quot;ipa&quot;</span>)</span></code></pre></div>
-<pre><code>## [1] &quot;ˌhɛˈloʊ&quot;</code></pre>
+<pre><code>[1] &quot;ˌhɛˈloʊ&quot;</code></pre>
 <p>If you will use the package it make sense to cite it:</p>
 <div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="r-packages-for-phonetics.html#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">citation</span>(<span class="st">&quot;ipa&quot;</span>)</span></code></pre></div>
-<pre><code>## 
-## To cite ipa in publications use:
-## 
-##   Alexander Rossell Hayes (2020). ipa: convert between phonetic
-##   alphabets. R package version 0.1.0.
-##   https://github.com/rossellhayes/ipa
-## 
-## A BibTeX entry for LaTeX users is
-## 
-##   @Manual{,
-##     title = {ipa: convert between phonetic alphabets},
-##     author = {Rossell Hayes and {Alexander}},
-##     year = {2020},
-##     note = {R package version 0.1.0},
-##     url = {https://github.com/rossellhayes/ipa},
-##   }</code></pre>
+<pre><code>
+To cite ipa in publications use:
+
+  Alexander Rossell Hayes (2020). ipa: convert between phonetic
+  alphabets. R package version 0.1.0.
+  https://github.com/rossellhayes/ipa
+
+A BibTeX entry for LaTeX users is
+
+  @Manual{,
+    title = {ipa: convert between phonetic alphabets},
+    author = {Rossell Hayes and {Alexander}},
+    year = {2020},
+    note = {R package version 0.1.0},
+    url = {https://github.com/rossellhayes/ipa},
+  }</code></pre>
 </div>
 <div id="phontools" class="section level2" number="5.3">
 <h2><span class="header-section-number">5.3</span> <code>phonTools</code></h2>
@@ -599,8 +603,8 @@ div.csl-indent {
 <span id="cb35-8"><a href="r-packages-for-phonetics.html#cb35-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_reverse</span>()<span class="sc">+</span></span>
 <span id="cb35-9"><a href="r-packages-for-phonetics.html#cb35-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_fixed</span>()<span class="sc">+</span></span>
 <span id="cb35-10"><a href="r-packages-for-phonetics.html#cb35-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>type)</span></code></pre></div>
-<p><img src="2022_instrumental_phonetics_files/figure-html/unnamed-chunk-26-1.png" width="1152" /></p>
-<p>It also make sense to use normalisation for vowels:</p>
+<p><img src="2022_instrumental_phonetics_files/figure-html/unnamed-chunk-48-1.png" width="1152" /></p>
+<p>It also make sense to use normalization for vowels:</p>
 <div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="r-packages-for-phonetics.html#cb36-1" aria-hidden="true" tabindex="-1"></a>h95 <span class="sc">%&gt;%</span> </span>
 <span id="cb36-2"><a href="r-packages-for-phonetics.html#cb36-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">vowel =</span> <span class="fu">convert_phonetics</span>(vowel, <span class="at">from =</span> <span class="st">&quot;xsampa&quot;</span>, <span class="at">to =</span> <span class="st">&quot;ipa&quot;</span>)) <span class="sc">%&gt;%</span></span>
 <span id="cb36-3"><a href="r-packages-for-phonetics.html#cb36-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(speaker) <span class="sc">%&gt;%</span> </span>
@@ -613,77 +617,77 @@ div.csl-indent {
 <span id="cb36-10"><a href="r-packages-for-phonetics.html#cb36-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_reverse</span>()<span class="sc">+</span></span>
 <span id="cb36-11"><a href="r-packages-for-phonetics.html#cb36-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>type)<span class="sc">+</span></span>
 <span id="cb36-12"><a href="r-packages-for-phonetics.html#cb36-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Normalized vowels&quot;</span>)</span></code></pre></div>
-<p><img src="2022_instrumental_phonetics_files/figure-html/unnamed-chunk-27-1.png" width="1152" /></p>
+<p><img src="2022_instrumental_phonetics_files/figure-html/unnamed-chunk-49-1.png" width="1152" /></p>
 <p>If you will use the package it make sense to cite it:</p>
 <div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="r-packages-for-phonetics.html#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="fu">citation</span>(<span class="st">&quot;phonTools&quot;</span>)</span></code></pre></div>
-<pre><code>## 
-## To cite package &#39;phonTools&#39; in publications use:
-## 
-##   Santiago Barreda (2015). phonTools: Functions for phonetics in R. R
-##   package version 0.2-2.1.
-## 
-## A BibTeX entry for LaTeX users is
-## 
-##   @Manual{,
-##     title = {phonTools: Functions for phonetics in R.},
-##     author = {Santiago Barreda},
-##     year = {2015},
-##     note = {R package version 0.2-2.1},
-##   }</code></pre>
+<pre><code>
+To cite package &#39;phonTools&#39; in publications use:
+
+  Santiago Barreda (2015). phonTools: Functions for phonetics in R. R
+  package version 0.2-2.1.
+
+A BibTeX entry for LaTeX users is
+
+  @Manual{,
+    title = {phonTools: Functions for phonetics in R.},
+    author = {Santiago Barreda},
+    year = {2015},
+    note = {R package version 0.2-2.1},
+  }</code></pre>
 </div>
 <div id="vowels-1" class="section level2" number="5.4">
 <h2><span class="header-section-number">5.4</span> <code>vowels</code></h2>
 <p>Procedures for the manipulation, normalization, and plotting of phonetic and sociophonetic vowel formant data. <code>vowels</code> is the backend for the <a href="http://lingtools.uoregon.edu/norm/about_norm1.php">NORM website</a>.</p>
 <p>If you will use the package it make sense to cite it:</p>
 <div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="r-packages-for-phonetics.html#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="fu">citation</span>(<span class="st">&quot;vowels&quot;</span>)</span></code></pre></div>
-<pre><code>## 
-## To cite package &#39;vowels&#39; in publications use:
-## 
-##   Tyler Kendall and Erik R. Thomas (2018). vowels: Vowel Manipulation,
-##   Normalization, and Plotting. R package version 1.2-2.
-##   https://CRAN.R-project.org/package=vowels
-## 
-## A BibTeX entry for LaTeX users is
-## 
-##   @Manual{,
-##     title = {vowels: Vowel Manipulation, Normalization, and Plotting},
-##     author = {Tyler Kendall and Erik R. Thomas},
-##     year = {2018},
-##     note = {R package version 1.2-2},
-##     url = {https://CRAN.R-project.org/package=vowels},
-##   }
-## 
-## ATTENTION: This citation information has been auto-generated from the
-## package DESCRIPTION file and may need manual editing, see
-## &#39;help(&quot;citation&quot;)&#39;.</code></pre>
+<pre><code>
+To cite package &#39;vowels&#39; in publications use:
+
+  Tyler Kendall and Erik R. Thomas (2018). vowels: Vowel Manipulation,
+  Normalization, and Plotting. R package version 1.2-2.
+  https://CRAN.R-project.org/package=vowels
+
+A BibTeX entry for LaTeX users is
+
+  @Manual{,
+    title = {vowels: Vowel Manipulation, Normalization, and Plotting},
+    author = {Tyler Kendall and Erik R. Thomas},
+    year = {2018},
+    note = {R package version 1.2-2},
+    url = {https://CRAN.R-project.org/package=vowels},
+  }
+
+ATTENTION: This citation information has been auto-generated from the
+package DESCRIPTION file and may need manual editing, see
+&#39;help(&quot;citation&quot;)&#39;.</code></pre>
 </div>
 <div id="rpraat" class="section level2" number="5.5">
 <h2><span class="header-section-number">5.5</span> <code>rPraat</code></h2>
 <p>This is a package for reading, writing and manipulating Praat objects like TextGrid, PitchTier, Pitch, IntensityTier, Formant, Sound, and Collection files. You can find the demo for <code>rPraat</code> <a href="https://fu.ff.cuni.cz/praat/rDemo.html">here</a>.</p>
 <p>If you will use the package it make sense to cite it:</p>
 <div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="r-packages-for-phonetics.html#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="fu">citation</span>(<span class="st">&quot;rPraat&quot;</span>)</span></code></pre></div>
-<pre><code>## 
-## To cite rPraat in publications use:
-## 
-##   Bořil, T., &amp; Skarnitzl, R. (2016). Tools rPraat and mPraat. In P.
-##   Sojka, A. Horák, I. Kopeček, &amp; K. Pala (Eds.), Text, Speech, and
-##   Dialogue (pp. 367-374). Springer International Publishing.
-## 
-## A BibTeX entry for LaTeX users is
-## 
-##   @InProceedings{,
-##     author = {Tomáš Bořil and Radek Skarnitzl},
-##     editor = {Petr Sojka and Aleš Horák and Ivan Kopeček and Karel Pala},
-##     booktitle = {Text, Speech, and Dialogue: 19th International Conference, TSD 2016, Brno, Czech Republic, September 12-16, 2016, Proceedings},
-##     publisher = {Springer International Publishing},
-##     address = {Cham},
-##     year = {2016},
-##     title = {Tools rPraat and mPraat},
-##     pages = {367--374},
-##     isbn = {978-3-319-45510-5},
-##     doi = {10.1007/978-3-319-45510-5_42},
-##     url = {http://dx.doi.org/10.1007/978-3-319-45510-5_42},
-##   }</code></pre>
+<pre><code>
+To cite rPraat in publications use:
+
+  Bořil, T., &amp; Skarnitzl, R. (2016). Tools rPraat and mPraat. In P.
+  Sojka, A. Horák, I. Kopeček, &amp; K. Pala (Eds.), Text, Speech, and
+  Dialogue (pp. 367-374). Springer International Publishing.
+
+A BibTeX entry for LaTeX users is
+
+  @InProceedings{,
+    author = {Tomáš Bořil and Radek Skarnitzl},
+    editor = {Petr Sojka and Aleš Horák and Ivan Kopeček and Karel Pala},
+    booktitle = {Text, Speech, and Dialogue: 19th International Conference, TSD 2016, Brno, Czech Republic, September 12-16, 2016, Proceedings},
+    publisher = {Springer International Publishing},
+    address = {Cham},
+    year = {2016},
+    title = {Tools rPraat and mPraat},
+    pages = {367--374},
+    isbn = {978-3-319-45510-5},
+    doi = {10.1007/978-3-319-45510-5_42},
+    url = {http://dx.doi.org/10.1007/978-3-319-45510-5_42},
+  }</code></pre>
 </div>
 <div id="speakr" class="section level2" number="5.6">
 <h2><span class="header-section-number">5.6</span> <code>speakr</code></h2>
@@ -744,24 +748,24 @@ for interval to intervals - 1
 endfor</code></pre>
 <p>In order to use it you need to provide path to the script:</p>
 <div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="r-packages-for-phonetics.html#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(speakr)</span></code></pre></div>
-<pre><code>## Praat found at /usr/bin/praat</code></pre>
+<pre><code>Praat found at /usr/bin/praat</code></pre>
 <div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="r-packages-for-phonetics.html#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="fu">praat_run</span>(<span class="st">&quot;sounds/speakr/get-formants-args.praat&quot;</span>, </span>
 <span id="cb50-2"><a href="r-packages-for-phonetics.html#cb50-2" aria-hidden="true" tabindex="-1"></a>          <span class="st">&quot;Hertz&quot;</span>, <span class="fl">0.03</span>, <span class="at">capture =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
-<pre><code>## [1] &quot;vowel,F1,F2,F3\na,832.4811857289797,1530.407389678815,2174.814335788099\na,775.505720968018,1368.2558211702246,2509.084391503502\na,833.9754988486553,1430.9906341641104,2375.2400400500196\na,863.5056920837876,1546.8857016095715,2890.4894773135247\nə,723.6246579247697,1689.4016617222446,2873.1991954244213\nə,717.2753390554032,1675.2062036645505,2745.5586414564323\nə,758.8975215666187,1679.0831544665587,2698.956344303706\nə,711.4372573263009,1685.1137747815465,3031.5963943557826&quot;</code></pre>
+<pre><code>[1] &quot;vowel,F1,F2,F3\na,832.4811857289797,1530.407389678815,2174.814335788099\na,775.505720968018,1368.2558211702246,2509.084391503502\na,833.9754988486553,1430.9906341641104,2375.2400400500196\na,863.5056920837876,1546.8857016095715,2890.4894773135247\nə,723.6246579247697,1689.4016617222446,2873.1991954244213\nə,717.2753390554032,1675.2062036645505,2745.5586414564323\nə,758.8975215666187,1679.0831544665587,2698.956344303706\nə,711.4372573263009,1685.1137747815465,3031.5963943557826&quot;</code></pre>
 <p>As you see the result is file in a <code>.csv</code> format. We can use the following code in order to visualise it:</p>
 <div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="r-packages-for-phonetics.html#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
 <span id="cb52-2"><a href="r-packages-for-phonetics.html#cb52-2" aria-hidden="true" tabindex="-1"></a><span class="fu">praat_run</span>(<span class="st">&quot;sounds/speakr/get-formants-args.praat&quot;</span>, </span>
 <span id="cb52-3"><a href="r-packages-for-phonetics.html#cb52-3" aria-hidden="true" tabindex="-1"></a>          <span class="st">&quot;Hertz&quot;</span>, <span class="fl">0.03</span>, <span class="at">capture =</span> <span class="cn">TRUE</span>) <span class="sc">%&gt;%</span> </span>
 <span id="cb52-4"><a href="r-packages-for-phonetics.html#cb52-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">read_csv</span>() <span class="ot">-&gt;</span></span>
 <span id="cb52-5"><a href="r-packages-for-phonetics.html#cb52-5" aria-hidden="true" tabindex="-1"></a>  abaza_formants</span></code></pre></div>
-<pre><code>## Rows: 8 Columns: 4</code></pre>
-<pre><code>## ── Column specification ────────────────────────────────────────────────────────
-## Delimiter: &quot;,&quot;
-## chr (1): vowel
-## dbl (3): F1, F2, F3</code></pre>
-<pre><code>## 
-## ℹ Use `spec()` to retrieve the full column specification for this data.
-## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
+<pre><code>Rows: 8 Columns: 4</code></pre>
+<pre><code>── Column specification ────────────────────────────────────────────────────────
+Delimiter: &quot;,&quot;
+chr (1): vowel
+dbl (3): F1, F2, F3</code></pre>
+<pre><code>
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
 <div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="r-packages-for-phonetics.html#cb56-1" aria-hidden="true" tabindex="-1"></a>abaza_formants <span class="sc">%&gt;%</span> </span>
 <span id="cb56-2"><a href="r-packages-for-phonetics.html#cb56-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(F2, F1, <span class="at">label =</span> vowel, <span class="at">color =</span> vowel))<span class="sc">+</span></span>
 <span id="cb56-3"><a href="r-packages-for-phonetics.html#cb56-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>()<span class="sc">+</span></span>
@@ -769,7 +773,7 @@ endfor</code></pre>
 <span id="cb56-5"><a href="r-packages-for-phonetics.html#cb56-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_reverse</span>()<span class="sc">+</span></span>
 <span id="cb56-6"><a href="r-packages-for-phonetics.html#cb56-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_fixed</span>()<span class="sc">+</span></span>
 <span id="cb56-7"><a href="r-packages-for-phonetics.html#cb56-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Example of Abaza vowels&quot;</span>)</span></code></pre></div>
-<p><img src="2022_instrumental_phonetics_files/figure-html/unnamed-chunk-33-1.png" width="672" /></p>
+<p><img src="2022_instrumental_phonetics_files/figure-html/unnamed-chunk-55-1.png" width="672" /></p>
 <p>Actually we can merge data on formants and data on duration together:</p>
 <div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb57-1"><a href="r-packages-for-phonetics.html#cb57-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(phonfieldwork)</span>
 <span id="cb57-2"><a href="r-packages-for-phonetics.html#cb57-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -795,25 +799,25 @@ endfor</code></pre>
 <span id="cb58-6"><a href="r-packages-for-phonetics.html#cb58-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_reverse</span>()<span class="sc">+</span></span>
 <span id="cb58-7"><a href="r-packages-for-phonetics.html#cb58-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_fixed</span>()<span class="sc">+</span></span>
 <span id="cb58-8"><a href="r-packages-for-phonetics.html#cb58-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Example of Abaza vowels&quot;</span>)</span></code></pre></div>
-<p><img src="2022_instrumental_phonetics_files/figure-html/unnamed-chunk-34-1.png" width="672" /></p>
+<p><img src="2022_instrumental_phonetics_files/figure-html/unnamed-chunk-56-1.png" width="672" /></p>
 <p>If you will use the package it make sense to cite it:</p>
 <div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="r-packages-for-phonetics.html#cb59-1" aria-hidden="true" tabindex="-1"></a><span class="fu">citation</span>(<span class="st">&quot;speakr&quot;</span>)</span></code></pre></div>
-<pre><code>## 
-## To cite package &#39;speakr&#39; in publications use:
-## 
-##   Stefano Coretta (2021). speakr: A Wrapper for the Phonetic Software
-##   &#39;Praat&#39;. R package version 3.2.0.
-##   https://CRAN.R-project.org/package=speakr
-## 
-## A BibTeX entry for LaTeX users is
-## 
-##   @Manual{,
-##     title = {speakr: A Wrapper for the Phonetic Software &#39;Praat&#39;},
-##     author = {Stefano Coretta},
-##     year = {2021},
-##     note = {R package version 3.2.0},
-##     url = {https://CRAN.R-project.org/package=speakr},
-##   }</code></pre>
+<pre><code>
+To cite package &#39;speakr&#39; in publications use:
+
+  Stefano Coretta (2021). speakr: A Wrapper for the Phonetic Software
+  &#39;Praat&#39;. R package version 3.2.0.
+  https://CRAN.R-project.org/package=speakr
+
+A BibTeX entry for LaTeX users is
+
+  @Manual{,
+    title = {speakr: A Wrapper for the Phonetic Software &#39;Praat&#39;},
+    author = {Stefano Coretta},
+    year = {2021},
+    note = {R package version 3.2.0},
+    url = {https://CRAN.R-project.org/package=speakr},
+  }</code></pre>
 
 </div>
 </div>
@@ -823,7 +827,7 @@ endfor</code></pre>
         </div>
       </div>
 <a href="vowels.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="vowel-formant-normalization.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="vowel-formants-normalization.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -868,6 +872,20 @@ gitbook.start({
 });
 </script>
 
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
 </body>
 
 </html>

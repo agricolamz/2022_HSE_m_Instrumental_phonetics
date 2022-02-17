@@ -10,5 +10,16 @@ library(tidyverse)
 theme_set(theme_bw()+theme(text = element_text(size=18)))
 ```
 
-# Vowel formant normalization
+# Vowel formants' normalization
 
+This section is partially based on [@adank03].
+
+There are three possible sources of variation in vowel formants measurements [@ladefoged57; @pols73: 1095; @adank03]:
+
+* acoustic variation;
+* speaker variation;
+   * sociolinguistic;
+   * anatomical/physiological variation;
+* and measurement error ("residual variance" in [@pols73]).
+
+There are a lot of researchers aimed to reduce speaker-related variation using **acoustic vowel normalization** (e. g. [@gerstman68; @lobanov71; @syrdal86]). However there are some researches that afraid that normalization procedures can reduce interesting for the linguistics information like sociolinguistic/dialectal signal in data [@hindle78; @disner80; @thomas02 174--175].
