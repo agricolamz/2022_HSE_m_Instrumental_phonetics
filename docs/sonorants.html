@@ -345,7 +345,7 @@ div.csl-indent {
 <h3><span class="header-section-number">7.3.1</span> Nasal Stops: uvular ɴ</h3>
 <p><img src="images/06-07-uvular.png" /></p>
 <p>When the uvula is lowered and the dorsum of the tongue raised to produce an uvular nasal, the vocal tract can be described as a uniform tube that is closed at the glottis and open at the nostrils.If we know the length of the tube, we can calculate its resonant frequencies, because this is a quarter-wave resonator (like the vocal tract configuration for schwa).</p>
-<p><span class="citation">(<a href="#ref-fant60" role="doc-biblioref">Fant 1960</a>)</span>: 12.5 cm (the distance from the uvula to the nares) + 9 cm (the distance from the uvula to the glottis) ≈ 21.5 cm</p>
+<p><span class="citation">(<a href="#ref-fant60" role="doc-biblioref">Fant 1960b</a>)</span>: 12.5 cm (the distance from the uvula to the nares) + 9 cm (the distance from the uvula to the glottis) ≈ 21.5 cm</p>
 <ul>
 <li>F1 = c/4L = 35000/4*21.5 = 407 Hz</li>
 <li>F2 = 3c/4L = 1221 Hz</li>
@@ -441,18 +441,18 @@ at once:</p>
 </ul>
 <p><img src="images/06-12-params.png" /></p>
 <p>We can use the following <a href="https://goo.gl/5D9DNR">file with Andic nasals</a> and the following R code for visualisation:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="sonorants.html#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">&quot;...&quot;</span>) <span class="co"># put your path here</span></span>
-<span id="cb1-2"><a href="sonorants.html#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb1-3"><a href="sonorants.html#cb1-3" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;n.csv&quot;</span>)</span>
-<span id="cb1-4"><a href="sonorants.html#cb1-4" aria-hidden="true" tabindex="-1"></a>n<span class="sc">$</span>sound_type <span class="ot">&lt;-</span> <span class="st">&quot;n&quot;</span></span>
-<span id="cb1-5"><a href="sonorants.html#cb1-5" aria-hidden="true" tabindex="-1"></a>m <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;m.csv&quot;</span>)</span>
-<span id="cb1-6"><a href="sonorants.html#cb1-6" aria-hidden="true" tabindex="-1"></a>m<span class="sc">$</span>sound_type <span class="ot">&lt;-</span> <span class="st">&quot;m&quot;</span></span>
-<span id="cb1-7"><a href="sonorants.html#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-8"><a href="sonorants.html#cb1-8" aria-hidden="true" tabindex="-1"></a>n <span class="sc">%&gt;%</span> </span>
-<span id="cb1-9"><a href="sonorants.html#cb1-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">bind_rows</span>(m) <span class="sc">%&gt;%</span> </span>
-<span id="cb1-10"><a href="sonorants.html#cb1-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="st">`</span><span class="at">freq(Hz)</span><span class="st">`</span> <span class="sc">&lt;</span> <span class="dv">5000</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb1-11"><a href="sonorants.html#cb1-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="st">`</span><span class="at">freq(Hz)</span><span class="st">`</span>, <span class="st">`</span><span class="at">pow(dB/Hz)</span><span class="st">`</span>, <span class="at">color =</span> sound_type))<span class="sc">+</span></span>
-<span id="cb1-12"><a href="sonorants.html#cb1-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb62-1"><a href="sonorants.html#cb62-1" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">&quot;...&quot;</span>) <span class="co"># put your path here</span></span>
+<span id="cb62-2"><a href="sonorants.html#cb62-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb62-3"><a href="sonorants.html#cb62-3" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;n.csv&quot;</span>)</span>
+<span id="cb62-4"><a href="sonorants.html#cb62-4" aria-hidden="true" tabindex="-1"></a>n<span class="sc">$</span>sound_type <span class="ot">&lt;-</span> <span class="st">&quot;n&quot;</span></span>
+<span id="cb62-5"><a href="sonorants.html#cb62-5" aria-hidden="true" tabindex="-1"></a>m <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;m.csv&quot;</span>)</span>
+<span id="cb62-6"><a href="sonorants.html#cb62-6" aria-hidden="true" tabindex="-1"></a>m<span class="sc">$</span>sound_type <span class="ot">&lt;-</span> <span class="st">&quot;m&quot;</span></span>
+<span id="cb62-7"><a href="sonorants.html#cb62-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb62-8"><a href="sonorants.html#cb62-8" aria-hidden="true" tabindex="-1"></a>n <span class="sc">%&gt;%</span> </span>
+<span id="cb62-9"><a href="sonorants.html#cb62-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">bind_rows</span>(m) <span class="sc">%&gt;%</span> </span>
+<span id="cb62-10"><a href="sonorants.html#cb62-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="st">`</span><span class="at">freq(Hz)</span><span class="st">`</span> <span class="sc">&lt;</span> <span class="dv">5000</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb62-11"><a href="sonorants.html#cb62-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="st">`</span><span class="at">freq(Hz)</span><span class="st">`</span>, <span class="st">`</span><span class="at">pow(dB/Hz)</span><span class="st">`</span>, <span class="at">color =</span> sound_type))<span class="sc">+</span></span>
+<span id="cb62-12"><a href="sonorants.html#cb62-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>()</span></code></pre></div>
 
 </div>
 </div>
@@ -460,7 +460,7 @@ at once:</p>
 <h3>References</h3>
 <div id="refs" class="references csl-bib-body hanging-indent">
 <div id="ref-fant60" class="csl-entry">
-Fant, G. 1960. <em>Acoustic Theory of Speech Production</em>. Paris: Mouton.
+Fant, G. 1960b. <em>Acoustic Theory of Speech Production</em>. Paris: Mouton.
 </div>
 </div>
             </section>
@@ -514,6 +514,20 @@ gitbook.start({
 });
 </script>
 
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
 </body>
 
 </html>
