@@ -97,9 +97,9 @@ data(pb52)
 pb52 %>% 
   group_by(speaker) %>% 
   mutate(vowel = ipa::convert_phonetics(vowel, from = "xsampa", to = "ipa"),
-         f1 = scale(f1),
-         f2 = scale(f2)) %>%
-  ggplot(aes(f2, f1, label = vowel, color = vowel))+
+         scaled_f1 = scale(f1),
+         scaled_f2 = scale(f2)) %>%
+  ggplot(aes(scaled_f2, scaled_f1, label = vowel, color = vowel))+
   stat_ellipse()+
   geom_text()+
   scale_x_reverse()+
@@ -110,5 +110,25 @@ You can find implementation of other methods in R package `vowels`.
 
 Try to normalize and visualize data from the dataset Hillenbrand et al. (1995), stored in `h95` variable in the package `phonTools`.
 
+Sometimes it make sense to get back to the formant values:
+
+```{r}
+pb52 %>% 
+  mutate(overall_mean_f1 = mean(f1),
+         overall_sd_f1 = sd(f1),
+         overall_mean_f2 = mean(f2),
+         overall_sd_f2 = sd(f2)) %>% 
+  group_by(speaker) %>% 
+  mutate(vowel = ipa::convert_phonetics(vowel, from = "xsampa", to = "ipa"),
+         sclaed_f1 = scale(f1),
+         sclaed_f2 = scale(f2),
+         restored_f1 = sclaed_f1*overall_sd_f1+overall_mean_f1,
+         restored_f2 = sclaed_f2*overall_sd_f2+overall_mean_f2) %>%
+  ggplot(aes(restored_f2, restored_f1, label = vowel, color = vowel))+
+  stat_ellipse()+
+  geom_text()+
+  scale_x_reverse()+
+  scale_y_reverse()
+```
 
 
