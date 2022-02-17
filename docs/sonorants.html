@@ -454,6 +454,16 @@ at once:</p>
 <span id="cb67-10"><a href="sonorants.html#cb67-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="st">`</span><span class="at">freq(Hz)</span><span class="st">`</span> <span class="sc">&lt;</span> <span class="dv">5000</span>) <span class="sc">%&gt;%</span> </span>
 <span id="cb67-11"><a href="sonorants.html#cb67-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="st">`</span><span class="at">freq(Hz)</span><span class="st">`</span>, <span class="st">`</span><span class="at">pow(dB/Hz)</span><span class="st">`</span>, <span class="at">color =</span> sound_type))<span class="sc">+</span></span>
 <span id="cb67-12"><a href="sonorants.html#cb67-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>()</span></code></pre></div>
+<p>So in order to solve this you need:</p>
+<ul>
+<li>Download the file.</li>
+<li>Open it in Praat.</li>
+<li>Find nasals and create spectral slices.</li>
+<li>Go to Praat Objects window and select your spectral Slice (the name will start with <code>Spectrum ...</code>).</li>
+<li>Press <code>Tabulate</code> and <code>Ok</code>.</li>
+<li>The result (the name started with <code>Table ...</code>) can be saved as <code>comma-separated file</code>.</li>
+<li>After you saved the files (and uploaded them to rstudio.cloud if you need so) you can use an R scripts below.</li>
+</ul>
 
 </div>
 </div>
