@@ -229,6 +229,7 @@ div.csl-indent {
 <ul>
 <li class="chapter" data-level="6.1" data-path="vowel-formants-normalization.html"><a href="vowel-formants-normalization.html#acoustic-vowel-normalization-procedures"><i class="fa fa-check"></i><b>6.1</b> Acoustic vowel normalization procedures</a></li>
 <li class="chapter" data-level="6.2" data-path="vowel-formants-normalization.html"><a href="vowel-formants-normalization.html#lobanov71-z-score-transformation"><i class="fa fa-check"></i><b>6.2</b> <span class="citation">(<span>Lobanov 1971</span>)</span> z-score transformation</a></li>
+<li class="chapter" data-level="6.3" data-path="vowel-formants-normalization.html"><a href="vowel-formants-normalization.html#vowels-package"><i class="fa fa-check"></i><b>6.3</b> <code>vowels</code> package</a></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="sonorants.html"><a href="sonorants.html"><i class="fa fa-check"></i><b>7</b> Sonorants</a>
 <ul>
@@ -416,6 +417,20 @@ div.csl-indent {
 <span id="cb62-15"><a href="vowel-formants-normalization.html#cb62-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_reverse</span>()<span class="sc">+</span></span>
 <span id="cb62-16"><a href="vowel-formants-normalization.html#cb62-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_reverse</span>()</span></code></pre></div>
 <p><img src="2022_instrumental_phonetics_files/figure-html/unnamed-chunk-62-1.png" width="672" /></p>
+</div>
+<div id="vowels-package" class="section level2" number="6.3">
+<h2><span class="header-section-number">6.3</span> <code>vowels</code> package</h2>
+<p>You can find implementation of other methods in R package <code>vowels</code>:</p>
+<div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb63-1"><a href="vowel-formants-normalization.html#cb63-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(vowels)</span>
+<span id="cb63-2"><a href="vowel-formants-normalization.html#cb63-2" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(ohiovowels)</span>
+<span id="cb63-3"><a href="vowel-formants-normalization.html#cb63-3" aria-hidden="true" tabindex="-1"></a><span class="fu">vowelplot</span>(<span class="fu">norm.lobanov</span>(ohiovowels), <span class="at">color=</span><span class="st">&quot;vowels&quot;</span>, <span class="at">label=</span><span class="st">&quot;vowels&quot;</span>)</span></code></pre></div>
+<p><img src="2022_instrumental_phonetics_files/figure-html/unnamed-chunk-63-1.png" width="672" /></p>
+<div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb64-1"><a href="vowel-formants-normalization.html#cb64-1" aria-hidden="true" tabindex="-1"></a><span class="fu">vowelplot</span>(<span class="fu">norm.labov</span>(ohiovowels), <span class="at">color=</span><span class="st">&quot;vowels&quot;</span>, <span class="at">label=</span><span class="st">&quot;vowels&quot;</span>)</span></code></pre></div>
+<p><img src="2022_instrumental_phonetics_files/figure-html/unnamed-chunk-63-2.png" width="672" /></p>
+<div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb65-1"><a href="vowel-formants-normalization.html#cb65-1" aria-hidden="true" tabindex="-1"></a><span class="fu">vowelplot</span>(<span class="fu">norm.nearey</span>(ohiovowels), <span class="at">color=</span><span class="st">&quot;vowels&quot;</span>, <span class="at">label=</span><span class="st">&quot;vowels&quot;</span>)</span></code></pre></div>
+<p><img src="2022_instrumental_phonetics_files/figure-html/unnamed-chunk-63-3.png" width="672" /></p>
+<div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb66-1"><a href="vowel-formants-normalization.html#cb66-1" aria-hidden="true" tabindex="-1"></a><span class="fu">vowelplot</span>(<span class="fu">norm.wattfabricius</span>(ohiovowels), <span class="at">color=</span><span class="st">&quot;vowels&quot;</span>, <span class="at">label=</span><span class="st">&quot;vowels&quot;</span>)</span></code></pre></div>
+<p><img src="2022_instrumental_phonetics_files/figure-html/unnamed-chunk-63-4.png" width="672" /></p>
 
 </div>
 </div>

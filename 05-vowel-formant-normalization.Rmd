@@ -131,4 +131,17 @@ pb52 %>%
   scale_y_reverse()
 ```
 
+## `vowels` package
+
+You can find implementation of other methods in R package `vowels`:
+
+```{r, echo=TRUE}
+library(vowels)
+data(ohiovowels)
+vowelplot(norm.lobanov(ohiovowels), color="vowels", label="vowels")
+vowelplot(norm.labov(ohiovowels), color="vowels", label="vowels")
+vowelplot(norm.nearey(ohiovowels), color="vowels", label="vowels")
+vowelplot(norm.wattfabricius(ohiovowels), color="vowels", label="vowels")
+```
+
 
