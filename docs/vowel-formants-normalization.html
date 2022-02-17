@@ -399,6 +399,22 @@ div.csl-indent {
 <p>You can find implementation of other methods in R package <code>vowels</code>.</p>
 <p>Try to normalize and visualize data from the dataset Hillenbrand et al. (1995), stored in <code>h95</code> variable in the package <code>phonTools</code>.</p>
 <p>Sometimes it make sense to get back to the formant values:</p>
+<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb62-1"><a href="vowel-formants-normalization.html#cb62-1" aria-hidden="true" tabindex="-1"></a>pb52 <span class="sc">%&gt;%</span> </span>
+<span id="cb62-2"><a href="vowel-formants-normalization.html#cb62-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">overall_mean_f1 =</span> <span class="fu">mean</span>(f1),</span>
+<span id="cb62-3"><a href="vowel-formants-normalization.html#cb62-3" aria-hidden="true" tabindex="-1"></a>         <span class="at">overall_sd_f1 =</span> <span class="fu">sd</span>(f1),</span>
+<span id="cb62-4"><a href="vowel-formants-normalization.html#cb62-4" aria-hidden="true" tabindex="-1"></a>         <span class="at">overall_mean_f2 =</span> <span class="fu">mean</span>(f2),</span>
+<span id="cb62-5"><a href="vowel-formants-normalization.html#cb62-5" aria-hidden="true" tabindex="-1"></a>         <span class="at">overall_sd_f2 =</span> <span class="fu">sd</span>(f2)) <span class="sc">%&gt;%</span> </span>
+<span id="cb62-6"><a href="vowel-formants-normalization.html#cb62-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(speaker) <span class="sc">%&gt;%</span> </span>
+<span id="cb62-7"><a href="vowel-formants-normalization.html#cb62-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">vowel =</span> ipa<span class="sc">::</span><span class="fu">convert_phonetics</span>(vowel, <span class="at">from =</span> <span class="st">&quot;xsampa&quot;</span>, <span class="at">to =</span> <span class="st">&quot;ipa&quot;</span>),</span>
+<span id="cb62-8"><a href="vowel-formants-normalization.html#cb62-8" aria-hidden="true" tabindex="-1"></a>         <span class="at">sclaed_f1 =</span> <span class="fu">scale</span>(f1),</span>
+<span id="cb62-9"><a href="vowel-formants-normalization.html#cb62-9" aria-hidden="true" tabindex="-1"></a>         <span class="at">sclaed_f2 =</span> <span class="fu">scale</span>(f2),</span>
+<span id="cb62-10"><a href="vowel-formants-normalization.html#cb62-10" aria-hidden="true" tabindex="-1"></a>         <span class="at">restored_f1 =</span> sclaed_f1<span class="sc">*</span>overall_sd_f1<span class="sc">+</span>overall_mean_f1,</span>
+<span id="cb62-11"><a href="vowel-formants-normalization.html#cb62-11" aria-hidden="true" tabindex="-1"></a>         <span class="at">restored_f2 =</span> sclaed_f2<span class="sc">*</span>overall_sd_f2<span class="sc">+</span>overall_mean_f2) <span class="sc">%&gt;%</span></span>
+<span id="cb62-12"><a href="vowel-formants-normalization.html#cb62-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(restored_f2, restored_f1, <span class="at">label =</span> vowel, <span class="at">color =</span> vowel))<span class="sc">+</span></span>
+<span id="cb62-13"><a href="vowel-formants-normalization.html#cb62-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_ellipse</span>()<span class="sc">+</span></span>
+<span id="cb62-14"><a href="vowel-formants-normalization.html#cb62-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>()<span class="sc">+</span></span>
+<span id="cb62-15"><a href="vowel-formants-normalization.html#cb62-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_reverse</span>()<span class="sc">+</span></span>
+<span id="cb62-16"><a href="vowel-formants-normalization.html#cb62-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_reverse</span>()</span></code></pre></div>
 <p><img src="2022_instrumental_phonetics_files/figure-html/unnamed-chunk-62-1.png" width="672" /></p>
 
 </div>

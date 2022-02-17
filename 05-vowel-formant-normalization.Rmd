@@ -112,7 +112,7 @@ Try to normalize and visualize data from the dataset Hillenbrand et al. (1995), 
 
 Sometimes it make sense to get back to the formant values:
 
-```{r}
+```{r, echo=TRUE}
 pb52 %>% 
   mutate(overall_mean_f1 = mean(f1),
          overall_sd_f1 = sd(f1),
