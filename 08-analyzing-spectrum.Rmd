@@ -20,7 +20,7 @@ library(checkdown)
 ###
 
 ```{r}
-include_graphics("sounds/for_practice/merged/1_bag_big.png")
+include_graphics("sounds/for_practice/vowels/merged/1_bag_big.png")
 ```
 
 ```{r, results='asis'}
@@ -36,7 +36,7 @@ expand.grid(my_var, my_var) %>%
 ### 
 
 ```{r}
-include_graphics("sounds/for_practice/merged/2_fraction_friction.png")
+include_graphics("sounds/for_practice/vowels/merged/2_fraction_friction.png")
 ```
 
 ```{r, results='asis'}
@@ -52,7 +52,7 @@ expand.grid(my_var, my_var) %>%
 ### 
 
 ```{r}
-include_graphics("sounds/for_practice/merged/3_men_man.png")
+include_graphics("sounds/for_practice/vowels/merged/3_men_man.png")
 ```
 
 ```{r, results='asis'}
@@ -68,7 +68,7 @@ expand.grid(my_var, my_var) %>%
 ### 
 
 ```{r}
-include_graphics("sounds/for_practice/merged/4_Rick_rook_wrek.png")
+include_graphics("sounds/for_practice/vowels/merged/4_Rick_rook_wrek.png")
 ```
 
 ```{r, results='asis'}
@@ -84,7 +84,7 @@ expand.grid(my_var, my_var, my_var) %>%
 ###
 
 ```{r}
-include_graphics("sounds/for_practice/merged/5_neck_nook_Nick.png")
+include_graphics("sounds/for_practice/vowels/merged/5_neck_nook_Nick.png")
 ```
 
 ```{r, results='asis'}
@@ -100,7 +100,7 @@ expand.grid(my_var, my_var, my_var) %>%
 ###
 
 ```{r}
-include_graphics("sounds/for_practice/merged/6_book_beck_back.png")
+include_graphics("sounds/for_practice/vowels/merged/6_book_beck_back.png")
 ```
 
 ```{r, results='asis'}
@@ -116,7 +116,7 @@ expand.grid(my_var, my_var, my_var) %>%
 ###
 
 ```{r}
-include_graphics("sounds/for_practice/merged/7_hick_hack_hook.png")
+include_graphics("sounds/for_practice/vowels/merged/7_hick_hack_hook.png")
 ```
 
 ```{r, results='asis'}
@@ -132,7 +132,7 @@ expand.grid(my_var, my_var, my_var) %>%
 ###
 
 ```{r}
-include_graphics("sounds/for_practice/merged/8_mood_mid_mad.png")
+include_graphics("sounds/for_practice/vowels/merged/8_mood_mid_mad.png")
 ```
 
 ```{r, results='asis'}
@@ -148,7 +148,7 @@ expand.grid(my_var, my_var, my_var) %>%
 ###
 
 ```{r}
-include_graphics("sounds/for_practice/merged/9_trick_trek_track.png")
+include_graphics("sounds/for_practice/vowels/merged/9_trick_trek_track.png")
 ```
 
 ```{r, results='asis'}
@@ -164,7 +164,7 @@ expand.grid(my_var, my_var, my_var) %>%
 ###
 
 ```{r}
-include_graphics("sounds/for_practice/merged/10_dam_dim_deem_doom.png")
+include_graphics("sounds/for_practice/vowels/merged/10_dam_dim_deem_doom.png")
 ```
 
 ```{r, results='asis'}
@@ -180,7 +180,7 @@ expand.grid(my_var, my_var, my_var, my_var) %>%
 ###
 
 ```{r}
-include_graphics("sounds/for_practice/merged/11_foot_feat_fat_fit.png")
+include_graphics("sounds/for_practice/vowels/merged/11_foot_feat_fat_fit.png")
 ```
 
 ```{r, results='asis'}
@@ -196,7 +196,7 @@ expand.grid(my_var, my_var, my_var, my_var) %>%
 ###
 
 ```{r}
-include_graphics("sounds/for_practice/merged/12_moose_mess_mass_miss.png")
+include_graphics("sounds/for_practice/vowels/merged/12_moose_mess_mass_miss.png")
 ```
 
 ```{r, results='asis'}
@@ -212,7 +212,7 @@ expand.grid(my_var, my_var, my_var, my_var) %>%
 ###
 
 ```{r}
-include_graphics("sounds/for_practice/merged/13_net_nut_knit_knot.png")
+include_graphics("sounds/for_practice/vowels/merged/13_net_nut_knit_knot.png")
 ```
 
 ```{r, results='asis'}
@@ -228,7 +228,7 @@ expand.grid(my_var, my_var, my_var, my_var) %>%
 ###
 
 ```{r}
-include_graphics("sounds/for_practice/merged/14_roast_wrist_roost_rest.png")
+include_graphics("sounds/for_practice/vowels/merged/14_roast_wrist_roost_rest.png")
 ```
 
 
@@ -245,7 +245,7 @@ expand.grid(my_var, my_var, my_var, my_var) %>%
 ###
 
 ```{r}
-include_graphics("sounds/for_practice/merged/15_skin_skim_scam_scan.png")
+include_graphics("sounds/for_practice/vowels/merged/15_skin_skim_scam_scan.png")
 ```
 
 ```{r, results='asis'}
@@ -261,7 +261,7 @@ expand.grid(my_var, my_var, my_var, my_var) %>%
 ###
 
 ```{r}
-include_graphics("sounds/for_practice/merged/16_bit_bat_boot_bet_bot.png")
+include_graphics("sounds/for_practice/vowels/merged/16_bit_bat_boot_bet_bot.png")
 ```
 
 ```{r, results='asis'}
@@ -277,7 +277,7 @@ expand.grid(my_var, my_var, my_var, my_var, my_var) %>%
 ###
 
 ```{r}
-include_graphics("sounds/for_practice/merged/17_pack_pick_puck_poke_peck.png")
+include_graphics("sounds/for_practice/vowels/merged/17_pack_pick_puck_poke_peck.png")
 ```
 
 ```{r, results='asis'}
@@ -294,7 +294,7 @@ expand.grid(my_var, my_var, my_var, my_var, my_var) %>%
 ###
 
 ```{r}
-include_graphics("sounds/for_practice/merged/18_pat_pit_pet_put_peat.png")
+include_graphics("sounds/for_practice/vowels/merged/18_pat_pit_pet_put_peat.png")
 ```
 
 ```{r, results='asis'}
@@ -310,7 +310,7 @@ expand.grid(my_var, my_var, my_var, my_var, my_var) %>%
 ###
 
 ```{r}
-include_graphics("sounds/for_practice/merged/19_ring_wrong_rank_rink_rang.png")
+include_graphics("sounds/for_practice/vowels/merged/19_ring_wrong_rank_rink_rang.png")
 ```
 
 ```{r, results='asis'}
@@ -323,3 +323,246 @@ expand.grid(my_var, my_var, my_var, my_var, my_var) %>%
   check_question(str_c(my_var, collapse = ", "), options = ., type = "radio")  
 ```
 
+## Consonants
+
+## Guess an animal
+
+###
+
+```{r}
+include_graphics("sounds/for_practice/animals/01_dog.png")
+```
+
+```{r, results='asis'}
+check_question("dog")  
+```
+
+###
+
+```{r}
+include_graphics("sounds/for_practice/animals/02_duck.png")
+```
+
+```{r, results='asis'}
+check_question("duck")  
+```
+
+###
+
+```{r}
+include_graphics("sounds/for_practice/animals/03_pig.png")
+```
+
+```{r, results='asis'}
+check_question("pig")  
+```
+
+###
+
+```{r}
+include_graphics("sounds/for_practice/animals/04_mouse.png")
+```
+
+```{r, results='asis'}
+check_question("mouse")  
+```
+
+###
+
+```{r}
+include_graphics("sounds/for_practice/animals/05_hoarse.png")
+```
+
+```{r, results='asis'}
+check_question("horse")  
+```
+
+###
+
+```{r}
+include_graphics("sounds/for_practice/animals/06_fox.png")
+```
+
+```{r, results='asis'}
+check_question("fox")  
+```
+
+###
+
+```{r}
+include_graphics("sounds/for_practice/animals/07_dear.png")
+```
+
+```{r, results='asis'}
+check_question("deer")  
+```
+
+###
+
+```{r}
+include_graphics("sounds/for_practice/animals/08_sheep.png")
+```
+
+```{r, results='asis'}
+check_question("sheep")  
+```
+
+###
+
+```{r}
+include_graphics("sounds/for_practice/animals/09_cow.png")
+```
+
+```{r, results='asis'}
+check_question("cow")  
+```
+
+###
+
+```{r}
+include_graphics("sounds/for_practice/animals/10_wolf.png")
+```
+
+```{r, results='asis'}
+check_question("wolf")  
+```
+
+###
+
+```{r}
+include_graphics("sounds/for_practice/animals/11_lion.png")
+```
+
+```{r, results='asis'}
+check_question("lion")  
+```
+
+###
+
+```{r}
+include_graphics("sounds/for_practice/animals/12_tiger.png")
+```
+
+```{r, results='asis'}
+check_question("tiger")  
+```
+
+###
+
+```{r}
+include_graphics("sounds/for_practice/animals/13_turkey.png")
+```
+
+```{r, results='asis'}
+check_question("turkey")  
+```
+
+###
+
+```{r}
+include_graphics("sounds/for_practice/animals/14_parrot.png")
+```
+
+```{r, results='asis'}
+check_question("parrot")  
+```
+
+###
+
+```{r}
+include_graphics("sounds/for_practice/animals/15_rabbit.png")
+```
+
+```{r, results='asis'}
+check_question("rabbit")  
+```
+
+###
+
+```{r}
+include_graphics("sounds/for_practice/animals/16_zebra.png")
+```
+
+```{r, results='asis'}
+check_question("zebra")  
+```
+
+###
+
+```{r}
+include_graphics("sounds/for_practice/animals/17_koala.png")
+```
+
+```{r, results='asis'}
+check_question("koala")  
+```
+
+###
+
+```{r}
+include_graphics("sounds/for_practice/animals/18_cheetah.png")
+```
+
+```{r, results='asis'}
+check_question("cheetah")  
+```
+
+###
+
+```{r}
+include_graphics("sounds/for_practice/animals/19_leopard.png")
+```
+
+```{r, results='asis'}
+check_question("leopard")  
+```
+
+###
+
+```{r}
+include_graphics("sounds/for_practice/animals/20_monkey.png")
+```
+
+```{r, results='asis'}
+check_question("monkey")  
+```
+
+###
+
+```{r}
+include_graphics("sounds/for_practice/animals/21_squirrel.png")
+```
+
+```{r, results='asis'}
+check_question("squirrel")  
+```
+
+###
+
+```{r}
+include_graphics("sounds/for_practice/animals/22_elephant.png")
+```
+
+```{r, results='asis'}
+check_question("elephant")  
+```
+
+###
+
+```{r}
+include_graphics("sounds/for_practice/animals/23_hedgehog.png")
+```
+
+```{r, results='asis'}
+check_question("hedgehog")  
+```
+
+###
+
+```{r}
+include_graphics("sounds/for_practice/animals/24_kangaroo.png")
+```
+
+```{r, results='asis'}
+check_question("kangaroo")  
+```

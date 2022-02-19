@@ -13,8 +13,8 @@ df %>%
   filter(n > 1) %>% 
   View()
 
-# merge files and create pictures ------------------------------------------
-setwd("/home/agricolamz/work/materials/2022_HSE_m_instrumental_phonetics/materials/sounds/for_practice")
+# merge vowel files and create pictures ------------------------------------
+setwd("/home/agricolamz/work/materials/2022_HSE_m_instrumental_phonetics/materials/sounds/for_practice/vowels")
 library(tidyverse)
 library(phonfieldwork)
 tibble(files = list.files(pattern = ".mp3")) %>% 
@@ -49,3 +49,20 @@ draw_sound(sounds_from_folder = "merged",
            pic_folder_name = "merged", 
            title_as_filename = FALSE)
 
+# create animal pictures ---------------------------------------------------
+# setwd("/home/agricolamz/work/materials/2022_HSE_m_instrumental_phonetics/materials/sounds/for_practice/animals")
+# 
+# files <- list.files(pattern = ".mp3")
+# 
+# map(files, function(i){
+#   library(tuneR)
+#   r <- readMP3(i)
+#   writeWave(r, str_c(str_remove(i, ".mp3"), ".wav"), extensible=FALSE)
+# })
+# 
+# file.remove(files)
+
+setwd("/home/agricolamz/work/materials/2022_HSE_m_instrumental_phonetics/materials/sounds/for_practice/")
+draw_sound(sounds_from_folder = "animals",
+           pic_folder_name = "animals", 
+           title_as_filename = FALSE)
