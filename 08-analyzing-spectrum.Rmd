@@ -702,7 +702,7 @@ include_graphics("sounds/for_practice/consonants/merged/24_consOle_console.png")
 ```
 
 ```{r, results='asis'}
-my_var <- c("consOle", "console")
+my_var <- c("consOle", "cOnsole")
 expand.grid(my_var, my_var) %>% 
   filter(Var1 != Var2) %>% 
   summarise(res = str_c(Var1, ', ', Var2)) %>% 
