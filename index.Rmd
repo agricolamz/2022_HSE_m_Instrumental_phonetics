@@ -46,6 +46,15 @@ $$
 
 * Send the result `.TextGrid` and your `.R` code files to the course assistant [Anya Tsyzova](mailto:anatsyzova@gmail.com) with the topic `Instrumental Phonetics: HW 1`.
 
+### HW 2 (due to 23.03.2022): 
+
+* make a recording of syllables [ka], [ki], [ko], [ku] pronounced by two different people
+* use `phonfiledwork` and `Praat` for merging and preannotation sounds
+* manually adjust annotation after `phonfieldwork`
+* create a plot that analyze vowel duration split by speaker and vowel (see the R script from the last lecture)
+    * Send your sound, `.TextGrid` and obtained plot to the course assistant [Nastya Safonova](mailto:nastya-saff@yandex.ru) with the topic `Instrumental Phonetics: HW 2`
+
+
 ## Useful references: 
 
 * [@ashby05]
