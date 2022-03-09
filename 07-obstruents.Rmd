@@ -12,6 +12,8 @@ theme_set(theme_bw()+theme(text = element_text(size=18)))
 
 # Phonations, Obstruents
 
+This lecture [was recorded](https://youtu.be/kTwtEHax1Js).
+
 We have already discussed:
 
 * Waves, Fourier transform, Tube model
