@@ -16,15 +16,15 @@ theme_set(theme_bw()+theme(text = element_text(size=18)))
 
 * Source-filter model
 
-![](images/06-01-source-filter.png)
+![](images/06.01-source-filter.png)
 
 * Tube model
 
-![](images/06-02-tube-model.png)
+![](images/06.02-tube-model.png)
 
-![](images/06-03-tube-model.png)
+![](images/06.03-tube-model.png)
 
-![](images/06-04-tube-model.png)
+![](images/06.04-tube-model.png)
 
 Movements and positions of the articulators are shaping the resonating cavities of the vocal tract to modify the sound source for **resonant/sonorant** consonants as well:
 
@@ -62,13 +62,13 @@ Since articulation of those vowels is really similar to corresponding vowel the 
 
 French *Louis* [lwi] 'Louis' vs. *lui* [lɥi] 'him'
 
-![](images/06-05-louis-lui.png)
+![](images/06.05-louis-lui.png)
 
 ### Semivowels: ɹ, ɻ
 
 Those semivowels are produced by raising the tongue toward the alveolar ridge, the tip does not touch the alveolar ridge. The acoustic results of these tongue tip adjustments are particularly obvious in the third formant: F3 falls below the F3 frequencies typical of the neighboring vowels.
 
-![](images/06-06-Sarah.png)
+![](images/06.06-Sarah.png)
 
 ## Nasal Stops
 
@@ -76,7 +76,7 @@ The greater surface area of the vocal tract means that the walls of the vocal tr
 
 ### Nasal Stops: uvular ɴ
 
-![](images/06-07-uvular.png)
+![](images/06.07-uvular.png)
 
 When the uvula is lowered and the dorsum of the tongue raised to produce an uvular nasal, the vocal tract can be described as a uniform tube that is closed at the glottis and open at the nostrils.If we know the length of the tube, we can calculate its resonant frequencies, because this is a quarter-wave resonator (like the vocal tract configuration for schwa).
 
@@ -90,11 +90,11 @@ When the uvula is lowered and the dorsum of the tongue raised to produce an uvul
 Since there is a velocity maximum at the nostrils each of the resonant frequencies will be lower. It is hard to make quantitative predictions about the formant frequencies of ɴ (the shape of the nasal passage varies), but the formant values will be spaced more closely in the
 uvular nasal than they are in ǝ
 
-![](images/06-08-uvular.png)
+![](images/06.08-uvular.png)
 
 ### Nasal Stops: m
 
-![](images/06-09-m.png)
+![](images/06.09-m.png)
 
 ### Nasal Stops: anti-resonance
 
@@ -113,7 +113,7 @@ The resonant frequencies of the mouth cavity in nasals are not like that we’ve
 
 ## Laterals
 
-![](images/06-10-l.png)
+![](images/06.10-l.png)
 
 Laterals could be analised in the similar way: a small pocket of air on top of the tongue acts as a  4cm side branch (to the main acoustic channel which curves around one or both sides of the tongue) produce anti-formants in the spectrum (≈ 2,125).
 
@@ -161,7 +161,7 @@ For **nasalised/prenasalised vowels** closed mouth produced antiformants (680 Hz
 
 ### Spectral Slices
 
-![](images/06-11-Spectral-Slice.png)
+![](images/06.11-Spectral-Slice.png)
 
 * Praat Objects > Open Sound
 * View & Edit
@@ -170,7 +170,7 @@ For **nasalised/prenasalised vowels** closed mouth produced antiformants (680 Hz
 * Select Spectrum Slice object in Praat Object window
 * Praat Objects > Draw...
 
-![](images/06-12-params.png)
+![](images/06.12-params.png)
 
 We can use the following [file with Andic nasals](https://goo.gl/5D9DNR) and the following R code for visualisation:
 

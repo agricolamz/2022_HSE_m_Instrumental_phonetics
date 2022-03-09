@@ -148,3 +148,14 @@ section-71
 section-72
 suprasegmentals
 perception
+phonations-obstruents
+airstream-mechanisms
+phonation-types
+breathy-phonation-example
+breathy-phonation-example-1
+creaky-phonation-example
+torbulence
+fricatives
+stops
+practical-analysis
+plosives-cd-and-vot
