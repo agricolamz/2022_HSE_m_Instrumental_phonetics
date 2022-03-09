@@ -5,7 +5,7 @@ editor_options:
 
 ```{r setup07, include=FALSE}
 options(digits = 3)
-knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE)
 library(tidyverse)
 theme_set(theme_bw()+theme(text = element_text(size=18)))
 ```
@@ -127,7 +127,7 @@ from [@fant60: 73])
 
 Torbulence can be analized using smoothed LPC:
 
-* download audio and TextGrid files
+* download [audio](https://github.com/agricolamz/2022_HSE_m_Instrumental_phonetics/blob/master/sounds/fricatives.wav?raw=true) and [TextGrid](https://raw.githubusercontent.com/agricolamz/2022_HSE_m_Instrumental_phonetics/master/sounds/fricatives.TextGrid) files
 * open them with Praat
 * select the whole sound
 * `Praat Viewer > Spectrum > View spectral slice` (or `Ctrl+L`)
@@ -169,10 +169,40 @@ ggplot(data = result_df,
 
 ## Plosives: CD and VOT
 
-* download audio and TextGrid files
+* download [audio](https://github.com/agricolamz/2022_HSE_m_Instrumental_phonetics/blob/master/sounds/andi_plosives.wav?raw=true) and [TextGrid](https://raw.githubusercontent.com/agricolamz/2022_HSE_m_Instrumental_phonetics/master/sounds/andi_plosives.TextGrid) files
 * analize data using the following R script:
 
 ```{r}
+library(tidyverse)
 library(phonfieldwork)
+df <- textgrid_to_df("sounds/andi_plosives.TextGrid")
+
+df %>% 
+  filter(tier_name == "CD/VOT",
+         content != "") %>% 
+  separate(content, into = c("feature", "sound"), sep = "_") %>% 
+  mutate(utterance = rep(rep(c("u1", "u2", "u3", "cf"), each = 2), n()/8),
+         duration = time_end - time_start) ->
+  results 
+
+results
+
+results %>% 
+  ggplot(aes(sound, duration))+
+  geom_col()+
+  facet_wrap(~utterance)+
+  labs(title = "overall sound duration")
+
+results %>% 
+  ggplot(aes(sound, duration, fill = feature))+
+  geom_col(position = "dodge")+
+  facet_wrap(~utterance)+
+  labs(title = "absolute values of CD and VOT")
+
+results %>% 
+  ggplot(aes(sound, duration, fill = feature))+
+  geom_bar(stat = "identity", position = "fill")+
+  facet_wrap(~utterance)+
+  labs(title = "CD and VOT ratio", y = "ratio")
 ```
 
