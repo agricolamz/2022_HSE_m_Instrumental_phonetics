@@ -12,3 +12,6 @@ theme_set(theme_bw()+theme(text = element_text(size=18)))
 
 # Suprasegmentals
 
+This lecture [was recorded](https://youtu.be/t0OZpjdfnj4).
+
+Here is the [presentation](https://raw.githubusercontent.com/agricolamz/2022_HSE_m_Instrumental_phonetics/master/09_Suprasegmentals.pdf).
