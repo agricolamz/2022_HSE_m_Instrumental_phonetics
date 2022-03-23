@@ -181,7 +181,7 @@ div.csl-indent {
 <li class="chapter" data-level="2.6" data-path="introduction-to-acoustic-phonetics.html"><a href="introduction-to-acoustic-phonetics.html#source-filter-model-of-speech-production"><i class="fa fa-check"></i><b>2.6</b> Source-Filter Model of Speech Production<span></span></a></li>
 <li class="chapter" data-level="2.7" data-path="introduction-to-acoustic-phonetics.html"><a href="introduction-to-acoustic-phonetics.html#summary"><i class="fa fa-check"></i><b>2.7</b> Summary<span></span></a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="animal-bioacoustics-based-on-fletcher07.html"><a href="animal-bioacoustics-based-on-fletcher07.html"><i class="fa fa-check"></i><b>3</b> Animal bioacoustics based on <span class="citation">(<span>Fletcher 2007</span>)</span><span></span></a>
+<li class="chapter" data-level="3" data-path="animal-bioacoustics-based-on-fletcher07.html"><a href="animal-bioacoustics-based-on-fletcher07.html"><i class="fa fa-check"></i><b>3</b> Animal bioacoustics based on <span class="citation">(<span>N. Fletcher 2007</span>)</span><span></span></a>
 <ul>
 <li class="chapter" data-level="3.1" data-path="animal-bioacoustics-based-on-fletcher07.html"><a href="animal-bioacoustics-based-on-fletcher07.html#some-facts"><i class="fa fa-check"></i><b>3.1</b> Some facts<span></span></a></li>
 <li class="chapter" data-level="3.2" data-path="animal-bioacoustics-based-on-fletcher07.html"><a href="animal-bioacoustics-based-on-fletcher07.html#hearing-and-sound-production"><i class="fa fa-check"></i><b>3.2</b> Hearing and Sound Production<span></span></a></li>
@@ -365,7 +365,14 @@ div.csl-indent {
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="10" data-path="suprasegmentals.html"><a href="suprasegmentals.html"><i class="fa fa-check"></i><b>10</b> Suprasegmentals<span></span></a></li>
-<li class="chapter" data-level="11" data-path="perception.html"><a href="perception.html"><i class="fa fa-check"></i><b>11</b> Perception<span></span></a></li>
+<li class="chapter" data-level="11" data-path="speech-perception.html"><a href="speech-perception.html"><i class="fa fa-check"></i><b>11</b> Speech perception<span></span></a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="speech-perception.html"><a href="speech-perception.html#hearing"><i class="fa fa-check"></i><b>11.1</b> Hearing<span></span></a></li>
+<li class="chapter" data-level="11.2" data-path="speech-perception.html"><a href="speech-perception.html#perception-of-speech-signals"><i class="fa fa-check"></i><b>11.2</b> Perception of speech signals<span></span></a>
+<ul>
+<li class="chapter" data-level="11.2.1" data-path="speech-perception.html"><a href="speech-perception.html#psychoacoustic-scales"><i class="fa fa-check"></i><b>11.2.1</b> Psychoacoustic scales<span></span></a></li>
+</ul></li>
+</ul></li>
 <li><a href="references.html#references">References<span></span></a></li>
 </ul>
 
@@ -453,7 +460,7 @@ div.csl-indent {
 <span id="cb6-3"><a href="r-packages-for-phonetics.html#cb6-3" aria-hidden="true" tabindex="-1"></a>                    <span class="at">output_dir =</span> <span class="st">&quot;sounds/&quot;</span>)</span></code></pre></div>
 <p>As a result, a file “first_example.html” was created in the output folder. You can change the name of this file by changing the <code>output_file</code> argument. The <code>.html</code> file now looks as follows:</p>
 <p><a href="https://agricolamz.github.io/2022_HSE_m_Instrumental_phonetics/additional/first_example.html" class="uri">https://agricolamz.github.io/2022_HSE_m_Instrumental_phonetics/additional/first_example.html</a></p>
-<p>It is also possible to change the output format, using the <code>output_format</code> argument. By dafault it is “html,” but you can also use “pptx.” There is also an additional argument <code>translations</code>, where you can provide translations for stimuli in order that they appeared near the stimuli on the slide.</p>
+<p>It is also possible to change the output format, using the <code>output_format</code> argument. By dafault it is “html”, but you can also use “pptx”. There is also an additional argument <code>translations</code>, where you can provide translations for stimuli in order that they appeared near the stimuli on the slide.</p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="r-packages-for-phonetics.html#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">create_presentation</span>(<span class="at">stimuli =</span> my_stimuli_df<span class="sc">$</span>stimuli, </span>
 <span id="cb7-2"><a href="r-packages-for-phonetics.html#cb7-2" aria-hidden="true" tabindex="-1"></a>                    <span class="at">translations =</span> my_stimuli_df<span class="sc">$</span>translation,</span>
 <span id="cb7-3"><a href="r-packages-for-phonetics.html#cb7-3" aria-hidden="true" tabindex="-1"></a>                    <span class="at">output_file =</span> <span class="st">&quot;second_example&quot;</span>,</span>
@@ -588,17 +595,17 @@ div.csl-indent {
 <li><code>zoom</code> – time in seconds for zooming spectrogram</li>
 <li><code>text_size</code> – size of the text on the plot</li>
 <li><code>annotation</code> – the optional file with the TextGrid’s file path or dataframe with annotations (see the section 5.)</li>
-<li><code>freq_scale</code> – the measure of the frequency: can be “Hz” or “kHz.”</li>
+<li><code>freq_scale</code> – the measure of the frequency: can be “Hz” or “kHz”.</li>
 <li><code>frequency_range</code> – the frequency range to be displayed for the spectrogram</li>
 <li><code>dynamic_range</code> – values greater than this many dB below the maximum will be displayed in the same color</li>
 <li><code>window_length</code> – the desired length in milliseconds for the analysis window</li>
-<li><code>window</code> – window type (can be “rectangular,” “hann,” “hamming,” “cosine,” “bartlett,” “gaussian,” and “kaiser”)</li>
+<li><code>window</code> – window type (can be “rectangular”, “hann”, “hamming”, “cosine”, “bartlett”, “gaussian”, and “kaiser”)</li>
 <li><code>preemphasisf</code> – Preemphasis of 6 dB per octave is added to frequencies above the specified frequency. For no preemphasis (important for bioacoustics), set to a 0.</li>
 <li><code>spectrum_info</code> – logical value, if <code>FALSE</code> won’t print information about spectorgram on the right side of the plot.</li>
 <li><code>output_file</code> – the name of the output file</li>
 <li><code>output_width</code> – the width of the device</li>
 <li><code>output_height</code> – the height of the device</li>
-<li><code>output_units</code> – the units in which height and width are given. This can be “px” (pixels, which is the default value), “in” (inches), “cm” or “mm.”</li>
+<li><code>output_units</code> – the units in which height and width are given. This can be “px” (pixels, which is the default value), “in” (inches), “cm” or “mm”.</li>
 </ul>
 <p>It is really important in case you have a long file not to draw the whole file, since it won’t fit into the RAM of your computer. So you can use <code>from</code> and <code>to</code> arguments in order to plot the fragment of the sound and annotation:</p>
 <div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="r-packages-for-phonetics.html#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">draw_sound</span>(<span class="st">&quot;sounds/examples/s1_all.wav&quot;</span>,</span>
