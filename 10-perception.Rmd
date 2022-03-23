@@ -12,6 +12,8 @@ theme_set(theme_bw()+theme(text = element_text(size=18)))
 
 # Speech perception
 
+This lecture [was recorded](https://youtu.be/LEVN7V9Fiis).
+
 During the course we almost completely was focused on a Acoustic Phonetics ignoring Articulatory and Auditory Phonetics. Auditory phonetics focuses on
 
 * hearing of speech signals;
