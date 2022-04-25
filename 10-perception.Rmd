@@ -42,6 +42,15 @@ There is no one to one connections between physical properties of sounds and the
 * spectral structure --- sound quality;
 * duration -- length.
 
+### Non-acoustic factors influencing perception
+
+People use a lot of different things in order to decode what have been said:
+
+* context;
+  * when part of an utterance is replaced by another sound (e.g. white noise), listeners perceptually restore the missing speech. [@warren70; @samuel81; and many others];
+* knowledge of linguistic units (Ganong effect, [@ganong80]); and their frequency?..
+* visual signal: [McGurk Effect](https://www.youtube.com/watch?v=PWGeUztTkRA).
+
 ### Psychoacoustic scales
 
 An equal-loudness contour [@fletcher33] is a measure of sound pressure level, over the frequency spectrum, for which a listener perceives a constant loudness when presented with pure steady tones.
@@ -76,11 +85,7 @@ tibble(f = 1:1e4,
        x = "bark")
 ```
 
-### Perception
 
-People use a lot of different things in order to decode what have been said:
+### Categorical perception
 
-* context;
-  * when part of an utterance is replaced by another sound (e.g. white noise), listeners perceptually restore the missing speech. [@warren70; @samuel81; and many others];
-* knowledge of linguistic units (Ganong effect, [@ganong80]); and their frequency?..
-* visual signal: [McGurk Effect](https://www.youtube.com/watch?v=PWGeUztTkRA).
+https://www.youtube.com/watch?v=yd9Z4dZ1OSs
